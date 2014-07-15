@@ -129,7 +129,6 @@
         <!--Haleakala View Controller - Haleakala-->
         <scene sceneID="FnG-ar-hos">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a0d-ug-iJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HaleakalaViewController" id="7vr-Jz-QDR" customClass="HaleakalaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yWJ-ge-53j"/>
@@ -142,13 +141,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Haleakala" image="first" id="d9L-Cu-IZR"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0d-ug-iJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1491" y="332"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Geh-Cg-0Sk">
             <objects>
-                <pageViewController storyboardIdentifier="HPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0sC-F3-vZQ" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="HPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="0sC-F3-vZQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOA-KE-xSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1135" y="332"/>
@@ -156,7 +156,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarController" id="8YX-ce-x5E" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
@@ -168,6 +167,7 @@
                         <segue destination="7vr-Jz-QDR" kind="relationship" relationship="viewControllers" id="4DK-MZ-VfZ"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1912" y="332"/>
         </scene>
