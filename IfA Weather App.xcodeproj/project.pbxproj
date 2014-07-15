@@ -51,6 +51,10 @@
 		C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */; };
 		C3BCDE27196B7E75008BCC91 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE22196B7E75008BCC91 /* Images.plist */; };
 		C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE23196B7E75008BCC91 /* Placeholder.png */; };
+		C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AA519750D1F00081A0E /* SWRevealViewController.m */; };
+		C3D40AAD1975191800081A0E /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AAC1975191800081A0E /* SidebarViewController.m */; };
+		C3D40AB01975241700081A0E /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAE1975241700081A0E /* menu.png */; };
+		C3D40AB11975241700081A0E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAF1975241700081A0E /* menu@2x.png */; };
 		C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
@@ -147,6 +151,12 @@
 		C3BCDE22196B7E75008BCC91 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		C3BCDE23196B7E75008BCC91 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		C3D40AA519750D1F00081A0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		C3D40AA919750D2500081A0E /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		C3D40AAB1975191800081A0E /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		C3D40AAC1975191800081A0E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		C3D40AAE1975241700081A0E /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -327,6 +337,9 @@
 				C3BCDDE4196B7DF0008BCC91 /* SecondViewController.m */,
 				C3BCDDE5196B7DF0008BCC91 /* ThirdViewController.h */,
 				C3BCDDE6196B7DF0008BCC91 /* ThirdViewController.m */,
+				C3D40AAB1975191800081A0E /* SidebarViewController.h */,
+				C3D40AAC1975191800081A0E /* SidebarViewController.m */,
+				C3D40AAA19750D2900081A0E /* SWRevealController */,
 				C30B1344196BCA7F003641E5 /* GraphCell */,
 				C3BCDE29196B7E78008BCC91 /* ImageCell */,
 				C3BCDE1C196B7E4C008BCC91 /* DataParser */,
@@ -340,6 +353,8 @@
 		C3BCDDA4196B7DA9008BCC91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3D40AAE1975241700081A0E /* menu.png */,
+				C3D40AAF1975241700081A0E /* menu@2x.png */,
 				C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */,
 				C3BCDDA6196B7DA9008BCC91 /* InfoPlist.strings */,
 				C3BCDDA9196B7DA9008BCC91 /* main.m */,
@@ -411,6 +426,15 @@
 				C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D40AAA19750D2900081A0E /* SWRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				C3D40AA919750D2500081A0E /* SWRevealViewController.h */,
+				C3D40AA519750D1F00081A0E /* SWRevealViewController.m */,
+			);
+			name = SWRevealController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,7 +533,9 @@
 			files = (
 				C3BCDE0A196B7E22008BCC91 /* HumidityCell.xib in Resources */,
 				C3BCDE10196B7E22008BCC91 /* WindCell.xib in Resources */,
+				C3D40AB01975241700081A0E /* menu.png in Resources */,
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
+				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
 				C3BCDE27196B7E75008BCC91 /* Images.plist in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
 				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
@@ -545,10 +571,12 @@
 				C3BCDDE9196B7DF0008BCC91 /* SecondViewController.m in Sources */,
 				C3BCDE09196B7E22008BCC91 /* TemperatureCell.m in Sources */,
 				C3BCDE0D196B7E22008BCC91 /* InsolationCell.m in Sources */,
+				C3D40AAD1975191800081A0E /* SidebarViewController.m in Sources */,
 				C3BCDE15196B7E22008BCC91 /* DewpointCell.m in Sources */,
 				C3BCDE11196B7E22008BCC91 /* WindCell.m in Sources */,
 				C34E5D9F197491D100DE1131 /* HaleakalaViewController.m in Sources */,
 				C3BCDDEA196B7DF0008BCC91 /* ThirdViewController.m in Sources */,
+				C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */,
 				C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */,
 				C3BCDDE8196B7DF0008BCC91 /* ViewController.m in Sources */,
 				C3BCDE0F196B7E22008BCC91 /* VisibilityCell.m in Sources */,

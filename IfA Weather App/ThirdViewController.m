@@ -8,6 +8,7 @@
 
 #import "ThirdViewController.h"
 #import "GraphCell.h"
+#import "SWRevealViewController.h"
 
 @interface ThirdViewController ()
 {
@@ -61,6 +62,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _sidebarButton.target = self.revealViewController;
+    _sidebarButton.action = @selector(revealToggle:);
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

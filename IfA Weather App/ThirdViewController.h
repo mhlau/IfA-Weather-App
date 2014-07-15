@@ -24,6 +24,7 @@
 @property (nonatomic, strong) CPTGraphHostingView *insolationHostView;
 @property (nonatomic, strong) CPTGraphHostingView *dewpointHostView;
 @property NSUInteger pageIndex;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
 

@@ -10,6 +10,7 @@
 
 @interface SecondViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic, strong) NSArray *imageURLs;
 @property NSUInteger pageIndex;
 

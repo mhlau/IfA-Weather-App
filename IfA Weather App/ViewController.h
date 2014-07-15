@@ -14,6 +14,7 @@
     int selectedIndex;
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property NSUInteger pageIndex;
 
 @end
