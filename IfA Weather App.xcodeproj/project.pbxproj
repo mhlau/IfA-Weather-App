@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
+		C34E5D9F197491D100DE1131 /* HaleakalaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -83,6 +84,8 @@
 		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
+		C34E5D9D197491D100DE1131 /* HaleakalaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HaleakalaViewController.h; path = ../HaleakalaViewController.h; sourceTree = "<group>"; };
+		C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HaleakalaViewController.m; path = ../HaleakalaViewController.m; sourceTree = "<group>"; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -316,6 +319,8 @@
 				C3BCDDDA196B7DDC008BCC91 /* Main_iPad.storyboard */,
 				C3BCDDDF196B7DF0008BCC91 /* AppDelegate.h */,
 				C3BCDDE0196B7DF0008BCC91 /* AppDelegate.m */,
+				C34E5D9D197491D100DE1131 /* HaleakalaViewController.h */,
+				C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */,
 				C3BCDDE1196B7DF0008BCC91 /* ViewController.h */,
 				C3BCDDE2196B7DF0008BCC91 /* ViewController.m */,
 				C3BCDDE3196B7DF0008BCC91 /* SecondViewController.h */,
@@ -542,6 +547,7 @@
 				C3BCDE0D196B7E22008BCC91 /* InsolationCell.m in Sources */,
 				C3BCDE15196B7E22008BCC91 /* DewpointCell.m in Sources */,
 				C3BCDE11196B7E22008BCC91 /* WindCell.m in Sources */,
+				C34E5D9F197491D100DE1131 /* HaleakalaViewController.m in Sources */,
 				C3BCDDEA196B7DF0008BCC91 /* ThirdViewController.m in Sources */,
 				C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */,
 				C3BCDDE8196B7DF0008BCC91 /* ViewController.m in Sources */,
