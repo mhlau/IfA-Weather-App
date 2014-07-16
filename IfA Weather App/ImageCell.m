@@ -10,7 +10,7 @@
 
 @implementation ImageCell
 
-@synthesize locationLabel, thumbnail;
+@synthesize locationLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

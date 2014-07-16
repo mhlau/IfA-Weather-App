@@ -40,6 +40,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Haleakala Weather";
+    // Do any additional setup after loading the view, typically from a nib.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    selectedIndex = -1;
+    _dataDict = [[NSMutableDictionary alloc] init];
+    _dataParser = [[DataParser alloc] init];
+    _dataParser.delegate = self;
+    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reloadData) userInfo:nil repeats:YES];
+    
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -47,16 +58,6 @@
     _sidebarButton.action = @selector(revealToggle:);
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-	// Do any additional setup after loading the view, typically from a nib.
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    selectedIndex = -1;
-    _dataDict = [[NSMutableDictionary alloc] init];
-    _dataParser = [[DataParser alloc] init];
-    _dataParser.delegate = self;
-    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/currentweather.php"];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reloadData) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -100,7 +101,7 @@
 
 -(void)reloadData
 {
-    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/currentweather.php"];
+    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -328,11 +329,11 @@
     if (selectedIndex != -1)
     {
         NSIndexPath *prevPath = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
-        selectedIndex = indexPath.row;
+        selectedIndex = (int) indexPath.row;
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:prevPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     // User taps new row with none expanded:
-    selectedIndex = indexPath.row;
+    selectedIndex = (int) indexPath.row;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 

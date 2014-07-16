@@ -26,5 +26,7 @@
 @property NSUInteger pageIndex;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+-(void)set48Hours: (BOOL)is48Hours;
+
 @end
 

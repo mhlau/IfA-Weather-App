@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
-		C34E5D9F197491D100DE1131 /* HaleakalaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */; };
+		C3732E911975F673001AB97E /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E8F1975F673001AB97E /* graph.png */; };
+		C3732E921975F673001AB97E /* graph2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E901975F673001AB97E /* graph2.png */; };
+		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
+		C3732E971975F9E5001AB97E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E961975F9E5001AB97E /* camera.png */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -58,6 +61,12 @@
 		C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
+		C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB319760A6F001D0E2C /* Icon-40.png */; };
+		C3FE2EBA19760A6F001D0E2C /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB419760A6F001D0E2C /* Icon-40@2x.png */; };
+		C3FE2EBB19760A6F001D0E2C /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB519760A6F001D0E2C /* Icon-60.png */; };
+		C3FE2EBC19760A6F001D0E2C /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB619760A6F001D0E2C /* Icon-60@2x.png */; };
+		C3FE2EBD19760A6F001D0E2C /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB719760A6F001D0E2C /* Icon-76.png */; };
+		C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB819760A6F001D0E2C /* Icon-76@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +97,10 @@
 		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
-		C34E5D9D197491D100DE1131 /* HaleakalaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaleakalaViewController.h; sourceTree = "<group>"; };
-		C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaleakalaViewController.m; sourceTree = "<group>"; };
+		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
+		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
+		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,6 +170,12 @@
 		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3FE2EB319760A6F001D0E2C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		C3FE2EB419760A6F001D0E2C /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		C3FE2EB519760A6F001D0E2C /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		C3FE2EB619760A6F001D0E2C /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		C3FE2EB719760A6F001D0E2C /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		C3FE2EB819760A6F001D0E2C /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +306,19 @@
 			name = SunMoonCell;
 			sourceTree = "<group>";
 		};
+		C3732E951975F854001AB97E /* SidebarImages */ = {
+			isa = PBXGroup;
+			children = (
+				C3732E961975F9E5001AB97E /* camera.png */,
+				C3732E931975F84B001AB97E /* sun.png */,
+				C3732E8F1975F673001AB97E /* graph.png */,
+				C3732E901975F673001AB97E /* graph2.png */,
+				C3D40AAE1975241700081A0E /* menu.png */,
+				C3D40AAF1975241700081A0E /* menu@2x.png */,
+			);
+			name = SidebarImages;
+			sourceTree = "<group>";
+		};
 		C3BCDD91196B7DA9008BCC91 = {
 			isa = PBXGroup;
 			children = (
@@ -329,23 +359,21 @@
 				C3BCDDDA196B7DDC008BCC91 /* Main_iPad.storyboard */,
 				C3BCDDDF196B7DF0008BCC91 /* AppDelegate.h */,
 				C3BCDDE0196B7DF0008BCC91 /* AppDelegate.m */,
-				C34E5D9D197491D100DE1131 /* HaleakalaViewController.h */,
-				C34E5D9E197491D100DE1131 /* HaleakalaViewController.m */,
+				C3D40AAB1975191800081A0E /* SidebarViewController.h */,
+				C3D40AAC1975191800081A0E /* SidebarViewController.m */,
 				C3BCDDE1196B7DF0008BCC91 /* ViewController.h */,
 				C3BCDDE2196B7DF0008BCC91 /* ViewController.m */,
 				C3BCDDE3196B7DF0008BCC91 /* SecondViewController.h */,
 				C3BCDDE4196B7DF0008BCC91 /* SecondViewController.m */,
 				C3BCDDE5196B7DF0008BCC91 /* ThirdViewController.h */,
 				C3BCDDE6196B7DF0008BCC91 /* ThirdViewController.m */,
-				C3D40AAB1975191800081A0E /* SidebarViewController.h */,
-				C3D40AAC1975191800081A0E /* SidebarViewController.m */,
 				C3D40AAA19750D2900081A0E /* SWRevealController */,
-				C30B1344196BCA7F003641E5 /* GraphCell */,
-				C3BCDE29196B7E78008BCC91 /* ImageCell */,
-				C3BCDE1C196B7E4C008BCC91 /* DataParser */,
 				C3BCDE18196B7E2A008BCC91 /* DataCells */,
-				C3BCDDBB196B7DA9008BCC91 /* Images.xcassets */,
+				C3BCDE1C196B7E4C008BCC91 /* DataParser */,
+				C3BCDE29196B7E78008BCC91 /* ImageCell */,
+				C30B1344196BCA7F003641E5 /* GraphCell */,
 				C3BCDDA4196B7DA9008BCC91 /* Supporting Files */,
+				C3BCDDBB196B7DA9008BCC91 /* Images.xcassets */,
 			);
 			path = "IfA Weather App";
 			sourceTree = "<group>";
@@ -353,8 +381,8 @@
 		C3BCDDA4196B7DA9008BCC91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3D40AAE1975241700081A0E /* menu.png */,
-				C3D40AAF1975241700081A0E /* menu@2x.png */,
+				C3FE2EB219760A6F001D0E2C /* icons */,
+				C3732E951975F854001AB97E /* SidebarImages */,
 				C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */,
 				C3BCDDA6196B7DA9008BCC91 /* InfoPlist.strings */,
 				C3BCDDA9196B7DA9008BCC91 /* main.m */,
@@ -435,6 +463,19 @@
 				C3D40AA519750D1F00081A0E /* SWRevealViewController.m */,
 			);
 			name = SWRevealController;
+			sourceTree = "<group>";
+		};
+		C3FE2EB219760A6F001D0E2C /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				C3FE2EB319760A6F001D0E2C /* Icon-40.png */,
+				C3FE2EB419760A6F001D0E2C /* Icon-40@2x.png */,
+				C3FE2EB519760A6F001D0E2C /* Icon-60.png */,
+				C3FE2EB619760A6F001D0E2C /* Icon-60@2x.png */,
+				C3FE2EB719760A6F001D0E2C /* Icon-76.png */,
+				C3FE2EB819760A6F001D0E2C /* Icon-76@2x.png */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,21 +576,31 @@
 				C3BCDE10196B7E22008BCC91 /* WindCell.xib in Resources */,
 				C3D40AB01975241700081A0E /* menu.png in Resources */,
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
+				C3732E971975F9E5001AB97E /* camera.png in Resources */,
 				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
 				C3BCDE27196B7E75008BCC91 /* Images.plist in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
+				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
+				C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */,
 				C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */,
 				C3BCDE0E196B7E22008BCC91 /* VisibilityCell.xib in Resources */,
 				C3BCDDBC196B7DA9008BCC91 /* Images.xcassets in Resources */,
 				C3BCDE0C196B7E22008BCC91 /* InsolationCell.xib in Resources */,
+				C3FE2EBC19760A6F001D0E2C /* Icon-60@2x.png in Resources */,
+				C3732E941975F84B001AB97E /* sun.png in Resources */,
 				C3BCDDDC196B7DDC008BCC91 /* Main_iPad.storyboard in Resources */,
+				C3FE2EBD19760A6F001D0E2C /* Icon-76.png in Resources */,
 				C3BCDE16196B7E22008BCC91 /* SunMoonCell.xib in Resources */,
+				C3732E911975F673001AB97E /* graph.png in Resources */,
+				C3732E921975F673001AB97E /* graph2.png in Resources */,
 				C3BCDE24196B7E75008BCC91 /* ImageCell.xib in Resources */,
+				C3FE2EBB19760A6F001D0E2C /* Icon-60.png in Resources */,
 				C3BCDDA8196B7DA9008BCC91 /* InfoPlist.strings in Resources */,
 				C3BCDDDB196B7DDC008BCC91 /* Main_iPhone.storyboard in Resources */,
 				C3BCDE06196B7E22008BCC91 /* DateCell.xib in Resources */,
 				C3BCDE14196B7E22008BCC91 /* DewpointCell.xib in Resources */,
+				C3FE2EBA19760A6F001D0E2C /* Icon-40@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +625,6 @@
 				C3D40AAD1975191800081A0E /* SidebarViewController.m in Sources */,
 				C3BCDE15196B7E22008BCC91 /* DewpointCell.m in Sources */,
 				C3BCDE11196B7E22008BCC91 /* WindCell.m in Sources */,
-				C34E5D9F197491D100DE1131 /* HaleakalaViewController.m in Sources */,
 				C3BCDDEA196B7DF0008BCC91 /* ThirdViewController.m in Sources */,
 				C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */,
 				C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */,

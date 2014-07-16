@@ -3,12 +3,13 @@
 //  SidebarDemo
 //
 //  Created by Simon on 29/6/13.
+//  Modified by Micah Lau on 7/14/14.
 //  Copyright (c) 2013 Appcoda. All rights reserved.
 //
 
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
-#import "SecondViewController.h"
+#import "ThirdViewController.h"
 
 @interface SidebarViewController ()
 
@@ -30,8 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    menuItems = @[@"HaleakalaTitle", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"MKTitle", @"MKWeather", @"MKImages", @"MKGraphs24", @"MKGraphs48"];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.05f alpha:0.2f];
+    menuItems = @[@"HaleakalaTitle", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"MKTitle", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea 24-Hour Trends", @"Mauna Kea 48-Hour Trends"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,23 +64,28 @@
     return cell;
 }
 
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Set the title of navigation bar by using the menu items
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+
+    if ([segue isKindOfClass: [SWRevealViewControllerSegue class]])
+    {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        
-        swSegue.performBlock = ^(SWRevealViewControllerSegue *rvc_segue, UIViewController *svc, UIViewController *dvc) {
-            
+        swSegue.performBlock = ^(SWRevealViewControllerSegue *rvc_segue, UIViewController *svc, UIViewController *dvc)
+            {
+                // If user taps on Haleakala 48-Hour Trends cell, set ThirdViewController
+                // to download 48-hour data.
+                if ([dvc isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
+                {
+                    [(ThirdViewController *)dvc set48Hours:true];
+                }
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [navController setViewControllers: @[dvc] animated: NO ];
             [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        };
-        
+            };
     }
     
 }

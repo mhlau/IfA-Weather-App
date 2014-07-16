@@ -15,11 +15,10 @@
 {
     NSArray *_locations;
     int *_index;
-    ImageCell *_cell;
 }
 
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UITableView *tableView2;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -36,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -44,38 +44,13 @@
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-	// Do any additional setup after loading the view, typically from a nib.
-    self.tableView2.delegate = self;
-    self.tableView2.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     _locations = [[NSArray alloc] initWithObjects:@"Haleakala", @"PS1 All-Sky", @"CFHT North View", @"CFHT South View", @"CFHT Northeast View", @"CFHT Southeast View", nil];
     [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(reloadData) userInfo:nil repeats:YES];
-    _cell = nil;
     _index = 0;
 }
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    //unload view to demonstrate caching
-    self.view = nil;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _locations.count;
-}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -93,43 +68,46 @@
 		imageView.tag = IMAGE_VIEW_TAG;
 		[imageCell addSubview:imageView];
     }
-    else
-    {
-        //cancel loading previous image for cell
-        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageCell.thumbnail];
-    }
     AsyncImageView *imageView = (AsyncImageView *)[imageCell viewWithTag:IMAGE_VIEW_TAG];
-    //imageCell.thumbnail.image = [UIImage imageNamed:@"Placeholder.png"];
     self.imageURLs = [imageCell getImageURLs];
-    //imageCell.thumbnail.imageURL = self.imageURLs[(NSUInteger)indexPath.row];
     imageView.imageURL = [self.imageURLs objectAtIndex:indexPath.row];
-    //imageCell.thumbnail.clipsToBounds = YES;
     imageCell.locationLabel.text = _locations[indexPath.row];
     imageCell.clipsToBounds = YES;
-    [self setCell:imageCell];
     return imageCell;
-}
-
--(void)setCell :(ImageCell *)cell
-{
-    _cell = cell;
 }
 
 -(void)reloadData
 {
     // Clear cache so new image loads.
     [AsyncImageLoader sharedLoader].cache = nil;
-    for (int i = 0; i < self.imageURLs.count; i++)
-    {
-        _cell.thumbnail.imageURL = self.imageURLs[(NSUInteger) i];
-    }
-    
-    [self.tableView2 reloadData];
+    [self.tableView reloadData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    // Unload view to demonstrate caching.
+    self.view = nil;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 280;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _locations.count;
 }
 
 @end

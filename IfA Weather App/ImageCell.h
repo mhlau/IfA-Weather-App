@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSArray *imageURLs;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *thumbnail;
 
 -(NSArray *)getImageURLs;
 

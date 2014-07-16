@@ -49,6 +49,7 @@
     BOOL _isWindDir;
     BOOL _isVis;
     BOOL _isInsol;
+    BOOL _is48Hours;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -59,66 +60,39 @@
 
 @synthesize temperatureHostView, pressureHostView, humidityHostView, windSpeedHostView, windDirectionHostView, visibilityHostView, insolationHostView, dewpointHostView;
 
+-(void)set48Hours: (BOOL)is48Hours
+{
+    _is48Hours = is48Hours;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
     // Initialize DataParser and structures used to store data.
     _dataDict = [[NSMutableDictionary alloc] init];
     _dataParser = [[DataParser alloc] init];
     _dataParser.delegate = self;
     _dataArray = [[NSMutableArray alloc] init];
-    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plotdata.php"];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    //unload view to demonstrate caching
-    self.view = nil;
-    self.temperatureHostView = nil;
-    self.pressureHostView = nil;
-    self.humidityHostView = nil;
-    self.windSpeedHostView = nil;
-    self.windDirectionHostView = nil;
-    self.visibilityHostView = nil;
-    self.insolationHostView = nil;
-    self.dewpointHostView = nil;
-    _dataDict = nil;
-    _dataArray = nil;
-    _temperatureDataArray = nil;
-    _pressureDataArray = nil;
-    _humidityDataArray = nil;
-    _windSpeedDataArray = nil;
-    _windDirectionDataArray = nil;
-    _visibilityDataArray = nil;
-    _insolationDataArray = nil;
-    _dewpointDataArray = nil;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
-#pragma mark - Rotation
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    if (_is48Hours)
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48.php"];
+    }
+    else
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];    
+    }
 }
 
 #pragma mark UITableView methods
@@ -302,49 +276,55 @@
         NSDictionary *dict = _dataArray[i];
         int unixseconds = [dict[@"unixseconds"] intValue];
         NSNumber *unixsecondsNumber = [NSNumber numberWithInt:unixseconds];
+        // If 48-hour data is to be plotted, expand the x-axis range by a factor of 2.
+        int factor = 1;
+        if (_is48Hours)
+        {
+            factor = 2;
+        }
         if (unixseconds == 0)
         {
-            _axisLabel0 = dict[@"date"];
+            _axisLabel0 = dict[@"time"];
             _axisTick0 = unixsecondsNumber;
         }
-        if (unixseconds > 10000 && unixseconds < 11000)
+        if (unixseconds > 10000 * factor && unixseconds < 11000 * factor)
         {
-            _axisLabel1 = dict[@"date"];
+            _axisLabel1 = dict[@"time"];
             _axisTick1 = unixsecondsNumber;
         }
-        if (unixseconds > 21000 && unixseconds < 22000)
+        if (unixseconds > 21000 * factor && unixseconds < 22000 * factor)
         {
-            _axisLabel2 = dict[@"date"];
+            _axisLabel2 = dict[@"time"];
             _axisTick2 = unixsecondsNumber;
         }
-        if (unixseconds > 32100 && unixseconds < 33100)
+        if (unixseconds > 32100 * factor && unixseconds < 33100 * factor)
         {
-            _axisLabel3 = dict[@"date"];
+            _axisLabel3 = dict[@"time"];
             _axisTick3 = unixsecondsNumber;
         }
-        if (unixseconds > 43000 && unixseconds < 44000)
+        if (unixseconds > 43000 * factor && unixseconds < 44000 * factor)
         {
-            _axisLabel4 = dict[@"date"];
+            _axisLabel4 = dict[@"time"];
             _axisTick4 = unixsecondsNumber;
         }
-        if (unixseconds > 54000 && unixseconds < 55000)
+        if (unixseconds > 54000 * factor && unixseconds < 55000 * factor)
         {
-            _axisLabel5 = dict[@"date"];
+            _axisLabel5 = dict[@"time"];
             _axisTick5 = unixsecondsNumber;
         }
-        if (unixseconds > 64000 && unixseconds < 65000)
+        if (unixseconds > 64000 * factor && unixseconds < 65000 * factor)
         {
-            _axisLabel6 = dict[@"date"];
+            _axisLabel6 = dict[@"time"];
             _axisTick6 = unixsecondsNumber;
         }
-        if (unixseconds > 75000 && unixseconds < 76000)
+        if (unixseconds > 75000 * factor && unixseconds < 76000 * factor)
         {
-            _axisLabel7 = dict[@"date"];
+            _axisLabel7 = dict[@"time"];
             _axisTick7 = unixsecondsNumber;
         }
-        if (unixseconds > 85400 && unixseconds < 86400)
+        if (unixseconds > 85400 * factor && unixseconds < 86400 * factor)
         {
-            _axisLabel8 = dict[@"date"];
+            _axisLabel8 = dict[@"time"];
             _axisTick8 = unixsecondsNumber;
         }
         _axisArray = [[NSArray alloc] initWithObjects:_axisLabel0, _axisLabel1, _axisLabel2, _axisLabel3, _axisLabel4, _axisLabel5, _axisLabel6, _axisLabel7, _axisLabel8, nil];
@@ -431,7 +411,7 @@
     // Create and set text style.
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
     titleStyle.color = [CPTColor whiteColor];
-    titleStyle.fontName = @"Helvetica";
+    titleStyle.fontName = @"Helvetica Neue";
     titleStyle.fontSize = 17.0f;
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
@@ -482,18 +462,18 @@
     // Create styles for axes.
     CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
     axisTitleStyle.color = [CPTColor whiteColor];
-    axisTitleStyle.fontName = @"Helvetica";
+    axisTitleStyle.fontName = @"Helvetica Neue";
     axisTitleStyle.fontSize = 12.0f;
     CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
     axisLineStyle.lineWidth = 2.0f;
     axisLineStyle.lineColor = [CPTColor whiteColor];
     CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
     axisTextStyle.color = [CPTColor whiteColor];
-    axisTextStyle.fontName = @"Helvetica";
+    axisTextStyle.fontName = @"Helvetica Neue";
     axisTextStyle.fontSize = 11.0f;
     CPTMutableTextStyle *axisTextStyle2 = [[CPTMutableTextStyle alloc] init];
     axisTextStyle2.color = [CPTColor lightGrayColor];
-    axisTextStyle2.fontName = @"Helvetica Bold";
+    axisTextStyle2.fontName = @"Helvetica Neue";
     axisTextStyle2.fontSize = 11.0f;
     CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
     tickLineStyle.lineColor = [CPTColor whiteColor];
@@ -561,7 +541,7 @@
     for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement) {
         NSUInteger mod = j % majorIncrement;
         if (mod == 0) {
-            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%i", j] textStyle:y.labelTextStyle];
+            CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%li", (long)j] textStyle:y.labelTextStyle];
             NSDecimal location = CPTDecimalFromInteger(j);
             label.tickLocation = location;
             label.offset = -y.majorTickLength - y.labelOffset;
@@ -616,6 +596,48 @@
         return _insolationDataArray[index][@(fieldEnum)];
     }
     return _dewpointDataArray[index][@(fieldEnum)];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //unload view to demonstrate caching
+    self.view = nil;
+    self.temperatureHostView = nil;
+    self.pressureHostView = nil;
+    self.humidityHostView = nil;
+    self.windSpeedHostView = nil;
+    self.windDirectionHostView = nil;
+    self.visibilityHostView = nil;
+    self.insolationHostView = nil;
+    self.dewpointHostView = nil;
+    _dataDict = nil;
+    _dataArray = nil;
+    _temperatureDataArray = nil;
+    _pressureDataArray = nil;
+    _humidityDataArray = nil;
+    _windSpeedDataArray = nil;
+    _windDirectionDataArray = nil;
+    _visibilityDataArray = nil;
+    _insolationDataArray = nil;
+    _dewpointDataArray = nil;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - Rotation
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 @end
