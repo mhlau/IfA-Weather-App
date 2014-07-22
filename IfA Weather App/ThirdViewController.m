@@ -42,6 +42,7 @@
     NSNumber *_axisTick7;
     NSNumber *_axisTick8;
     NSArray *_axisArray;
+    NSUInteger _missing;
     BOOL _isTemp;
     BOOL _isPress;
     BOOL _isHumid;
@@ -73,17 +74,18 @@
     _dataArray = [[NSMutableArray alloc] init];
     if (_is48Hours)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48CSV.php"];
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24CSV.php"];
     }
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    _missing = 0;
 }
 
 -(void)itemsDownloaded:(NSMutableDictionary *)itemDict
@@ -93,7 +95,8 @@
     [_dataDict removeAllObjects];
     _dataDict = itemDict;
     // Insert data from dictionary into array, sorted by date.
-    for (int i = 0; i < _dataDict.count; i++) {
+    for (int i = 0; i < _dataDict.count; i++)
+    {
         id idString = [NSString stringWithFormat:@"%d", i];
         _dataArray[i] = [_dataDict objectForKey:idString];
     }
@@ -110,7 +113,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // TEMPERATURE (ROW 0)
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
+    {
         _isTemp = true;
         GraphCell *temperatureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
         if (temperatureGraphCell == nil)
@@ -120,6 +124,7 @@
         }
         self.temperatureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 0, 320, 270)];
         [self initPlot :self.temperatureHostView :@"Temperature"];
+        
         [tableView addSubview:self.temperatureHostView];
         _isTemp = false;
         return temperatureGraphCell;
@@ -173,7 +178,8 @@
         return windSpeedCell;
     }
     // WIND DIRECTION (ROW 4)
-    else if (indexPath.row == 4) {
+    else if (indexPath.row == 4)
+    {
         _isWindDir = true;
         GraphCell *windDirectionCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
         if (windDirectionCell == nil)
@@ -204,7 +210,7 @@
         return visibilityGraphCell;
     }
     // INSOLATION (ROW 6)
-    else if (indexPath.row == 6)
+    else
     {
         _isInsol = true;
         GraphCell *insolationGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
@@ -218,20 +224,6 @@
         [tableView addSubview:self.insolationHostView];
         _isInsol = false;
         return insolationGraphCell;
-    }
-    // DEWPOINT (ROW 7)
-    else
-    {
-        GraphCell *dewpointCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (dewpointCell == nil)
-        {
-            NSArray *dewpointNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            dewpointCell = [dewpointNIB objectAtIndex:0];
-        }
-        self.dewpointHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 2240, 320, 270)];
-        [self initPlot :self.dewpointHostView :@"Dewpoint"];
-        [tableView addSubview:self.dewpointHostView];
-        return dewpointCell;
     }
 }
 
@@ -247,7 +239,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return 7;
 }
 
 #pragma mark chart behavior
@@ -270,128 +262,143 @@
         // Take the dictionary at the ith index of the data array.
         // Get the Unix time relative to the first data point (first point -> Unix time = 0).
         NSDictionary *dict = _dataArray[i];
-        int unixseconds = [dict[@"unixseconds"] intValue];
-        NSNumber *unixsecondsNumber = [NSNumber numberWithInt:unixseconds];
+        int seconds = [dict[@"seconds"] intValue];
+        NSNumber *secondsNum = [NSNumber numberWithInt:seconds];
         // If 48-hour data is to be plotted, expand the x-axis range by a factor of 2.
         int factor = 1;
         if (_is48Hours)
         {
             factor = 2;
         }
-        if (unixseconds == 0)
+        if (seconds == 0)
         {
             _axisLabel0 = dict[@"time"];
-            _axisTick0 = unixsecondsNumber;
+            _axisTick0 = secondsNum;
         }
-        if (unixseconds > 10000 * factor && unixseconds < 11000 * factor)
+        if (seconds > 10000 * factor && seconds < 11000 * factor)
         {
             _axisLabel1 = dict[@"time"];
-            _axisTick1 = unixsecondsNumber;
+            _axisTick1 = secondsNum;
         }
-        if (unixseconds > 21000 * factor && unixseconds < 22000 * factor)
+        if (seconds > 21000 * factor && seconds < 22000 * factor)
         {
             _axisLabel2 = dict[@"time"];
-            _axisTick2 = unixsecondsNumber;
+            _axisTick2 = secondsNum;
         }
-        if (unixseconds > 32100 * factor && unixseconds < 33100 * factor)
+        if (seconds > 32100 * factor && seconds < 33100 * factor)
         {
             _axisLabel3 = dict[@"time"];
-            _axisTick3 = unixsecondsNumber;
+            _axisTick3 = secondsNum;
         }
-        if (unixseconds > 43000 * factor && unixseconds < 44000 * factor)
+        if (seconds > 43000 * factor && seconds < 44000 * factor)
         {
             _axisLabel4 = dict[@"time"];
-            _axisTick4 = unixsecondsNumber;
+            _axisTick4 = secondsNum;
         }
-        if (unixseconds > 54000 * factor && unixseconds < 55000 * factor)
+        if (seconds > 54000 * factor && seconds < 55000 * factor)
         {
             _axisLabel5 = dict[@"time"];
-            _axisTick5 = unixsecondsNumber;
+            _axisTick5 = secondsNum;
         }
-        if (unixseconds > 64000 * factor && unixseconds < 65000 * factor)
+        if (seconds > 64000 * factor && seconds < 65000 * factor)
         {
             _axisLabel6 = dict[@"time"];
-            _axisTick6 = unixsecondsNumber;
+            _axisTick6 = secondsNum;
         }
-        if (unixseconds > 75000 * factor && unixseconds < 76000 * factor)
+        if (seconds > 75000 * factor && seconds < 76000 * factor)
         {
             _axisLabel7 = dict[@"time"];
-            _axisTick7 = unixsecondsNumber;
+            _axisTick7 = secondsNum;
         }
-        if (unixseconds > 85400 * factor && unixseconds < 86400 * factor)
+        if (seconds > 85400 * factor && seconds < 86400 * factor)
         {
             _axisLabel8 = dict[@"time"];
-            _axisTick8 = unixsecondsNumber;
+            _axisTick8 = secondsNum;
         }
         _axisArray = [[NSArray alloc] initWithObjects:_axisLabel0, _axisLabel1, _axisLabel2, _axisLabel3, _axisLabel4, _axisLabel5, _axisLabel6, _axisLabel7, _axisLabel8, nil];
-        // Create number formatter for crazy decimals in data values.
-        
         // TEMPERATURE DATA
         if (hostView == self.temperatureHostView)
         {
-            // Get and round the value associated with the key from the dictionary.
-            NSString *y = (NSString *)_dataArray[i][@"temperature"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            // Add the (HOUR-MINUTE, value) tuple to newData, and associate with (x,y) axes.
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            // Store the tuples in the corresponding array.
-            _temperatureDataArray = newData;
+            if (_dataArray[i][@"temperature"])
+            {
+                // Get and round the value associated with the key from the dictionary.
+                NSString *y = (NSString *)_dataArray[i][@"temperature"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                // Add the (HOUR-MINUTE, value) tuple to newData, and associate with (x,y) axes.
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                // Store the tuples in the corresponding array.
+                _temperatureDataArray = newData;
+            }
         }
         // PRESSURE DATA
         else if (hostView == self.pressureHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"pressure"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _pressureDataArray = newData;
+            if (_dataArray[i][@"pressure"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"pressure"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _pressureDataArray = newData;
+            }
         }
         // HUMIDITY DATA
         else if (hostView == self.humidityHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"humidity"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _humidityDataArray = newData;
+            if (_dataArray[i][@"humidity"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"humidity"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _humidityDataArray = newData;
+            }
         }
         // WIND SPEED DATA
         else if (hostView == self.windSpeedHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"wind_speed"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _windSpeedDataArray = newData;
+            if (_dataArray[i][@"wind_speed"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"wind_speed"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _windSpeedDataArray = newData;
+            }
         }
         // WIND DIRECTION DATA
         else if (hostView == self.windDirectionHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"wind_direction"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _windDirectionDataArray = newData;
+            if (_dataArray[i][@"wind_direction"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"wind_direction"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _windDirectionDataArray = newData;
+            }
         }
         // VISIBILITY DATA
         else if (hostView == self.visibilityHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"visibility"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _visibilityDataArray = newData;
+            if (_dataArray[i][@"visibility"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"visibility"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _visibilityDataArray = newData;
+            }
+            else
+            {
+                _missing++;
+            }
         }
         // INSOLATION DATA
         else if (hostView == self.insolationHostView)
         {
-            NSString *y = (NSString *)_dataArray[i][@"insolation"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _insolationDataArray = newData;
-        }
-        // DEWPOINT DATA
-        else if (hostView == self.dewpointHostView)
-        {
-            NSString *y = (NSString *)_dataArray[i][@"dewpoint"];
-            NSNumber *y1 = [numFormatter numberFromString:y];
-            [newData addObject:@{@(CPTScatterPlotFieldX): unixsecondsNumber, @(CPTScatterPlotFieldY): y1 }];
-            _dewpointDataArray = newData;
+            if (_dataArray[i][@"insolation"])
+            {
+                NSString *y = (NSString *)_dataArray[i][@"insolation"];
+                NSNumber *y1 = [numFormatter numberFromString:y];
+                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
+                _insolationDataArray = newData;
+            }
         }
     }
 }
@@ -434,8 +441,6 @@
     {
         color =[ CPTColor colorWithComponentRed:30/255.0f green:144/255.0f blue:255/255.0f alpha:1.0f];
     }
-    
-    
     [graph addPlot:plot toPlotSpace:plotSpace];
     // Set up plot space.
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
@@ -540,18 +545,23 @@
     NSMutableSet *yLabels = [NSMutableSet set];
     NSMutableSet *yMajorLocations = [NSMutableSet set];
     NSMutableSet *yMinorLocations = [NSMutableSet set];
-    for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement) {
+    for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement)
+    {
         NSUInteger mod = j % majorIncrement;
-        if (mod == 0) {
+        if (mod == 0)
+        {
             CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%li", (long)j] textStyle:y.labelTextStyle];
             NSDecimal location = CPTDecimalFromInteger(j);
             label.tickLocation = location;
             label.offset = -y.majorTickLength - y.labelOffset;
-            if (label) {
+            if (label)
+            {
                 [yLabels addObject:label];
             }
             [yMajorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:location]];
-        } else {
+        }
+        else
+        {
             [yMinorLocations addObject:[NSDecimalNumber decimalNumberWithDecimal:CPTDecimalFromInteger(j)]];
         }
     }
@@ -563,7 +573,7 @@
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return _dataArray.count;
+    return _dataArray.count - _missing;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
