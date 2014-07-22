@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic, strong) NSArray *imageURLs;
-@property NSUInteger pageIndex;
+
+-(void)setMaunaKea: (BOOL)isMaunaKea;
 
 @end

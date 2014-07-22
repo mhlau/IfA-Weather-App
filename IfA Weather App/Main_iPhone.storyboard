@@ -249,6 +249,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.19842896174863389" green="0.19842896174863389" blue="0.19842896174863389" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="CZ4-MO-1fc" kind="custom" identifier="MKWeatherSegue" customClass="SWRevealViewControllerSegue" id="KIS-On-gM3"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Mauna Kea Images" id="yLL-d7-zjD">
                                 <rect key="frame" x="0.0" y="330" width="320" height="44"/>
@@ -271,9 +274,34 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.19842896174863389" green="0.19842896174863389" blue="0.19842896174863389" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="FRH-5u-4ww" kind="custom" identifier="MKImageSegue" customClass="SWRevealViewControllerSegue" id="Q1G-tp-cVn"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Mauna Kea Satellite Images" id="hO2-H2-t8g">
+                                <rect key="frame" x="0.0" y="374" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hO2-H2-t8g" id="akC-Sd-w5k">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Satellite Images" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BiE-Re-Ela">
+                                            <rect key="frame" x="67" y="6.5" width="187" height="30"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="satellite.png" id="Hpk-h9-Tmm">
+                                            <rect key="frame" x="8" y="-7" width="58" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.19842896169999999" green="0.19842896169999999" blue="0.19842896169999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Mauna Kea 24-Hour Trends" id="2bq-GF-xrR">
-                                <rect key="frame" x="0.0" y="374" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="418" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bq-GF-xrR" id="94K-6r-LKr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -293,9 +321,12 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.19842896174863389" green="0.19842896174863389" blue="0.19842896174863389" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="Fjy-Ow-cOc" kind="custom" identifier="MK24GraphSegue" customClass="SWRevealViewControllerSegue" id="Dh5-Q4-Chj"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Mauna Kea 48-Hour Trends" id="fRd-VN-hEP">
-                                <rect key="frame" x="0.0" y="418" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="462" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fRd-VN-hEP" id="l1F-DD-yCV">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -315,6 +346,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.19842896174863389" green="0.19842896174863389" blue="0.19842896174863389" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="Fjy-Ow-cOc" kind="custom" identifier="MK48GraphSegue" customClass="SWRevealViewControllerSegue" id="X97-fK-Wmq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -422,6 +456,7 @@
         <image name="graph.png" width="256" height="256"/>
         <image name="graph2.png" width="256" height="256"/>
         <image name="menu.png" width="28" height="20"/>
+        <image name="satellite.png" width="256" height="256"/>
         <image name="sun.png" width="256" height="256"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,7 +466,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6EJ-Co-MyB"/>
-        <segue reference="DPJ-fw-JQe"/>
+        <segue reference="X97-fK-Wmq"/>
+        <segue reference="KIS-On-gM3"/>
+        <segue reference="Q1G-tp-cVn"/>
     </inferredMetricsTieBreakers>
 </document>

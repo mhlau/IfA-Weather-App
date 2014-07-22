@@ -6,10 +6,6 @@
 	<array>
 		<string>http://132.160.98.225/axis-cgi/jpg/image.cgi</string>
 		<string>http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current</string>
-		<string>http://cfht.hawaii.edu/webcams/cfhtdome/cfhtdome.jpg</string>
-		<string>http://cfht.hawaii.edu/webcams/gemdome/gemdome.jpg</string>
-		<string>http://cfht.hawaii.edu/webcams/c4/c4.jpg</string>
-		<string>http://cfht.hawaii.edu/webcams/c3/c3.jpg</string>
 	</array>
 </dict>
 </plist>

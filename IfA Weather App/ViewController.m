@@ -31,40 +31,35 @@
 
 @implementation ViewController
 
-// Changes the style of the status bar.
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Set title here, because ViewController is first to load.
     self.navigationItem.title = @"Haleakala Weather";
-    // Do any additional setup after loading the view, typically from a nib.
+    // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    // No index is selected when view first loads.
     selectedIndex = -1;
+    // Initialize DataParser and supporting data structures. Download the data.
     _dataDict = [[NSMutableDictionary alloc] init];
     _dataParser = [[DataParser alloc] init];
     _dataParser.delegate = self;
     [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    // Initialize NSTimer that ticks every second, reloading data on each tick.
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reloadData) userInfo:nil repeats:YES];
-    
-    // Change button color
+    // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    //unload view to demonstrate caching
     self.view = nil;
+    // Stop the timer when the user switches away from this view.
     [_timer invalidate];
     _timer = nil;
 }
@@ -72,19 +67,18 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)itemsDownloaded:(NSDictionary *)itemDict
 {
     // This delegate method will get called when the items are finished downloading.
-    // First, round any decimals to 2 places. Then add downloaded item to dictionary.
     [_dataDict removeAllObjects];
     NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
     [numFormatter setMaximumFractionDigits:2];
     [numFormatter setRoundingMode: NSNumberFormatterRoundDown];
     for (id key in itemDict)
     {
+        // If the object is a number, round it first. Then add it to the data dictionary.
         if ([[itemDict objectForKey:key] isKindOfClass:[NSNumber class]])
         {
             float floatValue = [[itemDict objectForKey:key] floatValue];
@@ -104,16 +98,7 @@
     [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 9;
-}
-
+#pragma mark UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // DATE (ROW 0)
@@ -316,23 +301,33 @@
     return 50;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 9;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // User taps expanded row:
+    // If the user taps expanded row, shrink the cell and end.
     if (selectedIndex == indexPath.row)
     {
         selectedIndex = -1;
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         return;
     }
-    // User taps different row:
+    // If the user taps another row while a cell is expanded, shrink the expanded cell.
     if (selectedIndex != -1)
     {
         NSIndexPath *prevPath = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
         selectedIndex = (int) indexPath.row;
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:prevPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-    // User taps new row with none expanded:
+    // Expand the cell that has been tapped.
     selectedIndex = (int) indexPath.row;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

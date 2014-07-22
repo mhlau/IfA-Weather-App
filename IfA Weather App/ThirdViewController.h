@@ -23,7 +23,6 @@
 @property (nonatomic, strong) CPTGraphHostingView *visibilityHostView;
 @property (nonatomic, strong) CPTGraphHostingView *insolationHostView;
 @property (nonatomic, strong) CPTGraphHostingView *dewpointHostView;
-@property NSUInteger pageIndex;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 -(void)set48Hours: (BOOL)is48Hours;

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
 -(NSArray *)getImageURLs;
+-(void)setMaunaKea: (BOOL)isMaunaKea;
 
 @end

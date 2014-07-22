@@ -60,26 +60,12 @@
 
 @synthesize temperatureHostView, pressureHostView, humidityHostView, windSpeedHostView, windDirectionHostView, visibilityHostView, insolationHostView, dewpointHostView;
 
--(void)set48Hours: (BOOL)is48Hours
-{
-    _is48Hours = is48Hours;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
     // Initialize DataParser and structures used to store data.
     _dataDict = [[NSMutableDictionary alloc] init];
     _dataParser = [[DataParser alloc] init];
@@ -91,152 +77,13 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];    
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
     }
-}
-
-#pragma mark UITableView methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 8;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TEMPERATURE (ROW 0)
-    if (indexPath.row == 0) {
-        _isTemp = true;
-        GraphCell *temperatureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (temperatureGraphCell == nil)
-        {
-            NSArray *temperatureNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            temperatureGraphCell = [temperatureNIB objectAtIndex:0];
-        }
-        self.temperatureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 0, 320, 250)];
-        [self initPlot :self.temperatureHostView :@"Temperature"];
-        [tableView addSubview:self.temperatureHostView];
-        _isTemp = false;
-        return temperatureGraphCell;
-    }
-    // PRESSURE (ROW 1)
-    else if (indexPath.row == 1)
-    {
-        _isPress = true;
-        GraphCell *pressureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (pressureGraphCell == nil)
-        {
-            NSArray *pressureNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            pressureGraphCell = [pressureNIB objectAtIndex:0];
-        }
-        self.pressureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 320, 320, 250)];
-        [self initPlot :self.pressureHostView :@"Pressure"];
-        [tableView addSubview:self.pressureHostView];
-        _isPress = false;
-        return pressureGraphCell;
-    }
-    // HUMIDITY (ROW 2)
-    else if (indexPath.row == 2)
-    {
-        _isHumid = true;
-        GraphCell *humidityGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (humidityGraphCell == nil)
-        {
-            NSArray *humidityNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            humidityGraphCell = [humidityNIB objectAtIndex:0];
-        }
-        self.humidityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 640, 320, 250)];
-        [self initPlot :self.humidityHostView :@"Humidity"];
-        [tableView addSubview:self.humidityHostView];
-        _isHumid = false;
-        return humidityGraphCell;
-    }
-    // WIND SPEED (ROW 3)
-    else if (indexPath.row == 3)
-    {
-        _isWindSpd = true;
-        GraphCell *windSpeedCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (windSpeedCell == nil)
-        {
-            NSArray *windSpeedNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            windSpeedCell = [windSpeedNIB objectAtIndex:0];
-        }
-        self.windSpeedHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 960, 320, 250)];
-        [self initPlot :self.windSpeedHostView :@"Wind Speed"];
-        [tableView addSubview:self.windSpeedHostView];
-        _isWindSpd = false;
-        return windSpeedCell;
-    }
-    // WIND DIRECTION (ROW 4)
-    else if (indexPath.row == 4) {
-        _isWindDir = true;
-        GraphCell *windDirectionCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (windDirectionCell == nil)
-        {
-            NSArray *windDirectionNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            windDirectionCell = [windDirectionNIB objectAtIndex:0];
-        }
-        self.windDirectionHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1280, 320, 250)];
-        [self initPlot :self.windDirectionHostView :@"Wind Direction"];
-        [tableView addSubview:self.windDirectionHostView];
-        _isWindDir = false;
-        return windDirectionCell;
-    }
-    // VISIBILITY (ROW 5)
-    else if (indexPath.row == 5)
-    {
-        _isVis = true;
-        GraphCell *visibilityGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (visibilityGraphCell == nil)
-        {
-            NSArray *visibilityNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            visibilityGraphCell = [visibilityNIB objectAtIndex:0];
-        }
-        self.visibilityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1600, 320, 250)];
-        [self initPlot :self.visibilityHostView :@"Visibility"];
-        [tableView addSubview:self.visibilityHostView];
-        _isVis = false;
-        return visibilityGraphCell;
-    }
-    // INSOLATION (ROW 6)
-    else if (indexPath.row == 6)
-    {
-        _isInsol = true;
-        GraphCell *insolationGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (insolationGraphCell == nil)
-        {
-            NSArray *insolationNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            insolationGraphCell = [insolationNIB objectAtIndex:0];
-        }
-        self.insolationHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1920, 320, 250)];
-        [self initPlot :self.insolationHostView :@"Insolation"];
-        [tableView addSubview:self.insolationHostView];
-        _isInsol = false;
-        return insolationGraphCell;
-    }
-    // DEWPOINT (ROW 7)
-    else
-    {
-        GraphCell *dewpointCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
-        if (dewpointCell == nil)
-        {
-            NSArray *dewpointNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
-            dewpointCell = [dewpointNIB objectAtIndex:0];
-        }
-        self.dewpointHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 2240, 320, 250)];
-        [self initPlot :self.dewpointHostView :@"Dewpoint"];
-        [tableView addSubview:self.dewpointHostView];
-        return dewpointCell;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 320;
+    // Set up the sidebar.
+    _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
+    _sidebarButton.target = self.revealViewController;
+    _sidebarButton.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
 -(void)itemsDownloaded:(NSMutableDictionary *)itemDict
@@ -254,7 +101,156 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Chart behavior
+-(void)set48Hours: (BOOL)is48Hours
+{
+    _is48Hours = is48Hours;
+}
+
+#pragma mark UITableView methods
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // TEMPERATURE (ROW 0)
+    if (indexPath.row == 0) {
+        _isTemp = true;
+        GraphCell *temperatureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (temperatureGraphCell == nil)
+        {
+            NSArray *temperatureNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            temperatureGraphCell = [temperatureNIB objectAtIndex:0];
+        }
+        self.temperatureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 0, 320, 270)];
+        [self initPlot :self.temperatureHostView :@"Temperature"];
+        [tableView addSubview:self.temperatureHostView];
+        _isTemp = false;
+        return temperatureGraphCell;
+    }
+    // PRESSURE (ROW 1)
+    else if (indexPath.row == 1)
+    {
+        _isPress = true;
+        GraphCell *pressureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (pressureGraphCell == nil)
+        {
+            NSArray *pressureNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            pressureGraphCell = [pressureNIB objectAtIndex:0];
+        }
+        self.pressureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 320, 320, 270)];
+        [self initPlot :self.pressureHostView :@"Pressure"];
+        [tableView addSubview:self.pressureHostView];
+        _isPress = false;
+        return pressureGraphCell;
+    }
+    // HUMIDITY (ROW 2)
+    else if (indexPath.row == 2)
+    {
+        _isHumid = true;
+        GraphCell *humidityGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (humidityGraphCell == nil)
+        {
+            NSArray *humidityNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            humidityGraphCell = [humidityNIB objectAtIndex:0];
+        }
+        self.humidityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 640, 320, 270)];
+        [self initPlot :self.humidityHostView :@"Humidity"];
+        [tableView addSubview:self.humidityHostView];
+        _isHumid = false;
+        return humidityGraphCell;
+    }
+    // WIND SPEED (ROW 3)
+    else if (indexPath.row == 3)
+    {
+        _isWindSpd = true;
+        GraphCell *windSpeedCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (windSpeedCell == nil)
+        {
+            NSArray *windSpeedNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            windSpeedCell = [windSpeedNIB objectAtIndex:0];
+        }
+        self.windSpeedHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 960, 320, 270)];
+        [self initPlot :self.windSpeedHostView :@"Wind Speed"];
+        [tableView addSubview:self.windSpeedHostView];
+        _isWindSpd = false;
+        return windSpeedCell;
+    }
+    // WIND DIRECTION (ROW 4)
+    else if (indexPath.row == 4) {
+        _isWindDir = true;
+        GraphCell *windDirectionCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (windDirectionCell == nil)
+        {
+            NSArray *windDirectionNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            windDirectionCell = [windDirectionNIB objectAtIndex:0];
+        }
+        self.windDirectionHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1280, 320, 270)];
+        [self initPlot :self.windDirectionHostView :@"Wind Direction"];
+        [tableView addSubview:self.windDirectionHostView];
+        _isWindDir = false;
+        return windDirectionCell;
+    }
+    // VISIBILITY (ROW 5)
+    else if (indexPath.row == 5)
+    {
+        _isVis = true;
+        GraphCell *visibilityGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (visibilityGraphCell == nil)
+        {
+            NSArray *visibilityNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            visibilityGraphCell = [visibilityNIB objectAtIndex:0];
+        }
+        self.visibilityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1600, 320, 270)];
+        [self initPlot :self.visibilityHostView :@"Visibility"];
+        [tableView addSubview:self.visibilityHostView];
+        _isVis = false;
+        return visibilityGraphCell;
+    }
+    // INSOLATION (ROW 6)
+    else if (indexPath.row == 6)
+    {
+        _isInsol = true;
+        GraphCell *insolationGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (insolationGraphCell == nil)
+        {
+            NSArray *insolationNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            insolationGraphCell = [insolationNIB objectAtIndex:0];
+        }
+        self.insolationHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1920, 320, 270)];
+        [self initPlot :self.insolationHostView :@"Insolation"];
+        [tableView addSubview:self.insolationHostView];
+        _isInsol = false;
+        return insolationGraphCell;
+    }
+    // DEWPOINT (ROW 7)
+    else
+    {
+        GraphCell *dewpointCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
+        if (dewpointCell == nil)
+        {
+            NSArray *dewpointNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
+            dewpointCell = [dewpointNIB objectAtIndex:0];
+        }
+        self.dewpointHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 2240, 320, 270)];
+        [self initPlot :self.dewpointHostView :@"Dewpoint"];
+        [tableView addSubview:self.dewpointHostView];
+        return dewpointCell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 320;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 8;
+}
+
+#pragma mark chart behavior
 -(void)initPlot:(CPTGraphHostingView *)hostView :(NSString *)graphTitle
 {
     // Initialize the data plot for the corresponding hostview.
@@ -434,6 +430,12 @@
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     plot.dataSource = self;
     CPTColor *color = [CPTColor colorWithComponentRed:50.0/255.0f green:205.0/255.0f blue:50.0/255.0f alpha:1.0f];
+    if (_is48Hours)
+    {
+        color =[ CPTColor colorWithComponentRed:30/255.0f green:144/255.0f blue:255/255.0f alpha:1.0f];
+    }
+    
+    
     [graph addPlot:plot toPlotSpace:plotSpace];
     // Set up plot space.
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
@@ -445,7 +447,7 @@
     plotSpace.yRange = yRange;
     // Create styles and symbols (data point markers).
     CPTMutableLineStyle *lineStyle = [plot.dataLineStyle mutableCopy];
-    lineStyle.lineWidth = 0.7;
+    lineStyle.lineWidth = 1.5;
     lineStyle.lineColor = color;
     plot.dataLineStyle = lineStyle;
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
@@ -453,8 +455,9 @@
     CPTPlotSymbol *symbol = [CPTPlotSymbol ellipsePlotSymbol];
     symbol.fill = [CPTFill fillWithColor:color];
     symbol.lineStyle = symbolLineStyle;
-    symbol.size = CGSizeMake(1.5f, 1.5f);
+    symbol.size = CGSizeMake(2.0f, 2.0f);
     plot.plotSymbol = symbol;
+    plot.interpolation = CPTScatterPlotInterpolationCurved;
 }
 
 -(void)configureAxes:(CPTGraphHostingView *)hostView :(NSString *)graphTitle
@@ -468,13 +471,13 @@
     axisLineStyle.lineWidth = 2.0f;
     axisLineStyle.lineColor = [CPTColor blackColor];
     CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
-    axisTextStyle.color = [CPTColor blackColor];
+    axisTextStyle.color = [CPTColor darkGrayColor];
     axisTextStyle.fontName = @"Helvetica Neue";
-    axisTextStyle.fontSize = 11.0f;
+    axisTextStyle.fontSize = 13.0f;
     CPTMutableTextStyle *axisTextStyle2 = [[CPTMutableTextStyle alloc] init];
     axisTextStyle2.color = [CPTColor darkGrayColor];
     axisTextStyle2.fontName = @"Helvetica Neue";
-    axisTextStyle2.fontSize = 11.0f;
+    axisTextStyle2.fontSize = 13.0f;
     CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
     tickLineStyle.lineColor = [CPTColor blackColor];
     tickLineStyle.lineWidth = 2.0f;
@@ -493,6 +496,8 @@
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
     NSArray *customTickLocations = [NSArray arrayWithObjects:_axisTick0, _axisTick1, _axisTick2, _axisTick3, _axisTick4, _axisTick5, _axisTick6, _axisTick7, _axisTick8, nil];
+    NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
+    x.majorTickLocations = tickLocations;
     BOOL labelsAreSet = true;
     for (int i = 0; i < 9; i++)
     {
@@ -623,12 +628,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Rotation
