@@ -404,13 +404,13 @@
 {
     // Create the graph.
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:hostView.bounds];
-    [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     hostView.hostedGraph = graph;
     // Set graph title.
     graph.title = graphTitle;
     // Create and set text style.
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-    titleStyle.color = [CPTColor whiteColor];
+    titleStyle.color = [CPTColor blackColor];
     titleStyle.fontName = @"Helvetica Neue";
     titleStyle.fontSize = 17.0f;
     graph.titleTextStyle = titleStyle;
@@ -433,7 +433,7 @@
     // Create the plot.
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     plot.dataSource = self;
-    CPTColor *color = [CPTColor redColor];
+    CPTColor *color = [CPTColor colorWithComponentRed:50.0/255.0f green:205.0/255.0f blue:50.0/255.0f alpha:1.0f];
     [graph addPlot:plot toPlotSpace:plotSpace];
     // Set up plot space.
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
@@ -461,31 +461,29 @@
 {
     // Create styles for axes.
     CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
-    axisTitleStyle.color = [CPTColor whiteColor];
+    axisTitleStyle.color = [CPTColor blackColor];
     axisTitleStyle.fontName = @"Helvetica Neue";
     axisTitleStyle.fontSize = 12.0f;
     CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
     axisLineStyle.lineWidth = 2.0f;
-    axisLineStyle.lineColor = [CPTColor whiteColor];
+    axisLineStyle.lineColor = [CPTColor blackColor];
     CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
-    axisTextStyle.color = [CPTColor whiteColor];
+    axisTextStyle.color = [CPTColor blackColor];
     axisTextStyle.fontName = @"Helvetica Neue";
     axisTextStyle.fontSize = 11.0f;
     CPTMutableTextStyle *axisTextStyle2 = [[CPTMutableTextStyle alloc] init];
-    axisTextStyle2.color = [CPTColor lightGrayColor];
+    axisTextStyle2.color = [CPTColor darkGrayColor];
     axisTextStyle2.fontName = @"Helvetica Neue";
     axisTextStyle2.fontSize = 11.0f;
     CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
-    tickLineStyle.lineColor = [CPTColor whiteColor];
+    tickLineStyle.lineColor = [CPTColor blackColor];
     tickLineStyle.lineWidth = 2.0f;
-    CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
     tickLineStyle.lineColor = [CPTColor blackColor];
     tickLineStyle.lineWidth = 1.0f;
     // Get axis set.
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) hostView.hostedGraph.axisSet;
     // Configure x-axis.
     CPTAxis *x = axisSet.xAxis;
-    //x.title = @"Time";
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
@@ -523,7 +521,6 @@
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -40.0f;
     y.axisLineStyle = axisLineStyle;
-    y.majorGridLineStyle = gridLineStyle;
     y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
     y.labelTextStyle = axisTextStyle;
     y.labelOffset = 16.0f;
