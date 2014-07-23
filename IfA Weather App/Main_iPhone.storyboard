@@ -33,7 +33,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Haleakala" image="first" id="u1e-5L-l1D"/>
                     <navigationItem key="navigationItem" id="Ycx-xD-Owp">
                         <connections>
                             <outlet property="leftBarButtonItem" destination="6GA-H0-3BJ" id="fLb-jt-jc1"/>
@@ -46,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111" y="-437"/>
+            <point key="canvasLocation" x="-1939" y="-1987"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ysQ-Qd-mI1">
@@ -64,13 +63,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAr-At-oei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2369" y="372"/>
+            <point key="canvasLocation" x="-3565" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W5A-14-ad2">
             <objects>
                 <navigationController definesPresentationContext="YES" id="KxW-pG-0GN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zlN-4n-Mqz">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -79,7 +79,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJm-lk-YGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1879" y="683"/>
+            <point key="canvasLocation" x="-2815" y="347"/>
         </scene>
         <!--Sidebar View Controller - Sidebar-->
         <scene sceneID="xbX-yK-Koi">
@@ -299,6 +299,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.19842896169999999" green="0.19842896169999999" blue="0.19842896169999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="NMC-iM-FHd" kind="custom" identifier="MKSatelliteSegue" customClass="SWRevealViewControllerSegue" id="XAe-WX-2pm"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Mauna Kea 24-Hour Trends" id="2bq-GF-xrR">
                                 <rect key="frame" x="0.0" y="418" width="320" height="44"/>
@@ -359,7 +362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9P-UX-v5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1885" y="21"/>
+            <point key="canvasLocation" x="-2815" y="-363"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="Jcz-YW-sPG">
@@ -390,7 +393,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Haleakala" image="first" id="n4j-3g-Bo2"/>
                     <navigationItem key="navigationItem" id="jqH-QG-LkA">
                         <connections>
                             <outlet property="leftBarButtonItem" destination="x0o-67-VXo" id="EK9-MC-Vex"/>
@@ -403,7 +405,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuX-eX-k4L" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111" y="213"/>
+            <point key="canvasLocation" x="-1939" y="-1331"/>
+        </scene>
+        <!--Tab Bar Controller - TabBar-->
+        <scene sceneID="0oc-TL-6rd">
+            <objects>
+                <tabBarController title="TabBar" id="NMC-iM-FHd" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="np7-T9-KNn">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wmh-qO-jH8" kind="relationship" relationship="viewControllers" id="kHz-rv-KWd"/>
+                        <segue destination="Ljz-kH-bzY" kind="relationship" relationship="viewControllers" id="fU0-ez-7SR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8J-4L-xw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1939" y="11"/>
         </scene>
         <!--Third View Controller - Third-->
         <scene sceneID="VUP-ef-U1N">
@@ -434,7 +455,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Haleakala" image="first" id="y5b-4t-AXR"/>
                     <navigationItem key="navigationItem" id="bRg-OJ-kgR">
                         <connections>
                             <outlet property="leftBarButtonItem" destination="ZaT-Gr-lxt" id="4Hk-VU-cgV"/>
@@ -447,17 +467,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ep-Rg-gco" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111" y="865"/>
+            <point key="canvasLocation" x="-1939" y="-657"/>
+        </scene>
+        <!--Second View Controller - IR-->
+        <scene sceneID="Vtu-A6-0gX">
+            <objects>
+                <viewController storyboardIdentifier="MKImageIRViewController" title="IR" id="wmh-qO-jH8" customClass="SecondViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JuJ-I4-K8i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bie-ZX-DJi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JuJ-I4-K8i" id="zY7-o7-oLk"/>
+                                    <outlet property="delegate" destination="JuJ-I4-K8i" id="zb1-yD-RdK"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" id="TMe-Hc-GBs">
+                                <rect key="frame" x="0.0" y="6" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="tVa-ys-tPM">
+                                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="Gve-8P-9de"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Infrared" image="infrared.png" id="MlY-vq-wV6"/>
+                    <navigationItem key="navigationItem" id="ugz-H7-afb">
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="Gve-8P-9de" id="YpD-Zr-nP0"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sidebarButton" destination="Gve-8P-9de" id="gB5-yh-gP9"/>
+                        <outlet property="tableView" destination="bie-ZX-DJi" id="woj-WD-iUe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="356-WD-rqQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1304" y="-389"/>
+        </scene>
+        <!--Second View Controller - WV-->
+        <scene sceneID="lXv-74-CpJ">
+            <objects>
+                <viewController storyboardIdentifier="MKImageWVViewController" title="WV" definesPresentationContext="YES" id="Ljz-kH-bzY" customClass="SecondViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hw2-gv-WNv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QoW-Ft-4Uh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hw2-gv-WNv" id="6CP-Xe-Ooi"/>
+                                    <outlet property="delegate" destination="hw2-gv-WNv" id="nvX-WS-cem"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" id="HZI-jn-x48">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Uh3-Hn-ukx">
+                                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="hjL-F0-TrP"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Water Vapor" image="water.png" id="wWU-9x-hJn"/>
+                    <navigationItem key="navigationItem" id="wmd-Tb-J5F">
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="hjL-F0-TrP" id="3RG-Zf-j29"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sidebarButton" destination="hjL-F0-TrP" id="MJe-QR-maM"/>
+                        <outlet property="tableView" destination="QoW-Ft-4Uh" id="Acx-Fj-7ec"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUa-Y6-stv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1304" y="259"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera.png" width="512" height="512"/>
-        <image name="first" width="30" height="30"/>
         <image name="graph.png" width="256" height="256"/>
         <image name="graph2.png" width="256" height="256"/>
+        <image name="infrared.png" width="30" height="30"/>
         <image name="menu.png" width="28" height="20"/>
         <image name="satellite.png" width="256" height="256"/>
         <image name="sun.png" width="256" height="256"/>
+        <image name="water.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

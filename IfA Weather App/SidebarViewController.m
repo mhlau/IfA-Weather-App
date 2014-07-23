@@ -73,6 +73,14 @@
                 {
                     [(SecondViewController *)dvc setMaunaKea:true];
                 }
+                // Set SecondVC to download MK images if MK cell is tapped.
+                if ([segue.identifier isEqualToString:@"MKSatelliteSegue"])
+                {
+                    SecondViewController *dvc = (SecondViewController *)([[segue.destinationViewController viewControllers] objectAtIndex:0]);
+                    SecondViewController *dvc2 = (SecondViewController *)([[segue.destinationViewController viewControllers] objectAtIndex:1]);
+                    [(SecondViewController *)dvc setSatellite:true];
+                    [(SecondViewController *)dvc2 setWaterVapor:true];
+                }
                 // Set ThirdVC to download 48-hour data if 48-hour cell is tapped.
                 if ([dvc isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
                 {

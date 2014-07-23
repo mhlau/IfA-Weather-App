@@ -16,6 +16,8 @@
     NSArray *_locations;
     int *_index;
     BOOL _isMaunaKea;
+    BOOL _isSatellite;
+    BOOL _isWaterVapor;
 }
 
 @property (strong, nonatomic) UIImageView *imageView;
@@ -38,6 +40,14 @@
     {
         _locations = [[NSArray alloc] initWithObjects:@"CFHT North", @"Gemini Telescope South", @"CFHT NNW", @"CFHT NNE", nil];
     }
+    else if (_isSatellite)
+    {
+        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
+    }
+    else if (_isWaterVapor)
+    {
+        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
+    }
     else
     {
         _locations = [[NSArray alloc] initWithObjects:@"Haleakala", @"PS1 All-Sky", nil];
@@ -52,6 +62,16 @@
 -(void)setMaunaKea: (BOOL)isMaunaKea
 {
     _isMaunaKea = isMaunaKea;
+}
+
+-(void)setSatellite: (BOOL)isSatellite
+{
+    _isSatellite = isSatellite;
+}
+
+-(void)setWaterVapor: (BOOL)isWaterVapor
+{
+    _isWaterVapor = isWaterVapor;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -80,8 +100,8 @@
         NSArray *imageCellNIB = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:nil];
         imageCell = [imageCellNIB objectAtIndex:0];
         // Initialize AsyncImageView, which holds and downloads the image.
-        AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 57.0, 325.0f, 240.0f)];
-		imageView.contentMode = UIViewContentModeScaleAspectFill;
+        AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 57, 320.0f, 280.0f)];
+		imageView.contentMode = UIViewContentModeRedraw;
 		imageView.clipsToBounds = YES;
 		imageView.tag = IMAGE_VIEW_TAG;
 		[imageCell addSubview:imageView];
@@ -90,6 +110,16 @@
     if (_isMaunaKea)
     {
         [imageCell setMaunaKea:true];
+        [imageCell awakeFromNib];
+    }
+    else if (_isSatellite)
+    {
+        [imageCell setSatellite:true];
+        [imageCell awakeFromNib];
+    }
+    else if (_isWaterVapor)
+    {
+        [imageCell setWaterVapor:true];
         [imageCell awakeFromNib];
     }
     // Load image from URL in property list (in ImageCell group).
@@ -103,7 +133,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 280;
+    return 337;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

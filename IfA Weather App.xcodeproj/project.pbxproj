@@ -60,6 +60,10 @@
 		C3D40AB11975241700081A0E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAF1975241700081A0E /* menu@2x.png */; };
 		C3D88186197EFC26003D8233 /* MKImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D88185197EFC26003D8233 /* MKImages.plist */; };
 		C3D8818A197F09C9003D8233 /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D88189197F09C9003D8233 /* satellite.png */; };
+		C3D8818C197F1DDE003D8233 /* MKSatelliteImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818B197F1DDE003D8233 /* MKSatelliteImages.plist */; };
+		C3D8818E197F457B003D8233 /* infrared.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818D197F457B003D8233 /* infrared.png */; };
+		C3D88190197F58A7003D8233 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818F197F58A7003D8233 /* water.png */; };
+		C3D88192197F5A3B003D8233 /* MKWaterVaporImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D88191197F5A3B003D8233 /* MKWaterVaporImages.plist */; };
 		C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
@@ -172,6 +176,10 @@
 		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		C3D88185197EFC26003D8233 /* MKImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKImages.plist; sourceTree = "<group>"; };
 		C3D88189197F09C9003D8233 /* satellite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satellite.png; sourceTree = "<group>"; };
+		C3D8818B197F1DDE003D8233 /* MKSatelliteImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKSatelliteImages.plist; sourceTree = "<group>"; };
+		C3D8818D197F457B003D8233 /* infrared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infrared.png; sourceTree = "<group>"; };
+		C3D8818F197F58A7003D8233 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		C3D88191197F5A3B003D8233 /* MKWaterVaporImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKWaterVaporImages.plist; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3FE2EB319760A6F001D0E2C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
@@ -313,6 +321,8 @@
 		C3732E951975F854001AB97E /* SidebarImages */ = {
 			isa = PBXGroup;
 			children = (
+				C3D8818F197F58A7003D8233 /* water.png */,
+				C3D8818D197F457B003D8233 /* infrared.png */,
 				C3D88189197F09C9003D8233 /* satellite.png */,
 				C3732E961975F9E5001AB97E /* camera.png */,
 				C3732E931975F84B001AB97E /* sun.png */,
@@ -449,6 +459,8 @@
 				C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */,
 				C3BCDE22196B7E75008BCC91 /* Images.plist */,
 				C3D88185197EFC26003D8233 /* MKImages.plist */,
+				C3D8818B197F1DDE003D8233 /* MKSatelliteImages.plist */,
+				C3D88191197F5A3B003D8233 /* MKWaterVaporImages.plist */,
 				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
 			);
 			name = ImageCell;
@@ -532,6 +544,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Institute for Astronomy";
 				TargetAttributes = {
+					C3BCDD99196B7DA9008BCC91 = {
+						DevelopmentTeam = AWPABY872A;
+					};
 					C3BCDDC0196B7DA9008BCC91 = {
 						TestTargetID = C3BCDD99196B7DA9008BCC91;
 					};
@@ -584,8 +599,11 @@
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
 				C3732E971975F9E5001AB97E /* camera.png in Resources */,
 				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
+				C3D8818C197F1DDE003D8233 /* MKSatelliteImages.plist in Resources */,
 				C3BCDE27196B7E75008BCC91 /* Images.plist in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
+				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
+				C3D88192197F5A3B003D8233 /* MKWaterVaporImages.plist in Resources */,
 				C3D88186197EFC26003D8233 /* MKImages.plist in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
@@ -609,6 +627,7 @@
 				C3BCDE06196B7E22008BCC91 /* DateCell.xib in Resources */,
 				C3BCDE14196B7E22008BCC91 /* DewpointCell.xib in Resources */,
 				C3FE2EBA19760A6F001D0E2C /* Icon-40@2x.png in Resources */,
+				C3D88190197F58A7003D8233 /* water.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +801,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IfA Weather App/IfA Weather App-Prefix.pch";
@@ -789,6 +810,7 @@
 				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -798,6 +820,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IfA Weather App/IfA Weather App-Prefix.pch";
@@ -805,6 +829,7 @@
 				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

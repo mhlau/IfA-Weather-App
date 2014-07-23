@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Remote</key>
+	<array>
+		<string>http://cfht.hawaii.edu/webcams/cfhtdome/cfhtdome.jpg</string>
+		<string>asdf</string>
+		<string>asdf</string>
+		<string>asdf</string>
+		<string>asdf</string>
+		<string>adsf</string>
+	</array>
+</dict>
+</plist>

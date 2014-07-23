@@ -265,52 +265,47 @@
         int seconds = [dict[@"seconds"] intValue];
         NSNumber *secondsNum = [NSNumber numberWithInt:seconds];
         // If 48-hour data is to be plotted, expand the x-axis range by a factor of 2.
-        int factor = 1;
-        if (_is48Hours)
-        {
-            factor = 2;
-        }
-        if (seconds == 0)
+        if (i == 0)
         {
             _axisLabel0 = dict[@"time"];
             _axisTick0 = secondsNum;
         }
-        if (seconds > 10000 * factor && seconds < 11000 * factor)
+        if (i == 18)
         {
             _axisLabel1 = dict[@"time"];
             _axisTick1 = secondsNum;
         }
-        if (seconds > 21000 * factor && seconds < 22000 * factor)
+        if (i == 36)
         {
             _axisLabel2 = dict[@"time"];
             _axisTick2 = secondsNum;
         }
-        if (seconds > 32100 * factor && seconds < 33100 * factor)
+        if (i == 54)
         {
             _axisLabel3 = dict[@"time"];
             _axisTick3 = secondsNum;
         }
-        if (seconds > 43000 * factor && seconds < 44000 * factor)
+        if (i == 72)
         {
             _axisLabel4 = dict[@"time"];
             _axisTick4 = secondsNum;
         }
-        if (seconds > 54000 * factor && seconds < 55000 * factor)
+        if (i == 90)
         {
             _axisLabel5 = dict[@"time"];
             _axisTick5 = secondsNum;
         }
-        if (seconds > 64000 * factor && seconds < 65000 * factor)
+        if (i == 108)
         {
             _axisLabel6 = dict[@"time"];
             _axisTick6 = secondsNum;
         }
-        if (seconds > 75000 * factor && seconds < 76000 * factor)
+        if (i == 126)
         {
             _axisLabel7 = dict[@"time"];
             _axisTick7 = secondsNum;
         }
-        if (seconds > 85400 * factor && seconds < 86400 * factor)
+        if (i == _dataArray.count - 1)
         {
             _axisLabel8 = dict[@"time"];
             _axisTick8 = secondsNum;

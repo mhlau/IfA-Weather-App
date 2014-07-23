@@ -11,6 +11,8 @@
 @interface ImageCell ()
 {
     BOOL _isMaunaKea;
+    BOOL _isSatellite;
+    BOOL _isWaterVapor;
 }
 @end
 
@@ -31,9 +33,19 @@
     _isMaunaKea = isMaunaKea;
 }
 
+-(void)setSatellite: (BOOL)isSatellite
+{
+    _isSatellite = isSatellite;
+}
+
+-(void)setWaterVapor: (BOOL)isWaterVapor
+{
+    _isWaterVapor = isWaterVapor;
+}
+
 - (void)awakeFromNib
 {
-    //get image URLs
+    // Get image URLs from appropriate .plist file in project.
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
     NSDictionary *imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     if (_isMaunaKea)
@@ -41,7 +53,17 @@
         plistPath = [[NSBundle mainBundle] pathForResource:@"MKImages" ofType:@"plist"];
         imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     }
-    //remote image URLs
+    else if (_isSatellite)
+    {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"MKSatelliteImages" ofType:@"plist"];
+        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    }
+    else if (_isWaterVapor)
+    {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"MKWaterVaporImages" ofType:@"plist"];
+        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    }
+    // Set URLs in array.
     NSMutableArray *URLs = [NSMutableArray array];
     for (NSString *path in imagePaths[@"Remote"])
     {
