@@ -35,7 +35,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.sunriseLabel.textColor = [UIColor whiteColor];
     self.sunriseTimeLabel.textColor = [UIColor whiteColor];
     self.sunsetLabel.textColor = [UIColor whiteColor];
@@ -52,7 +52,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.sunriseLabel.textColor = [UIColor blackColor];
     self.sunriseTimeLabel.textColor = [UIColor blackColor];
     self.sunsetLabel.textColor = [UIColor blackColor];

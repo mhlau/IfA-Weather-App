@@ -35,7 +35,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.windTitleLabel.textColor = [UIColor whiteColor];
     self.windMSLabel.textColor = [UIColor whiteColor];
     self.windMPHLabel.textColor = [UIColor whiteColor];
@@ -50,7 +50,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.windTitleLabel.textColor = [UIColor blackColor];
     self.windMSLabel.textColor = [UIColor blackColor];
     self.windMPHLabel.textColor = [UIColor blackColor];

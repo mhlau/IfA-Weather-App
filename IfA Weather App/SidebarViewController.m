@@ -29,7 +29,7 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.05f alpha:0.2f];
     // Set the titles of the sidebar cells. MUST match cell Identifier in storyboard.
-    menuItems = @[@"HaleakalaTitle", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"MKTitle", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea Satellite Images", @"Mauna Kea 24-Hour Trends", @"Mauna Kea 48-Hour Trends"];
+    menuItems = @[@"Haleakala Title", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"Mauna Kea Title", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea 24-Hour Trends", @"Mauna Kea 48-Hour Trends", @"Satellite Title", @"Infrared", @"Water Vapor", @"Visible"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,13 +73,18 @@
                 {
                     [(SecondViewController *)dvc setMaunaKea:true];
                 }
-                // Set SecondVC to download MK images if MK cell is tapped.
-                if ([segue.identifier isEqualToString:@"MKSatelliteSegue"])
+                // Set SecondVC to download IR images if IR cell is tapped.
+                if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"InfraredSegue"])
                 {
-                    SecondViewController *dvc = (SecondViewController *)([[segue.destinationViewController viewControllers] objectAtIndex:0]);
-                    SecondViewController *dvc2 = (SecondViewController *)([[segue.destinationViewController viewControllers] objectAtIndex:1]);
-                    [(SecondViewController *)dvc setSatellite:true];
-                    [(SecondViewController *)dvc2 setWaterVapor:true];
+                    [(SecondViewController *)dvc setInfrared:true];
+                }
+                if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"WaterVaporSegue"])
+                {
+                    [(SecondViewController *)dvc setWaterVapor:true];
+                }
+                if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"VisibleSegue"])
+                {
+                    [(SecondViewController *)dvc setVisible:true];
                 }
                 // Set ThirdVC to download 48-hour data if 48-hour cell is tapped.
                 if ([dvc isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])

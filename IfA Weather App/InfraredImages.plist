@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Remote</key>
+	<array>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRBigIsland.php</string>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaii.php</string>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaiiWide.php</string>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHItoMain.php</string>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificNE.php</string>
+		<string>http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificO.php</string>
+	</array>
+</dict>
+</plist>

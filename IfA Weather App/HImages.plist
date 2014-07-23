@@ -4,12 +4,8 @@
 <dict>
 	<key>Remote</key>
 	<array>
-		<string>http://cfht.hawaii.edu/webcams/cfhtdome/cfhtdome.jpg</string>
-		<string>asdf</string>
-		<string>asdf</string>
-		<string>asdf</string>
-		<string>asdf</string>
-		<string>adsf</string>
+		<string>http://132.160.98.225/axis-cgi/jpg/image.cgi</string>
+		<string>http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current</string>
 	</array>
 </dict>
 </plist>

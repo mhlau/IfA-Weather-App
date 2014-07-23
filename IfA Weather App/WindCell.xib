@@ -75,6 +75,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="windDirDegLabel" destination="EVW-GF-aOK" id="C8J-rD-Wp6"/>
                 <outlet property="windDirDirLabel" destination="FCh-Zz-S6v" id="UHo-md-Awe"/>

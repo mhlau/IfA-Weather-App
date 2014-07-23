@@ -28,6 +28,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dewptTitleLabel" destination="V2D-kI-Q4E" id="QWB-0Z-XFe"/>
                 <outlet property="dewptValueLabel" destination="ccw-qC-SXB" id="Ail-68-Y3E"/>

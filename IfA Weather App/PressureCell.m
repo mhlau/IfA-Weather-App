@@ -35,14 +35,14 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.pressureTitleLabel.textColor = [UIColor whiteColor];
     self.pressureValueLabel.textColor = [UIColor whiteColor];
 }
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.pressureTitleLabel.textColor = [UIColor blackColor];
     self.pressureValueLabel.textColor = [UIColor blackColor];
 }

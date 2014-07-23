@@ -35,7 +35,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.humidityTitleLabel.textColor = [UIColor whiteColor];
     self.humidityValueLabel.textColor = [UIColor whiteColor];
 
@@ -43,7 +43,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.humidityTitleLabel.textColor = [UIColor blackColor];
     self.humidityValueLabel.textColor = [UIColor blackColor];
 

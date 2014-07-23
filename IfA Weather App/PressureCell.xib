@@ -28,6 +28,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="pressureTitleLabel" destination="IUY-f4-znE" id="AhC-RP-JJE"/>
                 <outlet property="pressureValueLabel" destination="mbZ-wW-uDX" id="z6d-uy-lGV"/>

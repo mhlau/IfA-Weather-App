@@ -11,8 +11,9 @@
 @interface ImageCell ()
 {
     BOOL _isMaunaKea;
-    BOOL _isSatellite;
+    BOOL _isInfrared;
     BOOL _isWaterVapor;
+    BOOL _isVisible;
 }
 @end
 
@@ -33,9 +34,9 @@
     _isMaunaKea = isMaunaKea;
 }
 
--(void)setSatellite: (BOOL)isSatellite
+-(void)setInfrared: (BOOL)isInfrared
 {
-    _isSatellite = isSatellite;
+    _isInfrared = isInfrared;
 }
 
 -(void)setWaterVapor: (BOOL)isWaterVapor
@@ -43,24 +44,34 @@
     _isWaterVapor = isWaterVapor;
 }
 
+-(void)setVisible: (BOOL)isVisible
+{
+    _isVisible = isVisible;
+}
+
 - (void)awakeFromNib
 {
     // Get image URLs from appropriate .plist file in project.
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HImages" ofType:@"plist"];
     NSDictionary *imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     if (_isMaunaKea)
     {
         plistPath = [[NSBundle mainBundle] pathForResource:@"MKImages" ofType:@"plist"];
         imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     }
-    else if (_isSatellite)
+    else if (_isInfrared)
     {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"MKSatelliteImages" ofType:@"plist"];
+        plistPath = [[NSBundle mainBundle] pathForResource:@"InfraredImages" ofType:@"plist"];
         imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     }
     else if (_isWaterVapor)
     {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"MKWaterVaporImages" ofType:@"plist"];
+        plistPath = [[NSBundle mainBundle] pathForResource:@"WaterVaporImages" ofType:@"plist"];
+        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    }
+    else if (_isVisible)
+    {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"VisibleImages" ofType:@"plist"];
         imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     }
     // Set URLs in array.

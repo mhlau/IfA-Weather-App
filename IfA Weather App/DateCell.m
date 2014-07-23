@@ -35,7 +35,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.dateTitleHILabel.textColor = [UIColor whiteColor];
     self.dateTitleUTLabel.textColor = [UIColor whiteColor];
     self.dateHILabel.textColor = [UIColor whiteColor];
@@ -44,7 +44,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.dateTitleHILabel.textColor = [UIColor blackColor];
     self.dateTitleUTLabel.textColor = [UIColor blackColor];
     self.dateHILabel.textColor = [UIColor blackColor];

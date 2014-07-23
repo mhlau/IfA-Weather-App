@@ -15,5 +15,8 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, strong) UIImageView *blurredImageView;
+@property (nonatomic, assign) CGFloat screenHeight;
 
 @end

@@ -33,7 +33,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.visTitleLabel.textColor = [UIColor whiteColor];
     self.visMLabel.textColor = [UIColor whiteColor];
     self.visKMLabel.textColor = [UIColor whiteColor];
@@ -43,7 +43,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.visTitleLabel.textColor = [UIColor blackColor];
     self.visMLabel.textColor = [UIColor blackColor];
     self.visKMLabel.textColor = [UIColor blackColor];

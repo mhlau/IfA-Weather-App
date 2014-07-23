@@ -16,8 +16,9 @@
     NSArray *_locations;
     int *_index;
     BOOL _isMaunaKea;
-    BOOL _isSatellite;
+    BOOL _isInfrared;
     BOOL _isWaterVapor;
+    BOOL _isVisible;
 }
 
 @property (strong, nonatomic) UIImageView *imageView;
@@ -40,13 +41,20 @@
     {
         _locations = [[NSArray alloc] initWithObjects:@"CFHT North", @"Gemini Telescope South", @"CFHT NNW", @"CFHT NNE", nil];
     }
-    else if (_isSatellite)
+    else if (_isInfrared)
     {
         _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
+        self.navigationItem.title = @"Infrared Satellite Images";
     }
     else if (_isWaterVapor)
     {
         _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
+        self.navigationItem.title = @"Water Vapor Images";
+    }
+    else if (_isVisible)
+    {
+        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", nil];
+        self.navigationItem.title = @"Visible Weather Images";
     }
     else
     {
@@ -64,9 +72,9 @@
     _isMaunaKea = isMaunaKea;
 }
 
--(void)setSatellite: (BOOL)isSatellite
+-(void)setInfrared: (BOOL)isInfrared
 {
-    _isSatellite = isSatellite;
+    _isInfrared = isInfrared;
 }
 
 -(void)setWaterVapor: (BOOL)isWaterVapor
@@ -74,11 +82,18 @@
     _isWaterVapor = isWaterVapor;
 }
 
+-(void)setVisible: (BOOL)isVisible
+{
+    _isVisible = isVisible;
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     self.view = nil;
     _locations = nil;
+    // Clear the AsyncImageLoader cache so that new images load when view is selected again.
+    [AsyncImageLoader sharedLoader].cache = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,20 +121,25 @@
 		imageView.tag = IMAGE_VIEW_TAG;
 		[imageCell addSubview:imageView];
     }
-    // If this is the MK Images view, have the ImageCell get the appropriate URLs. 
+    // Have the ImageCell get the appropriate URLs. 
     if (_isMaunaKea)
     {
         [imageCell setMaunaKea:true];
         [imageCell awakeFromNib];
     }
-    else if (_isSatellite)
+    else if (_isInfrared)
     {
-        [imageCell setSatellite:true];
+        [imageCell setInfrared:true];
         [imageCell awakeFromNib];
     }
     else if (_isWaterVapor)
     {
         [imageCell setWaterVapor:true];
+        [imageCell awakeFromNib];
+    }
+    else if (_isVisible)
+    {
+        [imageCell setVisible:true];
         [imageCell awakeFromNib];
     }
     // Load image from URL in property list (in ImageCell group).

@@ -35,7 +35,7 @@
 
 -(void)expandReformat
 {
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.temperatureTitleLabel.textColor = [UIColor whiteColor];
     self.temperatureInFLabel.textColor = [UIColor whiteColor];
     self.temperatureInCLabel.textColor = [UIColor whiteColor];
@@ -46,7 +46,7 @@
 
 -(void)closeReformat
 {
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     self.temperatureTitleLabel.textColor = [UIColor blackColor];
     self.temperatureInFLabel.textColor = [UIColor blackColor];
     self.temperatureInCLabel.textColor = [UIColor blackColor];

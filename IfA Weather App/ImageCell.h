@@ -16,7 +16,8 @@
 
 -(NSArray *)getImageURLs;
 -(void)setMaunaKea: (BOOL)isMaunaKea;
--(void)setSatellite: (BOOL)isSatellite;
+-(void)setInfrared: (BOOL)isInfrared;
 -(void)setWaterVapor: (BOOL)isWaterVapor;
+-(void)setVisible: (BOOL)isVisible;
 
 @end

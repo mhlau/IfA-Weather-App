@@ -106,6 +106,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="cycleLabel" destination="071-0h-nz8" id="b6D-Th-ayH"/>
                 <outlet property="cycleStateLabel" destination="LcS-M6-nXM" id="Ofd-cX-miz"/>

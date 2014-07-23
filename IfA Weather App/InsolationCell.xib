@@ -34,6 +34,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="insolationKWM2Label" destination="PQ1-Hh-Hsi" id="gFR-3A-qfa"/>
                 <outlet property="insolationLPHLabel" destination="cKn-UP-XJD" id="UAK-p1-s2R"/>
