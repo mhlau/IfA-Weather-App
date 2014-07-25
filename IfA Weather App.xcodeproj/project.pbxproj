@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
+		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A37198061C30077798E /* VisibleImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A36198061C30077798E /* VisibleImages.plist */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
@@ -106,6 +107,7 @@
 		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
+		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A36198061C30077798E /* VisibleImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VisibleImages.plist; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		C3BCDD9A196B7DA9008BCC91 /* IfA Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -367,7 +369,7 @@
 		C3BCDD9B196B7DA9008BCC91 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C3BCDD9A196B7DA9008BCC91 /* IfA Weather App.app */,
+				C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */,
 				C3BCDDC1196B7DA9008BCC91 /* IfA Weather AppTests.xctest */,
 			);
 			name = Products;
@@ -418,6 +420,7 @@
 				C3FE2EB219760A6F001D0E2C /* icons */,
 				C3732E951975F854001AB97E /* SidebarImages */,
 				C33C0A391980691F0077798E /* haleakalamorning.jpg */,
+				C324D1B31980987400B2C217 /* maunakeamorning.jpg */,
 				C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */,
 				C3BCDDA6196B7DA9008BCC91 /* InfoPlist.strings */,
 				C3BCDDA9196B7DA9008BCC91 /* main.m */,
@@ -531,7 +534,7 @@
 			);
 			name = "IfA Weather App";
 			productName = "IfA Weather App";
-			productReference = C3BCDD9A196B7DA9008BCC91 /* IfA Weather App.app */;
+			productReference = C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C3BCDDC0196B7DA9008BCC91 /* IfA Weather AppTests */ = {
@@ -614,6 +617,7 @@
 				C3BCDE10196B7E22008BCC91 /* WindCell.xib in Resources */,
 				C3D40AB01975241700081A0E /* menu.png in Resources */,
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
+				C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */,
 				C3732E971975F9E5001AB97E /* camera.png in Resources */,
 				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
 				C3D8818C197F1DDE003D8233 /* InfraredImages.plist in Resources */,
@@ -829,7 +833,7 @@
 				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
 				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -848,7 +852,7 @@
 				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
 				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

@@ -115,17 +115,22 @@
     // TEMPERATURE (ROW 0)
     if (indexPath.row == 0)
     {
+        // Tell the rest of the methods that the temperature cell is being referenced.
         _isTemp = true;
+        // Make new graph cell and load it from the .xib file.
         GraphCell *temperatureGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
         if (temperatureGraphCell == nil)
         {
             NSArray *temperatureNIB = [[NSBundle mainBundle] loadNibNamed:@"GraphCell" owner:self  options:nil];
             temperatureGraphCell = [temperatureNIB objectAtIndex:0];
         }
+        // Initialize the HostView frame.
         self.temperatureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 0, 320, 270)];
-        [self initPlot :self.temperatureHostView :@"Temperature"];
-        
+        // Initialize the cell data, plot, graph, and axes.
+        [self initPlot :self.temperatureHostView :@"Temperature (\u00B0C)"];
+        // Add the HostView to the table view.
         [tableView addSubview:self.temperatureHostView];
+        // Tell the rest of the methods that the temperature cell is no longer being referenced.
         _isTemp = false;
         return temperatureGraphCell;
     }
@@ -140,7 +145,7 @@
             pressureGraphCell = [pressureNIB objectAtIndex:0];
         }
         self.pressureHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 320, 320, 270)];
-        [self initPlot :self.pressureHostView :@"Pressure"];
+        [self initPlot :self.pressureHostView :@"Pressure (mbar)"];
         [tableView addSubview:self.pressureHostView];
         _isPress = false;
         return pressureGraphCell;
@@ -156,7 +161,7 @@
             humidityGraphCell = [humidityNIB objectAtIndex:0];
         }
         self.humidityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 640, 320, 270)];
-        [self initPlot :self.humidityHostView :@"Humidity"];
+        [self initPlot :self.humidityHostView :@"Humidity (%)"];
         [tableView addSubview:self.humidityHostView];
         _isHumid = false;
         return humidityGraphCell;
@@ -172,7 +177,7 @@
             windSpeedCell = [windSpeedNIB objectAtIndex:0];
         }
         self.windSpeedHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 960, 320, 270)];
-        [self initPlot :self.windSpeedHostView :@"Wind Speed"];
+        [self initPlot :self.windSpeedHostView :@"Wind Speed (m/s)"];
         [tableView addSubview:self.windSpeedHostView];
         _isWindSpd = false;
         return windSpeedCell;
@@ -204,7 +209,7 @@
             visibilityGraphCell = [visibilityNIB objectAtIndex:0];
         }
         self.visibilityHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1600, 320, 270)];
-        [self initPlot :self.visibilityHostView :@"Visibility"];
+        [self initPlot :self.visibilityHostView :@"Visibility (km)"];
         [tableView addSubview:self.visibilityHostView];
         _isVis = false;
         return visibilityGraphCell;
@@ -220,7 +225,7 @@
             insolationGraphCell = [insolationNIB objectAtIndex:0];
         }
         self.insolationHostView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 1920, 320, 270)];
-        [self initPlot :self.insolationHostView :@"Insolation"];
+        [self initPlot :self.insolationHostView :@"Insolation (kW / m\u00B2)"];
         [tableView addSubview:self.insolationHostView];
         _isInsol = false;
         return insolationGraphCell;
@@ -252,6 +257,57 @@
     [self configureAxes:hostView :graphTitle];
 }
 
+-(void)setAxisLabels :(int)index :(NSDictionary *)dict :(NSNumber *)secondsNum
+{
+    int div8 = (int)_dataArray.count / 8;
+    if (index == 0)
+    {
+        _axisLabel0 = dict[@"time"];
+        _axisTick0 = secondsNum;
+    }
+    else if (index == div8)
+    {
+        _axisLabel1 = dict[@"time"];
+        _axisTick1 = secondsNum;
+    }
+    else if (index == div8 * 2)
+    {
+        _axisLabel2 = dict[@"time"];
+        _axisTick2 = secondsNum;
+    }
+    else if (index == div8 * 3)
+    {
+        _axisLabel3 = dict[@"time"];
+        _axisTick3 = secondsNum;
+    }
+    else if (index == div8 * 4)
+    {
+        _axisLabel4 = dict[@"time"];
+        _axisTick4 = secondsNum;
+    }
+    else if (index == div8 * 5)
+    {
+        _axisLabel5 = dict[@"time"];
+        _axisTick5 = secondsNum;
+    }
+    else if (index == div8 * 6)
+    {
+        _axisLabel6 = dict[@"time"];
+        _axisTick6 = secondsNum;
+    }
+    else if (index == div8 * 7)
+    {
+        _axisLabel7 = dict[@"time"];
+        _axisTick7 = secondsNum;
+    }
+    else if (index == _dataArray.count - 1)
+    {
+        _axisLabel8 = dict[@"time"];
+        _axisTick8 = secondsNum;
+    }
+    _axisArray = [[NSArray alloc] initWithObjects:_axisLabel0, _axisLabel1, _axisLabel2, _axisLabel3, _axisLabel4, _axisLabel5, _axisLabel6, _axisLabel7, _axisLabel8, nil];
+}
+
 -(void)configureData:(CPTGraphHostingView *)hostView
 {
     NSMutableArray *newData = [NSMutableArray array];
@@ -265,52 +321,7 @@
         int seconds = [dict[@"seconds"] intValue];
         NSNumber *secondsNum = [NSNumber numberWithInt:seconds];
         // If 48-hour data is to be plotted, expand the x-axis range by a factor of 2.
-        if (i == 0)
-        {
-            _axisLabel0 = dict[@"time"];
-            _axisTick0 = secondsNum;
-        }
-        if (i == 18)
-        {
-            _axisLabel1 = dict[@"time"];
-            _axisTick1 = secondsNum;
-        }
-        if (i == 36)
-        {
-            _axisLabel2 = dict[@"time"];
-            _axisTick2 = secondsNum;
-        }
-        if (i == 54)
-        {
-            _axisLabel3 = dict[@"time"];
-            _axisTick3 = secondsNum;
-        }
-        if (i == 72)
-        {
-            _axisLabel4 = dict[@"time"];
-            _axisTick4 = secondsNum;
-        }
-        if (i == 90)
-        {
-            _axisLabel5 = dict[@"time"];
-            _axisTick5 = secondsNum;
-        }
-        if (i == 108)
-        {
-            _axisLabel6 = dict[@"time"];
-            _axisTick6 = secondsNum;
-        }
-        if (i == 126)
-        {
-            _axisLabel7 = dict[@"time"];
-            _axisTick7 = secondsNum;
-        }
-        if (i == _dataArray.count - 1)
-        {
-            _axisLabel8 = dict[@"time"];
-            _axisTick8 = secondsNum;
-        }
-        _axisArray = [[NSArray alloc] initWithObjects:_axisLabel0, _axisLabel1, _axisLabel2, _axisLabel3, _axisLabel4, _axisLabel5, _axisLabel6, _axisLabel7, _axisLabel8, nil];
+        [self setAxisLabels:i :dict :secondsNum];
         // TEMPERATURE DATA
         if (hostView == self.temperatureHostView)
         {
@@ -374,8 +385,8 @@
         {
             if (_dataArray[i][@"visibility"])
             {
-                NSString *y = (NSString *)_dataArray[i][@"visibility"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
+                // No need to convert visibility from string to number -- already a NSNum.
+                NSNumber *y1 = _dataArray[i][@"visibility"];
                 [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
                 _visibilityDataArray = newData;
             }
@@ -389,8 +400,8 @@
         {
             if (_dataArray[i][@"insolation"])
             {
-                NSString *y = (NSString *)_dataArray[i][@"insolation"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
+                // No need to convert insolation from string to number -- already a NSNum.
+                NSNumber *y1 = _dataArray[i][@"insolation_kWm2"];
                 [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
                 _insolationDataArray = newData;
             }
@@ -415,8 +426,8 @@
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
     graph.titleDisplacement = CGPointMake(0.0f, -10.0f);
     // Set padding for plot area.
-    [graph.plotAreaFrame setPaddingLeft:3.0f];
-    [graph.plotAreaFrame setPaddingBottom:3.0f];
+    [graph.plotAreaFrame setPaddingLeft:30.0f];
+    [graph.plotAreaFrame setPaddingBottom:30.0f];
     // Enable user interactions for plot space.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = YES;
@@ -443,7 +454,22 @@
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(4.3f)];
+    if (_isVis)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(13.0f)];
+    }
+    else if (_isHumid)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(8.5f)];
+    }
+    else if (_isInsol)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(2.8f)];
+    }
+    else
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(4.3f)];
+    }
     plotSpace.yRange = yRange;
     // Create styles and symbols (data point markers).
     CPTMutableLineStyle *lineStyle = [plot.dataLineStyle mutableCopy];
@@ -486,7 +512,7 @@
     // Get axis set.
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) hostView.hostedGraph.axisSet;
     // Configure x-axis.
-    CPTAxis *x = axisSet.xAxis;
+    CPTXYAxis *x = axisSet.xAxis;
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
@@ -521,12 +547,12 @@
         x.axisLabels =  [NSSet setWithArray:customLabels];
     }
     // Configure y-axis.
-    CPTAxis *y = axisSet.yAxis;
+    CPTXYAxis *y = axisSet.yAxis;
     y.title = graphTitle;
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -40.0f;
     y.axisLineStyle = axisLineStyle;
-    y.labelingPolicy = CPTAxisLabelingPolicyAutomatic;
+    y.labelingPolicy = CPTAxisLabelingPolicyNone;
     y.labelTextStyle = axisTextStyle;
     y.labelOffset = 16.0f;
     y.majorTickLineStyle = axisLineStyle;
@@ -536,7 +562,62 @@
     // Set up increments for axes.
     NSInteger majorIncrement = 10;
     NSInteger minorIncrement = 5;
-    CGFloat yMax = 700.0f;
+    CGFloat yMax = 750;
+    if (_isTemp)
+    {
+        yMax = 25;
+        majorIncrement = 10;
+        minorIncrement = 5;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(3.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isPress)
+    {
+        majorIncrement = 3;
+        minorIncrement = 1;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(707.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isHumid)
+    {
+        yMax = 100;
+        majorIncrement = 20;
+        minorIncrement = 10;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isWindSpd)
+    {
+        yMax = 50;
+        majorIncrement = 10;
+        minorIncrement = 5;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isWindDir)
+    {
+        yMax = 1000;
+        majorIncrement = 200;
+        minorIncrement = 50;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(40.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isVis)
+    {
+        yMax = 100;
+        majorIncrement = 50;
+        minorIncrement = 25;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
+    else if (_isInsol)
+    {
+        yMax = 5;
+        majorIncrement = 1.0;
+        minorIncrement = 1.0;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.56);
+        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+    }
     NSMutableSet *yLabels = [NSMutableSet set];
     NSMutableSet *yMajorLocations = [NSMutableSet set];
     NSMutableSet *yMinorLocations = [NSMutableSet set];

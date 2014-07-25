@@ -94,6 +94,7 @@
     _locations = nil;
     // Clear the AsyncImageLoader cache so that new images load when view is selected again.
     [AsyncImageLoader sharedLoader].cache = nil;
+    [[AsyncImageLoader defaultCache] removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning

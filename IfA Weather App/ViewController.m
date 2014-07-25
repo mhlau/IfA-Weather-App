@@ -23,6 +23,7 @@
     DataParser *_dataParser;
     NSMutableDictionary *_dataDict;
     NSTimer *_timer;
+    BOOL _isMaunaKea;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -34,22 +35,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = YES;
-    //self.screenHeight = [UIScreen mainScreen].bounds.size.height;
+    // Set up background image.
     UIImage *background = [UIImage imageNamed:@"haleakalamorning.jpg"];
+    self.navigationItem.title = @"Haleakala Weather";
+    if (_isMaunaKea)
+    {
+        background = [UIImage imageNamed:@"maunakeamorning.jpg"];
+        self.navigationItem.title = @"Mauna Kea Weather";
+    }
     self.backgroundImageView = [[UIImageView alloc] initWithImage:background];
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.backgroundImageView];
     [self.view sendSubviewToBack:self.backgroundImageView];
-    
-    // Set title here, because ViewController is first to load.
-    self.navigationItem.title = @"Haleakala Weather";
+    // Set title here, because Haleakala ViewController is first to load.
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    
     // No index is selected when view first loads.
     selectedIndex = -1;
     // Initialize DataParser and supporting data structures. Download the data.
@@ -64,6 +66,11 @@
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+}
+
+- (void)setMaunaKea :(BOOL)isMaunaKea
+{
+    _isMaunaKea = isMaunaKea;
 }
 
 - (void)viewWillLayoutSubviews

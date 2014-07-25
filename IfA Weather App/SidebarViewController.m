@@ -32,6 +32,13 @@
     menuItems = @[@"Haleakala Title", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"Mauna Kea Title", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea 24-Hour Trends", @"Mauna Kea 48-Hour Trends", @"Satellite Title", @"Infrared", @"Water Vapor", @"Visible"];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    // Make the sidebar return to original position when it is closed.
+    self.view = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -69,6 +76,10 @@
         swSegue.performBlock = ^(SWRevealViewControllerSegue *rvc_segue, UIViewController *svc, UIViewController *dvc)
             {
                 // Set SecondVC to download MK images if MK cell is tapped.
+                if ([dvc isKindOfClass:[ViewController class]] && [segue.identifier isEqualToString:@"MKWeatherSegue"])
+                {
+                    [(ViewController *)dvc setMaunaKea:true];
+                }
                 if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"MKImageSegue"])
                 {
                     [(SecondViewController *)dvc setMaunaKea:true];
