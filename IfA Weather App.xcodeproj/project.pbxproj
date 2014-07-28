@@ -478,10 +478,10 @@
 				C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */,
 				C3BCDE1E196B7E75008BCC91 /* ImageCell.h */,
 				C3BCDE1F196B7E75008BCC91 /* ImageCell.m */,
-				C33C0A38198061F90077798E /* ImagePLists */,
 				C3BCDE20196B7E75008BCC91 /* AsyncImageView.h */,
 				C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */,
 				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
+				C33C0A38198061F90077798E /* ImagePLists */,
 			);
 			name = ImageCell;
 			sourceTree = "<group>";

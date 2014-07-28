@@ -19,7 +19,7 @@
 
 @implementation ImageCell
 
-@synthesize locationLabel;
+@synthesize locationLabel, imageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

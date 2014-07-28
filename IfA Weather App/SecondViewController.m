@@ -90,8 +90,8 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    self.view = nil;
-    _locations = nil;
+    //self.view = nil;
+    //_locations = nil;
     // Clear the AsyncImageLoader cache so that new images load when view is selected again.
     [AsyncImageLoader sharedLoader].cache = nil;
     [[AsyncImageLoader defaultCache] removeAllObjects];
@@ -106,7 +106,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Tag used in animating image loading (spinning progress loader).
-    #define IMAGE_VIEW_TAG 99
+    //#define IMAGE_VIEW_TAG 99
     // Initialize ImageCell.
     NSString *cellIdentifier = @"expandingImageCell";
     ImageCell *imageCell = (ImageCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -116,11 +116,18 @@
         NSArray *imageCellNIB = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:nil];
         imageCell = [imageCellNIB objectAtIndex:0];
         // Initialize AsyncImageView, which holds and downloads the image.
-        AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 57, 320.0f, 280.0f)];
-		imageView.contentMode = UIViewContentModeRedraw;
-		imageView.clipsToBounds = YES;
-		imageView.tag = IMAGE_VIEW_TAG;
-		[imageCell addSubview:imageView];
+        //AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 57, 320.0f, 280.0f)];
+        imageCell.imageView.frame = CGRectMake(0.0f, 57, 320.0f, 280.0f);
+		imageCell.imageView.contentMode = UIViewContentModeRedraw;
+		imageCell.imageView.clipsToBounds = YES;
+		//imageCell.imageView.tag = IMAGE_VIEW_TAG;
+		[imageCell addSubview:imageCell.imageView];
+        imageCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+    }
+    else
+    {
+        //cancel loading previous image for cell
+        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageCell.imageView];
     }
     // Have the ImageCell get the appropriate URLs. 
     if (_isMaunaKea)
@@ -144,9 +151,9 @@
         [imageCell awakeFromNib];
     }
     // Load image from URL in property list (in ImageCell group).
-    AsyncImageView *imageView = (AsyncImageView *)[imageCell viewWithTag:IMAGE_VIEW_TAG];
+    //AsyncImageView *imageView = (AsyncImageView *)[imageCell viewWithTag:IMAGE_VIEW_TAG];
     self.imageURLs = [imageCell getImageURLs];
-    imageView.imageURL = [self.imageURLs objectAtIndex:indexPath.row];
+    imageCell.imageView.imageURL = [self.imageURLs objectAtIndex:indexPath.row];
     imageCell.locationLabel.text = _locations[indexPath.row];
     imageCell.clipsToBounds = YES;
     return imageCell;
