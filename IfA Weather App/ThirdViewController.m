@@ -13,8 +13,10 @@
 @interface ThirdViewController ()
 {
     DataParser *_dataParser;
+    
     NSMutableDictionary *_dataDict;
     NSMutableArray *_dataArray;
+    
     NSArray *_temperatureDataArray;
     NSArray *_pressureDataArray;
     NSArray *_humidityDataArray;
@@ -23,26 +25,7 @@
     NSArray *_visibilityDataArray;
     NSArray *_insolationDataArray;
     NSArray *_dewpointDataArray;
-    NSString *_axisLabel0;
-    NSString *_axisLabel1;
-    NSString *_axisLabel2;
-    NSString *_axisLabel3;
-    NSString *_axisLabel4;
-    NSString *_axisLabel5;
-    NSString *_axisLabel6;
-    NSString *_axisLabel7;
-    NSString *_axisLabel8;
-    NSNumber *_axisTick0;
-    NSNumber *_axisTick1;
-    NSNumber *_axisTick2;
-    NSNumber *_axisTick3;
-    NSNumber *_axisTick4;
-    NSNumber *_axisTick5;
-    NSNumber *_axisTick6;
-    NSNumber *_axisTick7;
-    NSNumber *_axisTick8;
-    NSArray *_axisArray;
-    NSUInteger _missing;
+    
     BOOL _isTemp;
     BOOL _isPress;
     BOOL _isHumid;
@@ -78,14 +61,13 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24CSV.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/data.php"];
     }
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    _missing = 0;
 }
 
 -(void)itemsDownloaded:(NSMutableDictionary *)itemDict
@@ -95,10 +77,12 @@
     [_dataDict removeAllObjects];
     _dataDict = itemDict;
     // Insert data from dictionary into array, sorted by date.
-    for (int i = 0; i < _dataDict.count; i++)
+    for (id key in _dataDict[@"temperature"])
     {
-        id idString = [NSString stringWithFormat:@"%d", i];
-        _dataArray[i] = [_dataDict objectForKey:idString];
+        for (id key2 in _dataDict[@"temperature"][key])
+        {
+            NSLog(@"%@", _dataDict[@"temperature"][key][key2]);
+        }
     }
     // Reload the tableView to display downloaded data.
     [self.tableView reloadData];
@@ -262,50 +246,40 @@
     int div8 = (int)_dataArray.count / 8;
     if (index == 0)
     {
-        _axisLabel0 = dict[@"time"];
-        _axisTick0 = secondsNum;
+        
     }
     else if (index == div8)
     {
-        _axisLabel1 = dict[@"time"];
-        _axisTick1 = secondsNum;
+        
     }
     else if (index == div8 * 2)
     {
-        _axisLabel2 = dict[@"time"];
-        _axisTick2 = secondsNum;
+        
     }
     else if (index == div8 * 3)
     {
-        _axisLabel3 = dict[@"time"];
-        _axisTick3 = secondsNum;
+        
     }
     else if (index == div8 * 4)
     {
-        _axisLabel4 = dict[@"time"];
-        _axisTick4 = secondsNum;
+        
     }
     else if (index == div8 * 5)
     {
-        _axisLabel5 = dict[@"time"];
-        _axisTick5 = secondsNum;
+        
     }
     else if (index == div8 * 6)
     {
-        _axisLabel6 = dict[@"time"];
-        _axisTick6 = secondsNum;
+        
     }
     else if (index == div8 * 7)
     {
-        _axisLabel7 = dict[@"time"];
-        _axisTick7 = secondsNum;
+        
     }
     else if (index == _dataArray.count - 1)
     {
-        _axisLabel8 = dict[@"time"];
-        _axisTick8 = secondsNum;
+       
     }
-    _axisArray = [[NSArray alloc] initWithObjects:_axisLabel0, _axisLabel1, _axisLabel2, _axisLabel3, _axisLabel4, _axisLabel5, _axisLabel6, _axisLabel7, _axisLabel8, nil];
 }
 
 -(void)configureData:(CPTGraphHostingView *)hostView
@@ -389,10 +363,6 @@
                 NSNumber *y1 = _dataArray[i][@"visibility"];
                 [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
                 _visibilityDataArray = newData;
-            }
-            else
-            {
-                _missing++;
             }
         }
         // INSOLATION DATA
@@ -521,31 +491,23 @@
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
-    NSArray *customTickLocations = [NSArray arrayWithObjects:_axisTick0, _axisTick1, _axisTick2, _axisTick3, _axisTick4, _axisTick5, _axisTick6, _axisTick7, _axisTick8, nil];
+    NSArray *customTickLocations = [NSArray arrayWithObjects:nil, nil];
     NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
     x.majorTickLocations = tickLocations;
-    BOOL labelsAreSet = true;
-    for (int i = 0; i < 9; i++)
+    
+
+    NSUInteger labelLocation = 0;
+    NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[customTickLocations count]];
+    for (NSNumber *tickLocation in customTickLocations)
     {
-        if (!_axisArray[i])
-        {
-            labelsAreSet = false;
-        }
+        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [customTickLocations objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
+        newLabel.tickLocation = [tickLocation decimalValue];
+        newLabel.offset = x.labelOffset + x.majorTickLength;
+        newLabel.rotation = M_PI/4;
+        [customLabels addObject:newLabel];
     }
-    if (labelsAreSet)
-    {
-        NSUInteger labelLocation = 0;
-        NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[_axisArray count]];
-        for (NSNumber *tickLocation in customTickLocations)
-        {
-            CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [_axisArray objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
-            newLabel.tickLocation = [tickLocation decimalValue];
-            newLabel.offset = x.labelOffset + x.majorTickLength;
-            newLabel.rotation = M_PI/4;
-            [customLabels addObject:newLabel];
-        }
-        x.axisLabels =  [NSSet setWithArray:customLabels];
-    }
+    x.axisLabels =  [NSSet setWithArray:customLabels];
+    
     // Configure y-axis.
     CPTXYAxis *y = axisSet.yAxis;
     y.title = graphTitle;
@@ -649,7 +611,7 @@
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return _dataArray.count - _missing;
+    return _dataArray.count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
