@@ -242,39 +242,48 @@
     int div8 = (int)_dataArray.count / 8;
     if (index == 0)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 2)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 3)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 4)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 5)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 6)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == div8 * 7)
     {
-        
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
     else if (index == _dataArray.count - 1)
     {
-       
+        [_axisLabels addObject:dict[@"time"]];
+        [_axisTicks addObject:secondsNum];
     }
 }
 
@@ -535,13 +544,13 @@
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
-    NSArray *customTickLocations = [NSArray arrayWithObjects:nil, nil];
+    NSArray *customTickLocations = [NSArray arrayWithObjects:_axisTicks, nil];
     NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
     x.majorTickLocations = tickLocations;
     
 
     NSUInteger labelLocation = 0;
-    NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[customTickLocations count]];
+    NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[_axisLabels count]];
     for (NSNumber *tickLocation in customTickLocations)
     {
         CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [customTickLocations objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
