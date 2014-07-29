@@ -237,9 +237,9 @@
     [self configureAxes:hostView :graphTitle];
 }
 
--(void)setAxisLabels :(int)index :(NSDictionary *)dict :(NSNumber *)secondsNum :(NSMutableArray *)axisLabels :(NSMutableArray *) axisTicks
+-(void)setAxisLabels :(int)index :(int)totalKeys :(NSDictionary *)dict :(NSNumber *)secondsNum :(NSMutableArray *)axisLabels :(NSMutableArray *) axisTicks
 {
-    int div8 = (int)_dataArray.count / 8;
+    int div8 = (int)totalKeys / 8;
     if (index == 0)
     {
         [_axisLabels addObject:dict[@"time"]];
@@ -280,7 +280,7 @@
         [_axisLabels addObject:dict[@"time"]];
         [_axisTicks addObject:secondsNum];
     }
-    else if (index == _dataArray.count - 1)
+    else if (index == totalKeys - 1)
     {
         [_axisLabels addObject:dict[@"time"]];
         [_axisTicks addObject:secondsNum];
@@ -334,7 +334,7 @@
         NSString *valueString = (NSString *)dictAtIndex[@"value"];
         NSNumber *valueNum = [numFormatter numberFromString:valueString];
         [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): valueNum }];
-        [self setAxisLabels :i :dictAtIndex :secondsNum :_axisLabels :_axisTicks];
+        [self setAxisLabels :i :totalKeys :dictAtIndex :secondsNum :_axisLabels :_axisTicks];
     }
     _data = newData;
     
@@ -477,13 +477,21 @@
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    if (_isVis)
+    if (_isHumid)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(5.5f)];
+    }
+    else if (_isPress)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
+    }
+    else if (_isWindSpd || _isWindDir)
+    {
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(2.0f)];
+    }
+    else if (_isVis)
     {
         [yRange expandRangeByFactor:CPTDecimalFromCGFloat(13.0f)];
-    }
-    else if (_isHumid)
-    {
-        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(8.5f)];
     }
     else if (_isInsol)
     {
@@ -544,7 +552,7 @@
     x.majorTickLineStyle = axisLineStyle;
     x.majorTickLength = 4.0f;
     x.tickDirection = CPTSignNegative;
-    NSArray *customTickLocations = [NSArray arrayWithObjects:_axisTicks, nil];
+    NSArray *customTickLocations = [NSArray arrayWithArray:_axisTicks];
     NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
     x.majorTickLocations = tickLocations;
     
@@ -553,7 +561,7 @@
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[_axisLabels count]];
     for (NSNumber *tickLocation in customTickLocations)
     {
-        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [customTickLocations objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
+        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [_axisLabels objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
         newLabel.tickLocation = [tickLocation decimalValue];
         newLabel.offset = x.labelOffset + x.majorTickLength;
         newLabel.rotation = M_PI/4;
@@ -582,15 +590,16 @@
     {
         yMax = 25;
         majorIncrement = 10;
-        minorIncrement = 5;
-        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(3.0);
+        minorIncrement = 2;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
     }
     else if (_isPress)
     {
-        majorIncrement = 3;
+        yMax = 750;
+        majorIncrement = 5;
         minorIncrement = 1;
-        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(707.0);
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(700.0);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
     }
     else if (_isHumid)
@@ -604,8 +613,8 @@
     else if (_isWindSpd)
     {
         yMax = 50;
-        majorIncrement = 10;
-        minorIncrement = 5;
+        majorIncrement = 5;
+        minorIncrement = 1;
         x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
     }
@@ -614,7 +623,7 @@
         yMax = 1000;
         majorIncrement = 200;
         minorIncrement = 50;
-        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(40.0);
+        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(30.0);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
     }
     else if (_isVis)
@@ -638,6 +647,10 @@
     NSMutableSet *yMinorLocations = [NSMutableSet set];
     for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement)
     {
+        if (_isPress && !(j > 700))
+        {
+            continue;
+        }
         NSUInteger mod = j % majorIncrement;
         if (mod == 0)
         {
