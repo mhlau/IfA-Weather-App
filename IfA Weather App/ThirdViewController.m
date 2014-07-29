@@ -16,7 +16,8 @@
     
     NSMutableDictionary *_dataDict;
     NSMutableArray *_dataArray;
-    
+
+    NSArray *_data;
     NSArray *_temperatureDataArray;
     NSArray *_pressureDataArray;
     NSArray *_humidityDataArray;
@@ -25,6 +26,9 @@
     NSArray *_visibilityDataArray;
     NSArray *_insolationDataArray;
     NSArray *_dewpointDataArray;
+    
+    NSMutableArray *_axisTicks;
+    NSMutableArray *_axisLabels;
     
     BOOL _isTemp;
     BOOL _isPress;
@@ -57,11 +61,11 @@
     _dataArray = [[NSMutableArray alloc] init];
     if (_is48Hours)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48CSV.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48.php"];
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/data.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
     }
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
@@ -76,14 +80,6 @@
     // itemDict is a dictionary of dictionaries of weather data.
     [_dataDict removeAllObjects];
     _dataDict = itemDict;
-    // Insert data from dictionary into array, sorted by date.
-    for (id key in _dataDict[@"temperature"])
-    {
-        for (id key2 in _dataDict[@"temperature"][key])
-        {
-            NSLog(@"%@", _dataDict[@"temperature"][key][key2]);
-        }
-    }
     // Reload the tableView to display downloaded data.
     [self.tableView reloadData];
 }
@@ -241,7 +237,7 @@
     [self configureAxes:hostView :graphTitle];
 }
 
--(void)setAxisLabels :(int)index :(NSDictionary *)dict :(NSNumber *)secondsNum
+-(void)setAxisLabels :(int)index :(NSDictionary *)dict :(NSNumber *)secondsNum :(NSMutableArray *)axisLabels :(NSMutableArray *) axisTicks
 {
     int div8 = (int)_dataArray.count / 8;
     if (index == 0)
@@ -284,9 +280,56 @@
 
 -(void)configureData:(CPTGraphHostingView *)hostView
 {
+    NSString *field = [[NSString alloc] init];
+    if (hostView == self.temperatureHostView)
+    {
+        field = @"temperature";
+    }
+    else if (hostView == self.pressureHostView)
+    {
+        field = @"pressure";
+    }
+    else if (hostView == self.humidityHostView)
+    {
+        field = @"humidity";
+    }
+    else if (hostView == self.windSpeedHostView)
+    {
+        field = @"wind_speed";
+    }
+    else if (hostView == self.windDirectionHostView)
+    {
+        field = @"wind_direction";
+    }
+    else if (hostView == self.visibilityHostView)
+    {
+        field = @"visibility";
+    }
+    else if (hostView == self.insolationHostView)
+    {
+        field = @"insolation";
+    }
+    NSDictionary *dictAtField = _dataDict[field];
     NSMutableArray *newData = [NSMutableArray array];
     NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
     [numFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    _axisLabels = [[NSMutableArray alloc] init];
+    _axisTicks = [[NSMutableArray alloc] init];
+    int totalKeys = [dictAtField allKeys].count;
+    for (int i = 0; i < totalKeys; i++)
+    {
+        NSString *key = [NSString stringWithFormat:@"%d", i];
+        NSDictionary *dictAtIndex = [dictAtField objectForKey:key];
+        int seconds = [dictAtIndex[@"seconds"] intValue];
+        NSNumber *secondsNum = [NSNumber numberWithInt:seconds];
+        NSString *valueString = (NSString *)dictAtIndex[@"value"];
+        NSNumber *valueNum = [numFormatter numberFromString:valueString];
+        [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): valueNum }];
+        [self setAxisLabels :i :dictAtIndex :secondsNum :_axisLabels :_axisTicks];
+    }
+    _data = newData;
+    
+    /*
     for (int i = 0; i < _dataArray.count; i++)
     {
         // Take the dictionary at the ith index of the data array.
@@ -377,6 +420,7 @@
             }
         }
     }
+    */
 }
 
 -(void)configureGraph:(CPTGraphHostingView *)hostView :(NSString *)graphTitle
@@ -611,11 +655,12 @@
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return _dataArray.count;
+    return _data.count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
+    /*
     // Called when initPlot is called - select corresponding data set for hostview.
     if (_isTemp)
     {
@@ -646,12 +691,13 @@
         return _insolationDataArray[index][@(fieldEnum)];
     }
     return _dewpointDataArray[index][@(fieldEnum)];
+    */
+    return _data[index][@(fieldEnum)];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    //unload view to demonstrate caching
     self.view = nil;
     self.temperatureHostView = nil;
     self.pressureHostView = nil;
@@ -661,16 +707,6 @@
     self.visibilityHostView = nil;
     self.insolationHostView = nil;
     self.dewpointHostView = nil;
-    _dataDict = nil;
-    _dataArray = nil;
-    _temperatureDataArray = nil;
-    _pressureDataArray = nil;
-    _humidityDataArray = nil;
-    _windSpeedDataArray = nil;
-    _windDirectionDataArray = nil;
-    _visibilityDataArray = nil;
-    _insolationDataArray = nil;
-    _dewpointDataArray = nil;
 }
 
 - (void)didReceiveMemoryWarning
