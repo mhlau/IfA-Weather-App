@@ -11,6 +11,7 @@
 #import "AsyncImageView.h"
 #import "SWRevealViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface SecondViewController ()
 {
@@ -98,9 +99,9 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.view = nil;
     [SDWebImageManager.sharedManager.imageCache clearMemory];
     [SDWebImageManager.sharedManager.imageCache clearDisk];
-    self.view = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,8 +121,9 @@
 		imageCell.imageView.clipsToBounds = YES;
     }
     // Use the new provided setImageWithURL: method to load the web image.
-    [imageCell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"]];
+    [imageCell.imageView setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    imageCell.locationLabel.text = _locations[indexPath.row];
     return imageCell;
 }
 

@@ -14,6 +14,7 @@
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A37198061C30077798E /* VisibleImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A36198061C30077798E /* VisibleImages.plist */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
+		C340B6161989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		C3732E911975F673001AB97E /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E8F1975F673001AB97E /* graph.png */; };
 		C3732E921975F673001AB97E /* graph2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E901975F673001AB97E /* graph2.png */; };
 		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
@@ -143,6 +144,8 @@
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A36198061C30077798E /* VisibleImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VisibleImages.plist; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
+		C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+UIActivityIndicatorForSDWebImage.h"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+UIActivityIndicatorForSDWebImage.m"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */,
 				C3BCDE1E196B7E75008BCC91 /* ImageCell.h */,
 				C3BCDE1F196B7E75008BCC91 /* ImageCell.m */,
+				C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
+				C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				C3BCDE20196B7E75008BCC91 /* AsyncImageView.h */,
 				C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */,
 				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
@@ -759,6 +764,7 @@
 				C3BCDE0F196B7E22008BCC91 /* VisibilityCell.m in Sources */,
 				C3BCDE07196B7E22008BCC91 /* DateCell.m in Sources */,
 				C3BCDE25196B7E75008BCC91 /* ImageCell.m in Sources */,
+				C340B6161989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				C3BCDE17196B7E22008BCC91 /* SunMoonCell.m in Sources */,
 				C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */,
 				C3BCDDE7196B7DF0008BCC91 /* AppDelegate.m in Sources */,
