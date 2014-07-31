@@ -104,10 +104,9 @@
 - (void) layoutSubviews{
     
     [super layoutSubviews];
-    
-    self.imageView.bounds = CGRectMake(6,4,102,65);
-    self.imageView.frame = CGRectMake(6,4,102,65);
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.bounds = CGRectMake(0,57,320,280);
+    self.imageView.frame = CGRectMake(0,57,320,280);
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 @end

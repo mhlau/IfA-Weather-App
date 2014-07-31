@@ -111,21 +111,18 @@
 #pragma mark UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"expandingImageCell"];
-    if (cell == nil)
+    ImageCell *imageCell = (ImageCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingImageCell"];
+    if (imageCell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:@"expandingImageCell"];
+        // Initialize ImageCell from .xib file.
+        NSArray *imageCellNIB = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:nil];
+        imageCell = [imageCellNIB objectAtIndex:0];
+		imageCell.imageView.clipsToBounds = YES;
     }
-    
-    // Here we use the new provided setImageWithURL: method to load the web image
-    cell.imageView.bounds = CGRectMake(6,4,102,65);
-    cell.imageView.frame = CGRectMake(6,4,102,65);
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"]];
-    cell.imageView.contentMode = UIViewContentModeRedraw;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    // Use the new provided setImageWithURL: method to load the web image.
+    [imageCell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"]];
+    imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return imageCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
