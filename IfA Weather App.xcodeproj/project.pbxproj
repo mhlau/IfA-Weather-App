@@ -19,6 +19,7 @@
 		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
 		C3732E971975F9E5001AB97E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E961975F9E5001AB97E /* camera.png */; };
 		C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
+		C3798CE51989CBF3001F36A7 /* libSDWebImage+WebP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -236,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3798CE51989CBF3001F36A7 /* libSDWebImage+WebP.a in Frameworks */,
 				C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */,
 				C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */,
 				C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */,

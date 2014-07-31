@@ -91,11 +91,12 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    NSLog(@"view disappeared");
     self.view = nil;
     _locations = nil;
     // Clear the AsyncImageLoader cache so that new images load when view is selected again.
-    [AsyncImageLoader sharedLoader].cache = nil;
-    [[AsyncImageLoader defaultCache] removeAllObjects];
+    [SDWebImageManager.sharedManager.imageCache clearMemory];
+    [SDWebImageManager.sharedManager.imageCache clearDisk];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,59 +107,19 @@
 #pragma mark UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Tag used in animating image loading (spinning progress loader).
-    //#define IMAGE_VIEW_TAG 99
-    // Initialize ImageCell.
-    NSString *cellIdentifier = @"expandingImageCell";
-    ImageCell *imageCell = (ImageCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (imageCell == nil)
-    {
-        // Initialize ImageCell from .xib file.
-        NSArray *imageCellNIB = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:nil];
-        imageCell = [imageCellNIB objectAtIndex:0];
-        // Initialize AsyncImageView, which holds and downloads the image.
-        //AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 57, 320.0f, 280.0f)];
-        imageCell.imageView.frame = CGRectMake(0.0f, 57, 320.0f, 280.0f);
-		imageCell.imageView.contentMode = UIViewContentModeRedraw;
-		imageCell.imageView.clipsToBounds = YES;
-		//imageCell.imageView.tag = IMAGE_VIEW_TAG;
-		//[imageCell addSubview:imageCell.imageView];
-        //imageCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
-        if (_isMaunaKea)
-        {
-            [imageCell setMaunaKea:true];
-            [imageCell awakeFromNib];
-        }
-        else if (_isInfrared)
-        {
-            [imageCell setInfrared:true];
-            [imageCell awakeFromNib];
-        }
-        else if (_isWaterVapor)
-        {
-            [imageCell setWaterVapor:true];
-            [imageCell awakeFromNib];
-        }
-        else if (_isVisible)
-        {
-            [imageCell setVisible:true];
-            [imageCell awakeFromNib];
-        }
-    }
-    else
-    {
-        //cancel loading previous image for cell
-        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageCell.imageView];
-    }
-    // Have the ImageCell get the appropriate URLs. 
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"expandingImageCell"];
     
-    // Load image from URL in property list (in ImageCell group).
-    //AsyncImageView *imageView = (AsyncImageView *)[imageCell viewWithTag:IMAGE_VIEW_TAG];
-    self.imageURLs = [imageCell getImageURLs];
-    imageCell.imageView.imageURL = [self.imageURLs objectAtIndex:indexPath.row];
-    imageCell.locationLabel.text = _locations[indexPath.row];
-    imageCell.clipsToBounds = YES;
-    return imageCell;
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:@"expandingImageCell"];
+    }
+    
+    // Here we use the new provided setImageWithURL: method to load the web image
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current"] placeholderImage:nil];
+    
+    cell.textLabel.text = @"My Text";
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
