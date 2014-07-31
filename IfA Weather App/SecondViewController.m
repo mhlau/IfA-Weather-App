@@ -116,8 +116,8 @@
     }
     
     // Here we use the new provided setImageWithURL: method to load the web image
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current"] placeholderImage:nil];
-    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://132.160.98.225/axis-cgi/jpg/image.cgi"] placeholderImage:[UIImage imageNamed:@"Placeholder.png"]];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     cell.textLabel.text = @"My Text";
     return cell;
 }
