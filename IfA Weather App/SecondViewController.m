@@ -8,7 +8,6 @@
 
 #import "SecondViewController.h"
 #import "ImageCell.h"
-#import "AsyncImageView.h"
 #import "SWRevealViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
@@ -31,15 +30,13 @@
 
 @implementation SecondViewController
 
-@synthesize imageURLs;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    // Initialize locations array depending on whether this is Haleakala or MK cell.
+    // Initialize location and URL arrays depending on whether this is Haleakala or MK cell.
     if (_isMaunaKea)
     {
         _locations = [[NSArray alloc] initWithObjects:@"CFHT North", @"Gemini Telescope South", @"CFHT NNW", @"CFHT NNE", nil];
@@ -67,7 +64,6 @@
     {
         _locations = [[NSArray alloc] initWithObjects:@"Haleakala", @"PS1 All-Sky", nil];
         _URLs = [[NSArray alloc] initWithObjects:@"http://132.160.98.225/axis-cgi/jpg/image.cgi", @"http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current", nil];
-
     }
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
@@ -100,6 +96,7 @@
 {
     [super viewDidDisappear:animated];
     self.view = nil;
+    // Clear the image cache so that images update upon new view appearance.
     [SDWebImageManager.sharedManager.imageCache clearMemory];
     [SDWebImageManager.sharedManager.imageCache clearDisk];
 }
@@ -118,11 +115,12 @@
         // Initialize ImageCell from .xib file.
         NSArray *imageCellNIB = [[NSBundle mainBundle] loadNibNamed:@"ImageCell" owner:self options:nil];
         imageCell = [imageCellNIB objectAtIndex:0];
-		imageCell.imageView.clipsToBounds = YES;
     }
     // Use the new provided setImageWithURL: method to load the web image.
     [imageCell.imageView setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    // Disable selection on imageCells.
     imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    // Set location labels for each cell.
     imageCell.locationLabel.text = _locations[indexPath.row];
     return imageCell;
 }

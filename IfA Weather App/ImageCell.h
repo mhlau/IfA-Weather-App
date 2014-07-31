@@ -11,11 +11,9 @@
 
 @interface ImageCell : UITableViewCell
 
-@property (nonatomic, strong) NSArray *imageURLs;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
--(NSArray *)getImageURLs;
 -(void)setMaunaKea: (BOOL)isMaunaKea;
 -(void)setInfrared: (BOOL)isInfrared;
 -(void)setWaterVapor: (BOOL)isWaterVapor;

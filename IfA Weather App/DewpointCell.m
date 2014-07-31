@@ -36,8 +36,8 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.dewptTitleLabel.textColor = [UIColor whiteColor];
-    self.dewptValueLabel.textColor = [UIColor whiteColor];
+    self.dewptTitleLabel.textColor = [UIColor blackColor];
+    self.dewptValueLabel.textColor = [UIColor blackColor];
 
 }
 

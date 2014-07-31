@@ -49,56 +49,9 @@
     _isVisible = isVisible;
 }
 
-- (void)awakeFromNib
-{
-    // Get image URLs from appropriate .plist file in project.
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HImages" ofType:@"plist"];
-    NSDictionary *imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    if (_isMaunaKea)
-    {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"MKImages" ofType:@"plist"];
-        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    }
-    else if (_isInfrared)
-    {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"InfraredImages" ofType:@"plist"];
-        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    }
-    else if (_isWaterVapor)
-    {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"WaterVaporImages" ofType:@"plist"];
-        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    }
-    else if (_isVisible)
-    {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"VisibleImages" ofType:@"plist"];
-        imagePaths = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    }
-    // Set URLs in array.
-    NSMutableArray *URLs = [NSMutableArray array];
-    for (NSString *path in imagePaths[@"Remote"])
-    {
-        NSURL *URL = [NSURL URLWithString:path];
-        if (URL)
-        {
-            [URLs addObject:URL];
-        }
-        else
-        {
-            NSLog(@"'%@' is not a valid URL", path);
-        }
-    }
-    self.imageURLs = URLs;
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-}
-
--(NSArray *)getImageURLs
-{
-    return self.imageURLs;
 }
 
 - (void)layoutSubviews

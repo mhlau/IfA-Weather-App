@@ -36,12 +36,12 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.temperatureTitleLabel.textColor = [UIColor whiteColor];
-    self.temperatureInFLabel.textColor = [UIColor whiteColor];
-    self.temperatureInCLabel.textColor = [UIColor whiteColor];
-    self.temperatureWCTitleLabel.textColor = [UIColor whiteColor];
-    self.temperatureWCInFLabel.textColor = [UIColor whiteColor];
-    self.temperatureWCInCLabel.textColor = [UIColor whiteColor];
+    self.temperatureTitleLabel.textColor = [UIColor blackColor];
+    self.temperatureInFLabel.textColor = [UIColor blackColor];
+    self.temperatureInCLabel.textColor = [UIColor blackColor];
+    self.temperatureWCTitleLabel.textColor = [UIColor blackColor];
+    self.temperatureWCInFLabel.textColor = [UIColor blackColor];
+    self.temperatureWCInCLabel.textColor = [UIColor blackColor];
 }
 
 -(void)closeReformat

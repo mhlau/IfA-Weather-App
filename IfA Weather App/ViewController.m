@@ -1,5 +1,5 @@
 //
-//  FirstViewController.m
+//  ViewController.m
 //  IfA Weather App
 //
 //  Created by Micah Lau on 6/24/14.
@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Set up background image.
     UIImage *background = [UIImage imageNamed:@"haleakalamorning.jpg"];
     self.navigationItem.title = @"Haleakala Weather";
@@ -47,20 +48,32 @@
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.backgroundImageView];
     [self.view sendSubviewToBack:self.backgroundImageView];
+    
     // Set title here, because Haleakala ViewController is first to load.
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
+    
     // No index is selected when view first loads.
     selectedIndex = -1;
+    
     // Initialize DataParser and supporting data structures. Download the data.
     _dataDict = [[NSMutableDictionary alloc] init];
     _dataParser = [[DataParser alloc] init];
     _dataParser.delegate = self;
-    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    if (_isMaunaKea)
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    }
+    else
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    }
+    
     // Initialize NSTimer that ticks every second, reloading data on each tick.
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reloadData) userInfo:nil repeats:YES];
+    
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     _sidebarButton.target = self.revealViewController;
@@ -136,6 +149,7 @@
             NSArray *dateNIB = [[NSBundle mainBundle] loadNibNamed:@"DateCell" owner:self options:nil];
             dateCell = [dateNIB objectAtIndex:0];
         }
+        dateCell.clipsToBounds = YES;
         // Reformat cell on selection.
         if (selectedIndex == indexPath.row)
         {
@@ -146,7 +160,10 @@
             [dateCell closeReformat];
         }
         // Format values from data dictionary, and set them as text in labels.
-        [dateCell formatNumbersAndSetText:_dataDict[@"date_HI"] :_dataDict[@"date_UT"]];
+        if (_dataDict[@"date_HI"])
+        {
+            [dateCell formatNumbersAndSetText:_dataDict[@"date_HI"] :_dataDict[@"date_UT"]];
+        }
         return dateCell;
     }
     // TEMPERATURE (ROW 1)
@@ -158,6 +175,7 @@
             NSArray *tempNIB = [[NSBundle mainBundle] loadNibNamed:@"TemperatureCell" owner:self options:nil];
             tempCell = [tempNIB objectAtIndex:0];
         }
+        tempCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [tempCell expandReformat];
@@ -166,7 +184,10 @@
         {
             [tempCell closeReformat];
         }
-        [tempCell formatNumbersAndSetText:_dataDict[@"ave_temperature"]:_dataDict[@"ave_temperature_F"] :_dataDict[@"wind_chill_C"]  :_dataDict[@"wind_chill_F"]];
+        if (_dataDict[@"ave_temperature"])
+        {
+            [tempCell formatNumbersAndSetText:_dataDict[@"ave_temperature"]:_dataDict[@"ave_temperature_F"] :_dataDict[@"wind_chill_C"]  :_dataDict[@"wind_chill_F"]];
+        }
         return tempCell;
     }
     // HUMIDITY (ROW 2)

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  ViewController.h
 //  IfA Weather App
 //
 //  Created by Micah Lau on 6/24/14.

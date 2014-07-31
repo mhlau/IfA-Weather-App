@@ -12,7 +12,6 @@
 		C3144DC11988697A004A394C /* graph3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3144DC01988697A004A394C /* graph3.png */; };
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
-		C33C0A37198061C30077798E /* VisibleImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A36198061C30077798E /* VisibleImages.plist */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
 		C340B6161989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		C3732E911975F673001AB97E /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E8F1975F673001AB97E /* graph.png */; };
@@ -59,19 +58,14 @@
 		C3BCDE1B196B7E49008BCC91 /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE1A196B7E49008BCC91 /* DataParser.m */; };
 		C3BCDE24196B7E75008BCC91 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */; };
 		C3BCDE25196B7E75008BCC91 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE1F196B7E75008BCC91 /* ImageCell.m */; };
-		C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */; };
-		C3BCDE27196B7E75008BCC91 /* HImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE22196B7E75008BCC91 /* HImages.plist */; };
 		C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE23196B7E75008BCC91 /* Placeholder.png */; };
 		C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AA519750D1F00081A0E /* SWRevealViewController.m */; };
 		C3D40AAD1975191800081A0E /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AAC1975191800081A0E /* SidebarViewController.m */; };
 		C3D40AB01975241700081A0E /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAE1975241700081A0E /* menu.png */; };
 		C3D40AB11975241700081A0E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAF1975241700081A0E /* menu@2x.png */; };
-		C3D88186197EFC26003D8233 /* MKImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D88185197EFC26003D8233 /* MKImages.plist */; };
 		C3D8818A197F09C9003D8233 /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D88189197F09C9003D8233 /* satellite.png */; };
-		C3D8818C197F1DDE003D8233 /* InfraredImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818B197F1DDE003D8233 /* InfraredImages.plist */; };
 		C3D8818E197F457B003D8233 /* infrared.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818D197F457B003D8233 /* infrared.png */; };
 		C3D88190197F58A7003D8233 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818F197F58A7003D8233 /* water.png */; };
-		C3D88192197F5A3B003D8233 /* WaterVaporImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3D88191197F5A3B003D8233 /* WaterVaporImages.plist */; };
 		C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
@@ -142,7 +136,6 @@
 		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph3.png; sourceTree = "<group>"; };
 		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
-		C33C0A36198061C30077798E /* VisibleImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VisibleImages.plist; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
 		C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+UIActivityIndicatorForSDWebImage.h"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+UIActivityIndicatorForSDWebImage.m"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
@@ -208,9 +201,6 @@
 		C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		C3BCDE1E196B7E75008BCC91 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		C3BCDE1F196B7E75008BCC91 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		C3BCDE20196B7E75008BCC91 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
-		C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		C3BCDE22196B7E75008BCC91 /* HImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HImages.plist; sourceTree = "<group>"; };
 		C3BCDE23196B7E75008BCC91 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		C3D40AA519750D1F00081A0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -219,12 +209,9 @@
 		C3D40AAC1975191800081A0E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		C3D40AAE1975241700081A0E /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
-		C3D88185197EFC26003D8233 /* MKImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKImages.plist; sourceTree = "<group>"; };
 		C3D88189197F09C9003D8233 /* satellite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satellite.png; sourceTree = "<group>"; };
-		C3D8818B197F1DDE003D8233 /* InfraredImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfraredImages.plist; sourceTree = "<group>"; };
 		C3D8818D197F457B003D8233 /* infrared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infrared.png; sourceTree = "<group>"; };
 		C3D8818F197F58A7003D8233 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
-		C3D88191197F5A3B003D8233 /* WaterVaporImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterVaporImages.plist; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3FE2EB319760A6F001D0E2C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
@@ -273,18 +260,6 @@
 			);
 			name = GraphCell;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C33C0A38198061F90077798E /* ImagePLists */ = {
-			isa = PBXGroup;
-			children = (
-				C3BCDE22196B7E75008BCC91 /* HImages.plist */,
-				C3D88185197EFC26003D8233 /* MKImages.plist */,
-				C3D8818B197F1DDE003D8233 /* InfraredImages.plist */,
-				C3D88191197F5A3B003D8233 /* WaterVaporImages.plist */,
-				C33C0A36198061C30077798E /* VisibleImages.plist */,
-			);
-			name = ImagePLists;
 			sourceTree = "<group>";
 		};
 		C361C46D196B850500D3B97C /* DateCell */ = {
@@ -532,10 +507,7 @@
 				C3BCDE1F196B7E75008BCC91 /* ImageCell.m */,
 				C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
 				C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
-				C3BCDE20196B7E75008BCC91 /* AsyncImageView.h */,
-				C3BCDE21196B7E75008BCC91 /* AsyncImageView.m */,
 				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
-				C33C0A38198061F90077798E /* ImagePLists */,
 			);
 			name = ImageCell;
 			sourceTree = "<group>";
@@ -700,15 +672,10 @@
 				C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */,
 				C3732E971975F9E5001AB97E /* camera.png in Resources */,
 				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
-				C3D8818C197F1DDE003D8233 /* InfraredImages.plist in Resources */,
-				C33C0A37198061C30077798E /* VisibleImages.plist in Resources */,
-				C3BCDE27196B7E75008BCC91 /* HImages.plist in Resources */,
 				C3144DC11988697A004A394C /* graph3.png in Resources */,
 				C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
-				C3D88192197F5A3B003D8233 /* WaterVaporImages.plist in Resources */,
-				C3D88186197EFC26003D8233 /* MKImages.plist in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
 				C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */,
@@ -759,7 +726,6 @@
 				C3BCDE11196B7E22008BCC91 /* WindCell.m in Sources */,
 				C3BCDDEA196B7DF0008BCC91 /* ThirdViewController.m in Sources */,
 				C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */,
-				C3BCDE26196B7E75008BCC91 /* AsyncImageView.m in Sources */,
 				C3BCDDE8196B7DF0008BCC91 /* ViewController.m in Sources */,
 				C3BCDE0F196B7E22008BCC91 /* VisibilityCell.m in Sources */,
 				C3BCDE07196B7E22008BCC91 /* DateCell.m in Sources */,

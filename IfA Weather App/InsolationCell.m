@@ -36,9 +36,9 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.insolationTitleLabel.textColor = [UIColor whiteColor];
-    self.insolationKWM2Label.textColor = [UIColor whiteColor];
-    self.insolationLPHLabel.textColor = [UIColor whiteColor];
+    self.insolationTitleLabel.textColor = [UIColor blackColor];
+    self.insolationKWM2Label.textColor = [UIColor blackColor];
+    self.insolationLPHLabel.textColor = [UIColor blackColor];
 }
 
 -(void)closeReformat

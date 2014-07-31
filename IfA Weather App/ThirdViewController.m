@@ -13,15 +13,11 @@
 @interface ThirdViewController ()
 {
     DataParser *_dataParser;
-    
     NSMutableDictionary *_dataDict;
     NSMutableArray *_dataArray;
-
     NSArray *_data;
-    
     NSMutableArray *_axisTicks;
     NSMutableArray *_axisLabels;
-    
     BOOL _isTemp;
     BOOL _isPress;
     BOOL _isHumid;

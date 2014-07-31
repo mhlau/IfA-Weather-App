@@ -11,7 +11,6 @@
 @interface SecondViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (nonatomic, strong) NSArray *imageURLs;
 
 -(void)setMaunaKea: (BOOL)isMaunaKea;
 -(void)setInfrared: (BOOL)isInfrared;

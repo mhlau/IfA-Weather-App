@@ -36,16 +36,16 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.windTitleLabel.textColor = [UIColor whiteColor];
-    self.windMSLabel.textColor = [UIColor whiteColor];
-    self.windMPHLabel.textColor = [UIColor whiteColor];
-    self.windDirTitleLabel.textColor = [UIColor whiteColor];
-    self.windDirDirLabel.textColor = [UIColor whiteColor];
-    self.windDirDegLabel.textColor = [UIColor whiteColor];
-    self.windMaxTitleLabel.textColor = [UIColor whiteColor];
-    self.windMaxMSLabel.textColor = [UIColor whiteColor];
-    self.windMaxMPHLabel.textColor = [UIColor whiteColor];
-    self.windMaxTimeLabel.textColor = [UIColor whiteColor];
+    self.windTitleLabel.textColor = [UIColor blackColor];
+    self.windMSLabel.textColor = [UIColor blackColor];
+    self.windMPHLabel.textColor = [UIColor blackColor];
+    self.windDirTitleLabel.textColor = [UIColor blackColor];
+    self.windDirDirLabel.textColor = [UIColor blackColor];
+    self.windDirDegLabel.textColor = [UIColor blackColor];
+    self.windMaxTitleLabel.textColor = [UIColor blackColor];
+    self.windMaxMSLabel.textColor = [UIColor blackColor];
+    self.windMaxMPHLabel.textColor = [UIColor blackColor];
+    self.windMaxTimeLabel.textColor = [UIColor blackColor];
 }
 
 -(void)closeReformat

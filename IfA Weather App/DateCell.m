@@ -15,31 +15,21 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
     return self;
-}
-
-- (void)awakeFromNib
-{
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.dateTitleHILabel.textColor = [UIColor whiteColor];
-    self.dateTitleUTLabel.textColor = [UIColor whiteColor];
-    self.dateHILabel.textColor = [UIColor whiteColor];
-    self.dateUTLabel.textColor = [UIColor whiteColor];
+    self.dateTitleHILabel.textColor = [UIColor blackColor];
+    self.dateTitleUTLabel.textColor = [UIColor blackColor];
+    self.dateHILabel.textColor = [UIColor blackColor];
+    self.dateUTLabel.textColor = [UIColor blackColor];
 }
 
 -(void)closeReformat

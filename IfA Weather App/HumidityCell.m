@@ -36,8 +36,8 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.humidityTitleLabel.textColor = [UIColor whiteColor];
-    self.humidityValueLabel.textColor = [UIColor whiteColor];
+    self.humidityTitleLabel.textColor = [UIColor blackColor];
+    self.humidityValueLabel.textColor = [UIColor blackColor];
 
 }
 

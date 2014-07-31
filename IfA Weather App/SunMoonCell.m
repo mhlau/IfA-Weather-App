@@ -36,18 +36,18 @@
 -(void)expandReformat
 {
     self.contentView.backgroundColor = [UIColor clearColor];
-    self.sunriseLabel.textColor = [UIColor whiteColor];
-    self.sunriseTimeLabel.textColor = [UIColor whiteColor];
-    self.sunsetLabel.textColor = [UIColor whiteColor];
-    self.sunsetTimeLabel.textColor = [UIColor whiteColor];
-    self.moonriseLabel.textColor = [UIColor whiteColor];
-    self.moonriseTimeLabel.textColor = [UIColor whiteColor];
-    self.moonsetLabel.textColor = [UIColor whiteColor];
-    self.moonsetTimeLabel.textColor = [UIColor whiteColor];
-    self.illumLabel.textColor = [UIColor whiteColor];
-    self.illumValueLabel.textColor = [UIColor whiteColor];
-    self.cycleLabel.textColor = [UIColor whiteColor];
-    self.cycleStateLabel.textColor = [UIColor whiteColor];
+    self.sunriseLabel.textColor = [UIColor blackColor];
+    self.sunriseTimeLabel.textColor = [UIColor blackColor];
+    self.sunsetLabel.textColor = [UIColor blackColor];
+    self.sunsetTimeLabel.textColor = [UIColor blackColor];
+    self.moonriseLabel.textColor = [UIColor blackColor];
+    self.moonriseTimeLabel.textColor = [UIColor blackColor];
+    self.moonsetLabel.textColor = [UIColor blackColor];
+    self.moonsetTimeLabel.textColor = [UIColor blackColor];
+    self.illumLabel.textColor = [UIColor blackColor];
+    self.illumValueLabel.textColor = [UIColor blackColor];
+    self.cycleLabel.textColor = [UIColor blackColor];
+    self.cycleStateLabel.textColor = [UIColor blackColor];
 }
 
 -(void)closeReformat
