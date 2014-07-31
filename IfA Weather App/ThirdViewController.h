@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 -(void)set48Hours: (BOOL)is48Hours;
+-(void)setMaunaKea: (BOOL)isMaunaKea;
 
 @end
 

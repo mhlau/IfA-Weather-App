@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
+		C3144DC11988697A004A394C /* graph3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3144DC01988697A004A394C /* graph3.png */; };
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A37198061C30077798E /* VisibleImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A36198061C30077798E /* VisibleImages.plist */; };
@@ -17,6 +18,7 @@
 		C3732E921975F673001AB97E /* graph2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E901975F673001AB97E /* graph2.png */; };
 		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
 		C3732E971975F9E5001AB97E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E961975F9E5001AB97E /* camera.png */; };
+		C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -80,6 +82,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C3798CDA1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
+		C3798CDC1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 537D95C117ECC1FE0097C263;
+			remoteInfo = "SDWebImage+WebP";
+		};
+		C3798CDE1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage+MKAnnotation";
+		};
+		C3798CE21989BF6A001F36A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 539F912B16316D2D00160719;
+			remoteInfo = SDWebImageFramework;
+		};
 		C3BCDDC6196B7DA9008BCC91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3BCDD92196B7DA9008BCC91 /* Project object */;
@@ -107,6 +137,7 @@
 		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
+		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph3.png; sourceTree = "<group>"; };
 		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A36198061C30077798E /* VisibleImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VisibleImages.plist; sourceTree = "<group>"; };
@@ -115,6 +146,8 @@
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		C3798CE01989BF1F001F36A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */,
 				C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */,
 				C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */,
 				C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */,
@@ -341,6 +375,7 @@
 		C3732E951975F854001AB97E /* SidebarImages */ = {
 			isa = PBXGroup;
 			children = (
+				C3144DC01988697A004A394C /* graph3.png */,
 				C33C0A341980531A0077798E /* eye.png */,
 				C3D8818F197F58A7003D8233 /* water.png */,
 				C3D8818D197F457B003D8233 /* infrared.png */,
@@ -355,9 +390,20 @@
 			name = SidebarImages;
 			sourceTree = "<group>";
 		};
+		C3798CD41989BEEF001F36A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3798CDB1989BEEF001F36A7 /* libSDWebImage.a */,
+				C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */,
+				C3798CDF1989BEEF001F36A7 /* libSDWebImage+MKAnnotation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C3BCDD91196B7DA9008BCC91 = {
 			isa = PBXGroup;
 			children = (
+				C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */,
 				C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */,
 				C3BCDDA3196B7DA9008BCC91 /* IfA Weather App */,
 				C3BCDDC8196B7DA9008BCC91 /* IfA Weather AppTests */,
@@ -378,6 +424,7 @@
 		C3BCDD9C196B7DA9008BCC91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3798CE01989BF1F001F36A7 /* ImageIO.framework */,
 				C3DB21D3196B82D20009B919 /* QuartzCore.framework */,
 				C3DB21CF196B804F0009B919 /* Accelerate.framework */,
 				C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */,
@@ -530,6 +577,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3798CE31989BF6A001F36A7 /* PBXTargetDependency */,
 				C3DB21CC196B7F0A0009B919 /* PBXTargetDependency */,
 			);
 			name = "IfA Weather App";
@@ -589,6 +637,10 @@
 					ProductGroup = C3BCE2AB196B7ECD008BCC91 /* Products */;
 					ProjectRef = C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */;
 				},
+				{
+					ProductGroup = C3798CD41989BEEF001F36A7 /* Products */;
+					ProjectRef = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -599,6 +651,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C3798CDB1989BEEF001F36A7 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = C3798CDA1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+WebP.a";
+			remoteRef = C3798CDC1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3798CDF1989BEEF001F36A7 /* libSDWebImage+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+MKAnnotation.a";
+			remoteRef = C3798CDE1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -623,6 +696,7 @@
 				C3D8818C197F1DDE003D8233 /* InfraredImages.plist in Resources */,
 				C33C0A37198061C30077798E /* VisibleImages.plist in Resources */,
 				C3BCDE27196B7E75008BCC91 /* HImages.plist in Resources */,
+				C3144DC11988697A004A394C /* graph3.png in Resources */,
 				C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
@@ -704,6 +778,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C3798CE31989BF6A001F36A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImageFramework;
+			targetProxy = C3798CE21989BF6A001F36A7 /* PBXContainerItemProxy */;
+		};
 		C3BCDDC7196B7DA9008BCC91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3BCDD99196B7DA9008BCC91 /* IfA Weather App */;

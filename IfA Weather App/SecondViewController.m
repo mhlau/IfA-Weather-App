@@ -10,6 +10,7 @@
 #import "ImageCell.h"
 #import "AsyncImageView.h"
 #import "SWRevealViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SecondViewController ()
 {
@@ -90,8 +91,8 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    //self.view = nil;
-    //_locations = nil;
+    self.view = nil;
+    _locations = nil;
     // Clear the AsyncImageLoader cache so that new images load when view is selected again.
     [AsyncImageLoader sharedLoader].cache = nil;
     [[AsyncImageLoader defaultCache] removeAllObjects];
@@ -121,8 +122,28 @@
 		imageCell.imageView.contentMode = UIViewContentModeRedraw;
 		imageCell.imageView.clipsToBounds = YES;
 		//imageCell.imageView.tag = IMAGE_VIEW_TAG;
-		[imageCell addSubview:imageCell.imageView];
-        imageCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+		//[imageCell addSubview:imageCell.imageView];
+        //imageCell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+        if (_isMaunaKea)
+        {
+            [imageCell setMaunaKea:true];
+            [imageCell awakeFromNib];
+        }
+        else if (_isInfrared)
+        {
+            [imageCell setInfrared:true];
+            [imageCell awakeFromNib];
+        }
+        else if (_isWaterVapor)
+        {
+            [imageCell setWaterVapor:true];
+            [imageCell awakeFromNib];
+        }
+        else if (_isVisible)
+        {
+            [imageCell setVisible:true];
+            [imageCell awakeFromNib];
+        }
     }
     else
     {
@@ -130,26 +151,7 @@
         [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageCell.imageView];
     }
     // Have the ImageCell get the appropriate URLs. 
-    if (_isMaunaKea)
-    {
-        [imageCell setMaunaKea:true];
-        [imageCell awakeFromNib];
-    }
-    else if (_isInfrared)
-    {
-        [imageCell setInfrared:true];
-        [imageCell awakeFromNib];
-    }
-    else if (_isWaterVapor)
-    {
-        [imageCell setWaterVapor:true];
-        [imageCell awakeFromNib];
-    }
-    else if (_isVisible)
-    {
-        [imageCell setVisible:true];
-        [imageCell awakeFromNib];
-    }
+    
     // Load image from URL in property list (in ImageCell group).
     //AsyncImageView *imageView = (AsyncImageView *)[imageCell viewWithTag:IMAGE_VIEW_TAG];
     self.imageURLs = [imageCell getImageURLs];

@@ -18,14 +18,6 @@
     NSMutableArray *_dataArray;
 
     NSArray *_data;
-    NSArray *_temperatureDataArray;
-    NSArray *_pressureDataArray;
-    NSArray *_humidityDataArray;
-    NSArray *_windSpeedDataArray;
-    NSArray *_windDirectionDataArray;
-    NSArray *_visibilityDataArray;
-    NSArray *_insolationDataArray;
-    NSArray *_dewpointDataArray;
     
     NSMutableArray *_axisTicks;
     NSMutableArray *_axisLabels;
@@ -38,6 +30,7 @@
     BOOL _isVis;
     BOOL _isInsol;
     BOOL _is48Hours;
+    BOOL _isMaunaKea;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -65,7 +58,14 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
+        if (_isMaunaKea)
+        {
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKPlotData24.php"];
+        }
+        else
+        {
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
+        }
     }
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
@@ -87,6 +87,11 @@
 -(void)set48Hours: (BOOL)is48Hours
 {
     _is48Hours = is48Hours;
+}
+
+-(void)setMaunaKea: (BOOL)isMaunaKea
+{
+    _isMaunaKea = isMaunaKea;
 }
 
 #pragma mark UITableView methods
@@ -179,7 +184,7 @@
         return windDirectionCell;
     }
     // VISIBILITY (ROW 5)
-    else if (indexPath.row == 5)
+    else if (indexPath.row == 5 && !_isMaunaKea)
     {
         _isVis = true;
         GraphCell *visibilityGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
@@ -195,7 +200,7 @@
         return visibilityGraphCell;
     }
     // INSOLATION (ROW 6)
-    else
+    else if (!_isMaunaKea)
     {
         _isInsol = true;
         GraphCell *insolationGraphCell = (GraphCell *)[tableView dequeueReusableCellWithIdentifier:@"GraphCell"];
@@ -209,6 +214,10 @@
         [tableView addSubview:self.insolationHostView];
         _isInsol = false;
         return insolationGraphCell;
+    }
+    else
+    {
+        return nil;
     }
 }
 
@@ -224,6 +233,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_isMaunaKea)
+    {
+        return 5;
+    }
     return 7;
 }
 
@@ -239,48 +252,16 @@
 
 -(void)setAxisLabels :(int)index :(int)totalKeys :(NSDictionary *)dict :(NSNumber *)secondsNum :(NSMutableArray *)axisLabels :(NSMutableArray *) axisTicks
 {
-    int div8 = (int)totalKeys / 8;
-    if (index == 0)
+    for (int i = 0; i < 8; i++)
     {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
+        if (index == (int) (totalKeys * i/8))
+        {
+            [_axisLabels addObject:dict[@"time"]];
+            [_axisTicks addObject:secondsNum];
+            break;
+        }
     }
-    else if (index == div8)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 2)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 3)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 4)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 5)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 6)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == div8 * 7)
-    {
-        [_axisLabels addObject:dict[@"time"]];
-        [_axisTicks addObject:secondsNum];
-    }
-    else if (index == totalKeys - 1)
+    if (index == totalKeys - 1)
     {
         [_axisLabels addObject:dict[@"time"]];
         [_axisTicks addObject:secondsNum];
@@ -324,7 +305,7 @@
     [numFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     _axisLabels = [[NSMutableArray alloc] init];
     _axisTicks = [[NSMutableArray alloc] init];
-    int totalKeys = [dictAtField allKeys].count;
+    int totalKeys = (int) [dictAtField allKeys].count;
     for (int i = 0; i < totalKeys; i++)
     {
         NSString *key = [NSString stringWithFormat:@"%d", i];
@@ -337,99 +318,6 @@
         [self setAxisLabels :i :totalKeys :dictAtIndex :secondsNum :_axisLabels :_axisTicks];
     }
     _data = newData;
-    
-    /*
-    for (int i = 0; i < _dataArray.count; i++)
-    {
-        // Take the dictionary at the ith index of the data array.
-        // Get the Unix time relative to the first data point (first point -> Unix time = 0).
-        NSDictionary *dict = _dataArray[i];
-        int seconds = [dict[@"seconds"] intValue];
-        NSNumber *secondsNum = [NSNumber numberWithInt:seconds];
-        // If 48-hour data is to be plotted, expand the x-axis range by a factor of 2.
-        [self setAxisLabels:i :dict :secondsNum];
-        // TEMPERATURE DATA
-        if (hostView == self.temperatureHostView)
-        {
-            if (_dataArray[i][@"temperature"])
-            {
-                // Get and round the value associated with the key from the dictionary.
-                NSString *y = (NSString *)_dataArray[i][@"temperature"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
-                // Add the (HOUR-MINUTE, value) tuple to newData, and associate with (x,y) axes.
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                // Store the tuples in the corresponding array.
-                _temperatureDataArray = newData;
-            }
-        }
-        // PRESSURE DATA
-        else if (hostView == self.pressureHostView)
-        {
-            if (_dataArray[i][@"pressure"])
-            {
-                NSString *y = (NSString *)_dataArray[i][@"pressure"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _pressureDataArray = newData;
-            }
-        }
-        // HUMIDITY DATA
-        else if (hostView == self.humidityHostView)
-        {
-            if (_dataArray[i][@"humidity"])
-            {
-                NSString *y = (NSString *)_dataArray[i][@"humidity"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _humidityDataArray = newData;
-            }
-        }
-        // WIND SPEED DATA
-        else if (hostView == self.windSpeedHostView)
-        {
-            if (_dataArray[i][@"wind_speed"])
-            {
-                NSString *y = (NSString *)_dataArray[i][@"wind_speed"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _windSpeedDataArray = newData;
-            }
-        }
-        // WIND DIRECTION DATA
-        else if (hostView == self.windDirectionHostView)
-        {
-            if (_dataArray[i][@"wind_direction"])
-            {
-                NSString *y = (NSString *)_dataArray[i][@"wind_direction"];
-                NSNumber *y1 = [numFormatter numberFromString:y];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _windDirectionDataArray = newData;
-            }
-        }
-        // VISIBILITY DATA
-        else if (hostView == self.visibilityHostView)
-        {
-            if (_dataArray[i][@"visibility"])
-            {
-                // No need to convert visibility from string to number -- already a NSNum.
-                NSNumber *y1 = _dataArray[i][@"visibility"];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _visibilityDataArray = newData;
-            }
-        }
-        // INSOLATION DATA
-        else if (hostView == self.insolationHostView)
-        {
-            if (_dataArray[i][@"insolation"])
-            {
-                // No need to convert insolation from string to number -- already a NSNum.
-                NSNumber *y1 = _dataArray[i][@"insolation_kWm2"];
-                [newData addObject:@{@(CPTScatterPlotFieldX): secondsNum, @(CPTScatterPlotFieldY): y1 }];
-                _insolationDataArray = newData;
-            }
-        }
-    }
-    */
 }
 
 -(void)configureGraph:(CPTGraphHostingView *)hostView :(NSString *)graphTitle
@@ -470,6 +358,10 @@
     {
         color =[ CPTColor colorWithComponentRed:30/255.0f green:144/255.0f blue:255/255.0f alpha:1.0f];
     }
+    else if (_isMaunaKea)
+    {
+        color =[ CPTColor colorWithComponentRed:244/255.0f green:164/255.0f blue:96/255.0f alpha:1.0f];
+    }
     [graph addPlot:plot toPlotSpace:plotSpace];
     // Set up plot space.
     [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:plot, nil]];
@@ -479,7 +371,14 @@
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
     if (_isHumid)
     {
-        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(5.5f)];
+        if (_isMaunaKea)
+        {
+            [yRange expandRangeByFactor:CPTDecimalFromCGFloat(3.0f)];
+        }
+        else
+        {
+           [yRange expandRangeByFactor:CPTDecimalFromCGFloat(5.5f)];
+        }
     }
     else if (_isPress)
     {
@@ -555,7 +454,6 @@
     NSArray *customTickLocations = [NSArray arrayWithArray:_axisTicks];
     NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
     x.majorTickLocations = tickLocations;
-    
 
     NSUInteger labelLocation = 0;
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[_axisLabels count]];
@@ -596,11 +494,22 @@
     }
     else if (_isPress)
     {
-        yMax = 750;
-        majorIncrement = 5;
-        minorIncrement = 1;
-        x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(700.0);
-        y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        if (_isMaunaKea)
+        {
+            yMax = 650;
+            majorIncrement = 5;
+            minorIncrement = 1;
+            x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(610.0);
+            y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        }
+        else
+        {
+            yMax = 750;
+            majorIncrement = 5;
+            minorIncrement = 1;
+            x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(700.0);
+            y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
+        }
     }
     else if (_isHumid)
     {
@@ -628,7 +537,7 @@
     }
     else if (_isVis)
     {
-        yMax = 100;
+        yMax = 200;
         majorIncrement = 50;
         minorIncrement = 25;
         x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
@@ -647,7 +556,11 @@
     NSMutableSet *yMinorLocations = [NSMutableSet set];
     for (NSInteger j = minorIncrement; j <= yMax; j += minorIncrement)
     {
-        if (_isPress && !(j > 700))
+        if (_isPress && !(j > 700) && !_isMaunaKea)
+        {
+            continue;
+        }
+        else if (_isPress && !(j > 600) && !_isMaunaKea)
         {
             continue;
         }
@@ -682,38 +595,6 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
-    /*
-    // Called when initPlot is called - select corresponding data set for hostview.
-    if (_isTemp)
-    {
-        return _temperatureDataArray[index][@(fieldEnum)];
-    }
-    else if (_isPress)
-    {
-        return _pressureDataArray[index][@(fieldEnum)];
-    }
-    else if (_isHumid)
-    {
-        return _humidityDataArray[index][@(fieldEnum)];
-    }
-    else if (_isWindSpd)
-    {
-        return _windSpeedDataArray[index][@(fieldEnum)];
-    }
-    else if (_isWindDir)
-    {
-        return _windDirectionDataArray[index][@(fieldEnum)];
-    }
-    else if (_isVis)
-    {
-        return _visibilityDataArray[index][@(fieldEnum)];
-    }
-    else if (_isInsol)
-    {
-        return _insolationDataArray[index][@(fieldEnum)];
-    }
-    return _dewpointDataArray[index][@(fieldEnum)];
-    */
     return _data[index][@(fieldEnum)];
 }
 

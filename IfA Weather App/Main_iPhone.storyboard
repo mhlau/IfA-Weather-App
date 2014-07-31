@@ -307,8 +307,8 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graph.png" translatesAutoresizingMaskIntoConstraints="NO" id="6HU-s0-ifk">
-                                            <rect key="frame" x="20" y="5" width="34" height="34"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graph3.png" translatesAutoresizingMaskIntoConstraints="NO" id="pm9-EQ-MRm">
+                                            <rect key="frame" x="21" y="5" width="34" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -548,6 +548,7 @@
         <image name="eye.png" width="512" height="512"/>
         <image name="graph.png" width="256" height="256"/>
         <image name="graph2.png" width="256" height="256"/>
+        <image name="graph3.png" width="256" height="256"/>
         <image name="infrared.png" width="30" height="30"/>
         <image name="menu.png" width="28" height="20"/>
         <image name="sun.png" width="256" height="256"/>
@@ -560,8 +561,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="X97-fK-Wmq"/>
-        <segue reference="ktl-PQ-yhP"/>
+        <segue reference="Dh5-Q4-Chj"/>
         <segue reference="KIS-On-gM3"/>
+        <segue reference="k6Z-Ca-mBr"/>
     </inferredMetricsTieBreakers>
 </document>
