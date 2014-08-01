@@ -72,7 +72,6 @@
     self.windMaxMSLabel.text = [NSString stringWithFormat:@"%@ m/s", maxMS];
     self.windMaxMPHLabel.text = [NSString stringWithFormat:@"%@ mph", maxMPH];
     self.windMaxTimeLabel.text = [NSString stringWithFormat:@"%@ UT", maxDate];
-    self.clipsToBounds = YES;
 }
 
 @end

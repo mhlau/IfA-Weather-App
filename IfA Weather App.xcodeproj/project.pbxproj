@@ -13,13 +13,14 @@
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
-		C340B6161989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
+		C35EB228198B6E8900E6DC1B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
+		C35EB22C198B6EF300E6DC1B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
+		C35EB22D198B6EF800E6DC1B /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C33FEC05198B6D5600FE54CB /* libSDWebImage.a */; };
 		C3732E911975F673001AB97E /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E8F1975F673001AB97E /* graph.png */; };
 		C3732E921975F673001AB97E /* graph2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E901975F673001AB97E /* graph2.png */; };
 		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
 		C3732E971975F9E5001AB97E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E961975F9E5001AB97E /* camera.png */; };
-		C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
-		C3798CE51989CBF3001F36A7 /* libSDWebImage+WebP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */; };
+		C39B22A0198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -66,7 +67,6 @@
 		C3D8818A197F09C9003D8233 /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D88189197F09C9003D8233 /* satellite.png */; };
 		C3D8818E197F457B003D8233 /* infrared.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818D197F457B003D8233 /* infrared.png */; };
 		C3D88190197F58A7003D8233 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818F197F58A7003D8233 /* water.png */; };
-		C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
 		C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB319760A6F001D0E2C /* Icon-40.png */; };
@@ -78,33 +78,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3798CDA1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+		C33FEC04198B6D5600FE54CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 53761325155AD0D5005750A4;
 			remoteInfo = SDWebImage;
 		};
-		C3798CDC1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+		C33FEC06198B6D5600FE54CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 537D95C117ECC1FE0097C263;
 			remoteInfo = "SDWebImage+WebP";
 		};
-		C3798CDE1989BEEF001F36A7 /* PBXContainerItemProxy */ = {
+		C33FEC08198B6D5600FE54CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
 			remoteInfo = "SDWebImage+MKAnnotation";
 		};
-		C3798CE21989BF6A001F36A7 /* PBXContainerItemProxy */ = {
+		C33FEC0E198B6D5D00FE54CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 539F912B16316D2D00160719;
 			remoteInfo = SDWebImageFramework;
+		};
+		C35EB226198B6DEC00E6DC1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 537D957317ECC1FE0097C263;
+			remoteInfo = "SDWebImage+WebP";
 		};
 		C3BCDDC6196B7DA9008BCC91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -137,14 +144,14 @@
 		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
-		C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+UIActivityIndicatorForSDWebImage.h"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
-		C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+UIActivityIndicatorForSDWebImage.m"; path = "../../../../Downloads/UIActivityIndicator-for-SDWebImage-master/UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
+		C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		C3798CE01989BF1F001F36A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -227,14 +234,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3798CE51989CBF3001F36A7 /* libSDWebImage+WebP.a in Frameworks */,
-				C3798CE11989BF1F001F36A7 /* ImageIO.framework in Frameworks */,
+				C35EB22D198B6EF800E6DC1B /* libSDWebImage.a in Frameworks */,
+				C35EB22C198B6EF300E6DC1B /* libCorePlot-CocoaTouch.a in Frameworks */,
+				C35EB228198B6E8900E6DC1B /* ImageIO.framework in Frameworks */,
 				C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */,
 				C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */,
 				C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */,
 				C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */,
 				C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */,
-				C3DB21CE196B802D0009B919 /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +267,16 @@
 			);
 			name = GraphCell;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C33FEBFE198B6D5500FE54CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C33FEC05198B6D5600FE54CB /* libSDWebImage.a */,
+				C33FEC07198B6D5600FE54CB /* libSDWebImage+WebP.a */,
+				C33FEC09198B6D5600FE54CB /* libSDWebImage+MKAnnotation.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C361C46D196B850500D3B97C /* DateCell */ = {
@@ -370,20 +387,10 @@
 			name = SidebarImages;
 			sourceTree = "<group>";
 		};
-		C3798CD41989BEEF001F36A7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3798CDB1989BEEF001F36A7 /* libSDWebImage.a */,
-				C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */,
-				C3798CDF1989BEEF001F36A7 /* libSDWebImage+MKAnnotation.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C3BCDD91196B7DA9008BCC91 = {
 			isa = PBXGroup;
 			children = (
-				C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */,
+				C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */,
 				C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */,
 				C3BCDDA3196B7DA9008BCC91 /* IfA Weather App */,
 				C3BCDDC8196B7DA9008BCC91 /* IfA Weather AppTests */,
@@ -505,8 +512,8 @@
 				C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */,
 				C3BCDE1E196B7E75008BCC91 /* ImageCell.h */,
 				C3BCDE1F196B7E75008BCC91 /* ImageCell.m */,
-				C340B6141989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
-				C340B6151989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
+				C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
+				C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
 			);
 			name = ImageCell;
@@ -556,7 +563,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				C3798CE31989BF6A001F36A7 /* PBXTargetDependency */,
+				C35EB227198B6DEC00E6DC1B /* PBXTargetDependency */,
+				C33FEC0F198B6D5D00FE54CB /* PBXTargetDependency */,
 				C3DB21CC196B7F0A0009B919 /* PBXTargetDependency */,
 			);
 			name = "IfA Weather App";
@@ -617,8 +625,8 @@
 					ProjectRef = C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */;
 				},
 				{
-					ProductGroup = C3798CD41989BEEF001F36A7 /* Products */;
-					ProjectRef = C3798CC51989BEE2001F36A7 /* SDWebImage.xcodeproj */;
+					ProductGroup = C33FEBFE198B6D5500FE54CB /* Products */;
+					ProjectRef = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -630,25 +638,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C3798CDB1989BEEF001F36A7 /* libSDWebImage.a */ = {
+		C33FEC05198B6D5600FE54CB /* libSDWebImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSDWebImage.a;
-			remoteRef = C3798CDA1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			remoteRef = C33FEC04198B6D5600FE54CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3798CDD1989BEEF001F36A7 /* libSDWebImage+WebP.a */ = {
+		C33FEC07198B6D5600FE54CB /* libSDWebImage+WebP.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libSDWebImage+WebP.a";
-			remoteRef = C3798CDC1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			remoteRef = C33FEC06198B6D5600FE54CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3798CDF1989BEEF001F36A7 /* libSDWebImage+MKAnnotation.a */ = {
+		C33FEC09198B6D5600FE54CB /* libSDWebImage+MKAnnotation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libSDWebImage+MKAnnotation.a";
-			remoteRef = C3798CDE1989BEEF001F36A7 /* PBXContainerItemProxy */;
+			remoteRef = C33FEC08198B6D5600FE54CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */ = {
@@ -730,7 +738,7 @@
 				C3BCDE0F196B7E22008BCC91 /* VisibilityCell.m in Sources */,
 				C3BCDE07196B7E22008BCC91 /* DateCell.m in Sources */,
 				C3BCDE25196B7E75008BCC91 /* ImageCell.m in Sources */,
-				C340B6161989DB8700A15E02 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
+				C39B22A0198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				C3BCDE17196B7E22008BCC91 /* SunMoonCell.m in Sources */,
 				C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */,
 				C3BCDDE7196B7DF0008BCC91 /* AppDelegate.m in Sources */,
@@ -752,10 +760,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C3798CE31989BF6A001F36A7 /* PBXTargetDependency */ = {
+		C33FEC0F198B6D5D00FE54CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SDWebImageFramework;
-			targetProxy = C3798CE21989BF6A001F36A7 /* PBXContainerItemProxy */;
+			targetProxy = C33FEC0E198B6D5D00FE54CB /* PBXContainerItemProxy */;
+		};
+		C35EB227198B6DEC00E6DC1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage+WebP";
+			targetProxy = C35EB226198B6DEC00E6DC1B /* PBXContainerItemProxy */;
 		};
 		C3BCDDC7196B7DA9008BCC91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -45,7 +45,6 @@
 {
     self.dateHILabel.text = [NSString stringWithFormat:@"%@", dateHI];
     self.dateUTLabel.text = [NSString stringWithFormat:@"%@", dateUT];
-    self.clipsToBounds = YES;
 }
 
 @end

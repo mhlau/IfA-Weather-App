@@ -61,7 +61,6 @@
     self.temperatureInCLabel.text = [NSString stringWithFormat:@"%@ %@", aveTemp, @"\u00B0C"];
     self.temperatureWCInFLabel.text = [NSString stringWithFormat:@"%@ %@", windChillF, @"\u00B0F"];
     self.temperatureWCInCLabel.text = [NSString stringWithFormat:@"%@ %@", windChillC, @"\u00B0C"];
-    self.clipsToBounds = YES;
 }
 
 @end

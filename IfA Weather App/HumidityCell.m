@@ -52,7 +52,6 @@
 -(void)formatNumbersAndSetText:(NSNumber *)humidity
 {
     self.humidityValueLabel.text = [NSString stringWithFormat:@"%@%%", humidity];
-    self.clipsToBounds = YES;    
 }
 
 

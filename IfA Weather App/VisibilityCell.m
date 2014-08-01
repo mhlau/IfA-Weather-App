@@ -57,7 +57,6 @@
     self.visKMLabel.text = [NSString stringWithFormat:@"%@ km", visKM];
     self.visFTLabel.text = [NSString stringWithFormat:@"%@ ft", visFT];
     self.visMILabel.text = [NSString stringWithFormat:@"%@ mi", visMI];
-    self.clipsToBounds = YES;
 }
 
 @end

@@ -64,7 +64,7 @@
     _dataParser.delegate = self;
     if (_isMaunaKea)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurrentWeather.php"];
     }
     else
     {
@@ -89,6 +89,7 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    // Set the bounds and frame for the background image.
     CGRect bounds = self.view.bounds;
     self.backgroundImageView.frame = bounds;
     self.tableView.frame = bounds;
@@ -134,7 +135,15 @@
 
 -(void)reloadData
 {
-    [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    // Download the data again (from the respective URL).
+    if (_isMaunaKea)
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurrentWeather.php"];
+    }
+    else
+    {
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+    }
 }
 
 #pragma mark UITableView methods
@@ -184,7 +193,11 @@
         {
             [tempCell closeReformat];
         }
-        if (_dataDict[@"ave_temperature"])
+        if (_isMaunaKea && _dataDict[@"temperature"])
+        {
+            [tempCell formatNumbersAndSetText:_dataDict[@"temperature"] :_dataDict[@"temperature_F"] :nil :nil];
+        }
+        else if (_dataDict[@"ave_temperature"])
         {
             [tempCell formatNumbersAndSetText:_dataDict[@"ave_temperature"]:_dataDict[@"ave_temperature_F"] :_dataDict[@"wind_chill_C"]  :_dataDict[@"wind_chill_F"]];
         }
@@ -199,6 +212,7 @@
             NSArray *humidNIB = [[NSBundle mainBundle] loadNibNamed:@"HumidityCell" owner:self options:nil];
             humidCell = [humidNIB objectAtIndex:0];
         }
+        humidCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [humidCell expandReformat];
@@ -207,11 +221,18 @@
         {
             [humidCell closeReformat];
         }
-        [humidCell formatNumbersAndSetText:_dataDict[@"ave_humidity"]];
+        if (_isMaunaKea && _dataDict[@"humidity"])
+        {
+            [humidCell formatNumbersAndSetText:_dataDict[@"humidity"]];
+        }
+        else if (_dataDict[@"ave_humidity"])
+        {
+            [humidCell formatNumbersAndSetText:_dataDict[@"ave_humidity"]];
+        }
         return humidCell;
     }
-    // INSOLATION (ROW 3)
-    else if (indexPath.row == 3)
+    // INSOLATION (ROW 3) (Not in MK)
+    else if (indexPath.row == 3 && !_isMaunaKea)
     {
         InsolationCell *insolationCell = (InsolationCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingInsolationCell"];
         if (insolationCell == nil)
@@ -219,6 +240,7 @@
             NSArray *insoNIB = [[NSBundle mainBundle] loadNibNamed:@"InsolationCell" owner:self options:nil];
             insolationCell = [insoNIB objectAtIndex:0];
         }
+        insolationCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [insolationCell expandReformat];
@@ -227,11 +249,14 @@
         {
             [insolationCell closeReformat];
         }
-        [insolationCell formatNumbersAndSetText:_dataDict[@"ave_insolation_kWm2"]:_dataDict[@"ave_insolation"]];
+        if (_dataDict[@"ave_insolation_kWm2"])
+        {
+            [insolationCell formatNumbersAndSetText:_dataDict[@"ave_insolation_kWm2"]:_dataDict[@"ave_insolation"]];
+        }
         return insolationCell;
     }
-    // VISIBILITY (ROW 4)
-    else if (indexPath.row == 4)
+    // VISIBILITY (ROW 4) (Not in MK)
+    else if (indexPath.row == 4 && !_isMaunaKea)
     {
         VisibilityCell *visCell = (VisibilityCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingVisibilityCell"];
         if (visCell == nil)
@@ -239,6 +264,7 @@
             NSArray *visNIB = [[NSBundle mainBundle] loadNibNamed:@"VisibilityCell" owner:self options:nil];
             visCell = [visNIB objectAtIndex:0];
         }
+        visCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [visCell expandReformat];
@@ -247,11 +273,14 @@
         {
             [visCell closeReformat];
         }
-        [visCell formatNumbersAndSetText:_dataDict[@"ave_visibility"]:_dataDict[@"ave_visibility_km"]:_dataDict[@"ave_visibility_ft"]:_dataDict[@"ave_visibility_mi"]];
+        if (_dataDict[@"ave_visibility"])
+        {
+            [visCell formatNumbersAndSetText:_dataDict[@"ave_visibility"]:_dataDict[@"ave_visibility_km"]:_dataDict[@"ave_visibility_ft"]:_dataDict[@"ave_visibility_mi"]];
+        }
         return visCell;
     }
-    // WIND (ROW 5)
-    else if (indexPath.row == 5)
+    // WIND (ROW 5) (ROW 3 in MK)
+    else if ((indexPath.row == 5 && !_isMaunaKea) || (_isMaunaKea && indexPath.row == 3))
     {
         WindCell *windCell = (WindCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingWindCell"];
         if (windCell == nil)
@@ -259,6 +288,7 @@
             NSArray *windNIB = [[NSBundle mainBundle] loadNibNamed:@"WindCell" owner:self options:nil];
             windCell = [windNIB objectAtIndex:0];
         }
+        windCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [windCell expandReformat];
@@ -267,11 +297,18 @@
         {
             [windCell closeReformat];
         }
-        [windCell formatNumbersAndSetText:_dataDict[@"ave_wind_speed_ms"]:_dataDict[@"wind_speed_mph"]:_dataDict[@"wind_dir"]:_dataDict[@"ave_wind_dir"]:_dataDict[@"max_wind_speed_ms"]:_dataDict[@"max_wind_speed_mph"]:_dataDict[@"max_wind_speed_time"]];
+        if (_isMaunaKea && _dataDict[@"wind_speed"])
+        {
+            [windCell formatNumbersAndSetText:_dataDict[@"wind_speed"]:_dataDict[@"wind_speed_mph"]:_dataDict[@"wind_dir"]:_dataDict[@"ave_wind_dir"]:_dataDict[@"max_wind_speed"]:_dataDict[@"max_wind_speed_mph"]:_dataDict[@"max_wind_speed_time"]];
+        }
+        if (_dataDict[@"ave_wind_speed_ms"])
+        {
+           [windCell formatNumbersAndSetText:_dataDict[@"ave_wind_speed_ms"]:_dataDict[@"wind_speed_mph"]:_dataDict[@"wind_dir"]:_dataDict[@"ave_wind_dir"]:_dataDict[@"max_wind_speed_ms"]:_dataDict[@"max_wind_speed_mph"]:_dataDict[@"max_wind_speed_time"]];
+        }
         return windCell;
     }
-    // PRESSURE (ROW 6)
-    else if (indexPath.row == 6)
+    // PRESSURE (ROW 6) (ROW 4 in MK)
+    else if (indexPath.row == 6 || (_isMaunaKea && indexPath.row == 4))
     {
         PressureCell *pressCell = (PressureCell *)[tableView dequeueReusableCellWithIdentifier:@"pressureCell"];
         if (pressCell == nil)
@@ -279,6 +316,7 @@
             NSArray *pressNIB = [[NSBundle mainBundle] loadNibNamed:@"PressureCell" owner:self options:nil];
             pressCell = [pressNIB objectAtIndex:0];
         }
+        pressCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [pressCell expandReformat];
@@ -287,11 +325,18 @@
         {
             [pressCell closeReformat];
         }
-        [pressCell formatNumbersAndSetText:_dataDict[@"ave_pressure"]];
+        if (_isMaunaKea && _dataDict[@"pressure"])
+        {
+            [pressCell formatNumbersAndSetText:_dataDict[@"pressure"]];
+        }
+        else if (_dataDict[@"ave_pressure"])
+        {
+            [pressCell formatNumbersAndSetText:_dataDict[@"ave_pressure"]];
+        }
         return pressCell;
     }
-    // DEWPOINT (ROW 7)
-    else if (indexPath.row == 7)
+    // DEWPOINT (ROW 7) (ROW 5 in MK)
+    else if (indexPath.row == 7 || (_isMaunaKea && indexPath.row == 5))
     {
         DewpointCell *dewCell = (DewpointCell *)[tableView dequeueReusableCellWithIdentifier:@"dewpointCell"];
         if (dewCell == nil)
@@ -299,6 +344,7 @@
             NSArray *dewNIB = [[NSBundle mainBundle] loadNibNamed:@"DewpointCell" owner:self options:nil];
             dewCell = [dewNIB objectAtIndex:0];
         }
+        dewCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [dewCell expandReformat];
@@ -307,10 +353,17 @@
         {
             [dewCell closeReformat];
         }
-        [dewCell formatNumbersAndSetText:_dataDict[@"ave_dewpoint"]];
+        if (_isMaunaKea && _dataDict[@"dewpoint"])
+        {
+            [dewCell formatNumbersAndSetText:_dataDict[@"dewpoint"]];
+        }
+        else if (_dataDict[@"ave_dewpoint"])
+        {
+            [dewCell formatNumbersAndSetText:_dataDict[@"ave_dewpoint"]];
+        }
         return dewCell;
     }
-    // SUN AND MOON (ROW 8)
+    // SUN AND MOON (ROW 8) (Not in MK)
     else
     {
         SunMoonCell *sunMoonCell = (SunMoonCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingSunMoonCell"];
@@ -319,6 +372,7 @@
             NSArray *sunMoonNIB = [[NSBundle mainBundle] loadNibNamed:@"SunMoonCell" owner:self options:nil];
             sunMoonCell = [sunMoonNIB objectAtIndex:0];
         }
+        sunMoonCell.clipsToBounds = YES;
         if (selectedIndex == indexPath.row)
         {
             [sunMoonCell expandReformat];
@@ -327,25 +381,41 @@
         {
             [sunMoonCell closeReformat];
         }
-        [sunMoonCell formatNumbersAndSetText:_dataDict[@"sunrise"]:_dataDict[@"sunset"]:_dataDict[@"moonrise"]:_dataDict[@"moonset"]:_dataDict[@"illum"]:_dataDict[@"segment"]];
+        if (_dataDict[@"sunrise"])
+        {
+            [sunMoonCell formatNumbersAndSetText:_dataDict[@"sunrise"]:_dataDict[@"sunset"]:_dataDict[@"moonrise"]:_dataDict[@"moonset"]:_dataDict[@"illum"]:_dataDict[@"segment"]];
+        }
         return sunMoonCell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // If row is selected, expand it to its unique cell height.
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 0)) { return 90; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 1)) { return 155; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 2)) { return 50; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 3)) { return 80; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 4)) { return 85; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 5)) { return 270; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 6)) { return 50; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 7)) { return 50; }
-    if ((selectedIndex == indexPath.row) && (selectedIndex == 8)) { return 240; }
-    // All closed cells have default height of 50.
-    return 50;
+    if (_isMaunaKea)
+    {
+        // If row is selected, expand it to its unique cell height.
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 0)) { return 90; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 1)) { return 85; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 2)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 3)) { return 255; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 4)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 5)) { return 55; }
+        // All closed cells have default height of 55.
+        return 55;
+    }
+    else
+    {
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 0)) { return 90; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 1)) { return 160; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 2)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 3)) { return 85; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 4)) { return 124; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 5)) { return 314; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 6)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 7)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 8)) { return 240; }
+        return 55;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -355,6 +425,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_isMaunaKea)
+    {
+        return 6;
+    }
     return 9;
 }
 

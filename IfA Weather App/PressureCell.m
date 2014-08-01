@@ -50,7 +50,6 @@
 -(void)formatNumbersAndSetText :(NSNumber *)pressure
 {
     self.pressureValueLabel.text = [NSString stringWithFormat:@"%@ millibars", pressure];
-    self.clipsToBounds = YES;
 }
 
 @end

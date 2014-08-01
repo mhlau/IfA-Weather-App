@@ -75,7 +75,6 @@
     self.moonsetTimeLabel.text = [NSString stringWithFormat:@"%@", moonsetTime];
     self.illumValueLabel.text = [NSString stringWithFormat:@"%@%%", illum];
     self.cycleStateLabel.text = [NSString stringWithFormat:@"%@", cycle];
-    self.clipsToBounds = YES;
 }
 
 @end

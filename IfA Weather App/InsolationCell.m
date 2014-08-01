@@ -53,7 +53,6 @@
 {
     self.insolationKWM2Label.text = [NSString stringWithFormat:@"%@ kW / m\u00B2", insoKWM2];
     self.insolationLPHLabel.text = [NSString stringWithFormat:@"%@ Langley / hr", insoLPH];
-    self.clipsToBounds = YES;
 }
 
 @end
