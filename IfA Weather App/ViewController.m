@@ -16,6 +16,7 @@
 #import "PressureCell.h"
 #import "DewpointCell.h"
 #import "SunMoonCell.h"
+#import "LocationCell.h"
 #import "SWRevealViewController.h"
 
 @interface ViewController ()
@@ -149,8 +150,20 @@
 #pragma mark UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_isMaunaKea && indexPath.row == 0)
+    {
+        LocationCell *locCell = (LocationCell *)[tableView dequeueReusableCellWithIdentifier:@"locationCell"];
+        if (locCell == nil)
+        {
+            NSArray *locNIB = [[NSBundle mainBundle] loadNibNamed:@"LocationCell" owner:self options:nil];
+            locCell = [locNIB objectAtIndex:0];
+        }
+        locCell.clipsToBounds = YES;
+        [locCell formatNumbersAndSetText:@"CFHT Station"];
+        return locCell;
+    }
     // DATE (ROW 0)
-    if (indexPath.row == 0) {
+    if ((!_isMaunaKea && indexPath.row == 0) || (_isMaunaKea && indexPath.row == 1)) {
         // Initialize DateCell and load NIB.
         DateCell *dateCell = (DateCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingDateCell"];
         if (dateCell == nil)
@@ -176,7 +189,7 @@
         return dateCell;
     }
     // TEMPERATURE (ROW 1)
-    else if (indexPath.row == 1)
+    else if ((!_isMaunaKea && indexPath.row == 1) || (_isMaunaKea && indexPath.row == 2))
     {
         TemperatureCell *tempCell = (TemperatureCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingTemperatureCell"];
         if (tempCell == nil)
@@ -204,7 +217,7 @@
         return tempCell;
     }
     // HUMIDITY (ROW 2)
-    else if (indexPath.row == 2)
+    else if ((!_isMaunaKea && indexPath.row == 2) || (_isMaunaKea && indexPath.row == 3))
     {
         HumidityCell *humidCell = (HumidityCell *)[tableView dequeueReusableCellWithIdentifier:@"humidityCell"];
         if (humidCell == nil)
@@ -280,7 +293,7 @@
         return visCell;
     }
     // WIND (ROW 5) (ROW 3 in MK)
-    else if ((indexPath.row == 5 && !_isMaunaKea) || (_isMaunaKea && indexPath.row == 3))
+    else if ((indexPath.row == 5 && !_isMaunaKea) || (_isMaunaKea && indexPath.row == 4))
     {
         WindCell *windCell = (WindCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingWindCell"];
         if (windCell == nil)
@@ -308,7 +321,7 @@
         return windCell;
     }
     // PRESSURE (ROW 6) (ROW 4 in MK)
-    else if (indexPath.row == 6 || (_isMaunaKea && indexPath.row == 4))
+    else if ((!_isMaunaKea && indexPath.row == 6) || (_isMaunaKea && indexPath.row == 5))
     {
         PressureCell *pressCell = (PressureCell *)[tableView dequeueReusableCellWithIdentifier:@"pressureCell"];
         if (pressCell == nil)
@@ -336,7 +349,7 @@
         return pressCell;
     }
     // DEWPOINT (ROW 7) (ROW 5 in MK)
-    else if (indexPath.row == 7 || (_isMaunaKea && indexPath.row == 5))
+    else if ((!_isMaunaKea && indexPath.row == 7) || (_isMaunaKea && indexPath.row == 6))
     {
         DewpointCell *dewCell = (DewpointCell *)[tableView dequeueReusableCellWithIdentifier:@"dewpointCell"];
         if (dewCell == nil)
@@ -394,12 +407,13 @@
     if (_isMaunaKea)
     {
         // If row is selected, expand it to its unique cell height.
-        if ((selectedIndex == indexPath.row) && (selectedIndex == 0)) { return 90; }
-        if ((selectedIndex == indexPath.row) && (selectedIndex == 1)) { return 85; }
-        if ((selectedIndex == indexPath.row) && (selectedIndex == 2)) { return 55; }
-        if ((selectedIndex == indexPath.row) && (selectedIndex == 3)) { return 255; }
-        if ((selectedIndex == indexPath.row) && (selectedIndex == 4)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 0)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 1)) { return 90; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 2)) { return 85; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 3)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 4)) { return 255; }
         if ((selectedIndex == indexPath.row) && (selectedIndex == 5)) { return 55; }
+        if ((selectedIndex == indexPath.row) && (selectedIndex == 6)) { return 55; }
         // All closed cells have default height of 55.
         return 55;
     }
@@ -427,7 +441,7 @@
 {
     if (_isMaunaKea)
     {
-        return 6;
+        return 7;
     }
     return 9;
 }

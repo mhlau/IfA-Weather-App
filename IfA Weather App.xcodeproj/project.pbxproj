@@ -10,6 +10,8 @@
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
 		C3144DC11988697A004A394C /* graph3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3144DC01988697A004A394C /* graph3.png */; };
+		C3248D45198C1E1900EF2FCD /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3248D44198C1E1900EF2FCD /* LocationCell.xib */; };
+		C3248D48198C1E3100EF2FCD /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3248D47198C1E3100EF2FCD /* LocationCell.m */; };
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
@@ -141,6 +143,9 @@
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
 		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph3.png; sourceTree = "<group>"; };
+		C3248D44198C1E1900EF2FCD /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		C3248D46198C1E3100EF2FCD /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		C3248D47198C1E3100EF2FCD /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
@@ -267,6 +272,16 @@
 			);
 			name = GraphCell;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C3248D43198C1DF700EF2FCD /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				C3248D44198C1E1900EF2FCD /* LocationCell.xib */,
+				C3248D46198C1E3100EF2FCD /* LocationCell.h */,
+				C3248D47198C1E3100EF2FCD /* LocationCell.m */,
+			);
+			name = LocationCell;
 			sourceTree = "<group>";
 		};
 		C33FEBFE198B6D5500FE54CB /* Products */ = {
@@ -484,6 +499,7 @@
 		C3BCDE18196B7E2A008BCC91 /* DataCells */ = {
 			isa = PBXGroup;
 			children = (
+				C3248D43198C1DF700EF2FCD /* LocationCell */,
 				C361C46D196B850500D3B97C /* DateCell */,
 				C361C470196B850D00D3B97C /* TemperatureCell */,
 				C361C471196B852A00D3B97C /* HumidityCell */,
@@ -679,6 +695,7 @@
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
 				C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */,
 				C3732E971975F9E5001AB97E /* camera.png in Resources */,
+				C3248D45198C1E1900EF2FCD /* LocationCell.xib in Resources */,
 				C3D40AB11975241700081A0E /* menu@2x.png in Resources */,
 				C3144DC11988697A004A394C /* graph3.png in Resources */,
 				C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */,
@@ -735,6 +752,7 @@
 				C3BCDDEA196B7DF0008BCC91 /* ThirdViewController.m in Sources */,
 				C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */,
 				C3BCDDE8196B7DF0008BCC91 /* ViewController.m in Sources */,
+				C3248D48198C1E3100EF2FCD /* LocationCell.m in Sources */,
 				C3BCDE0F196B7E22008BCC91 /* VisibilityCell.m in Sources */,
 				C3BCDE07196B7E22008BCC91 /* DateCell.m in Sources */,
 				C3BCDE25196B7E75008BCC91 /* ImageCell.m in Sources */,
