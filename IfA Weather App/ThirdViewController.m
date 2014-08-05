@@ -35,7 +35,14 @@
 
 @implementation ThirdViewController
 
-@synthesize temperatureHostView, pressureHostView, humidityHostView, windSpeedHostView, windDirectionHostView, visibilityHostView, insolationHostView, dewpointHostView;
+@synthesize temperatureHostView,
+pressureHostView,
+humidityHostView,
+windSpeedHostView,
+windDirectionHostView,
+visibilityHostView,
+insolationHostView,
+dewpointHostView;
 
 - (void)viewDidLoad
 {
@@ -63,6 +70,7 @@
             [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
         }
     }
+    
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     _sidebarButton.target = self.revealViewController;
@@ -80,6 +88,7 @@
     [self.tableView reloadData];
 }
 
+#pragma mark Segue Identifier setters
 -(void)set48Hours: (BOOL)is48Hours
 {
     _is48Hours = is48Hours;
@@ -349,14 +358,23 @@
     // Create the plot.
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     plot.dataSource = self;
-    CPTColor *color = [CPTColor colorWithComponentRed:50.0/255.0f green:205.0/255.0f blue:50.0/255.0f alpha:1.0f];
+    CPTColor *color = [CPTColor colorWithComponentRed:50.0/255.0f
+                                                green:205.0/255.0f
+                                                 blue:50.0/255.0f
+                                                alpha:1.0f];
     if (_is48Hours)
     {
-        color =[ CPTColor colorWithComponentRed:30/255.0f green:144/255.0f blue:255/255.0f alpha:1.0f];
+        color =[ CPTColor colorWithComponentRed:30/255.0f
+                                          green:144/255.0f
+                                           blue:255/255.0f
+                                          alpha:1.0f];
     }
     else if (_isMaunaKea)
     {
-        color =[ CPTColor colorWithComponentRed:244/255.0f green:164/255.0f blue:96/255.0f alpha:1.0f];
+        color =[ CPTColor colorWithComponentRed:244/255.0f
+                                          green:164/255.0f
+                                           blue:96/255.0f
+                                          alpha:1.0f];
     }
     [graph addPlot:plot toPlotSpace:plotSpace];
     // Set up plot space.

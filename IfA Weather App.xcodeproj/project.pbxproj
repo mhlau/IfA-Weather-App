@@ -18,11 +18,14 @@
 		C35EB228198B6E8900E6DC1B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
 		C35EB22C198B6EF300E6DC1B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C35EB22D198B6EF800E6DC1B /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C33FEC05198B6D5600FE54CB /* libSDWebImage.a */; };
+		C367CE8019906C1900A59102 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = C367CE7F19906C1800A59102 /* gear.png */; };
+		C367CE8719906DC200A59102 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367CE8619906DC200A59102 /* SettingsViewController.m */; };
 		C3732E911975F673001AB97E /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E8F1975F673001AB97E /* graph.png */; };
 		C3732E921975F673001AB97E /* graph2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E901975F673001AB97E /* graph2.png */; };
 		C3732E941975F84B001AB97E /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E931975F84B001AB97E /* sun.png */; };
 		C3732E971975F9E5001AB97E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C3732E961975F9E5001AB97E /* camera.png */; };
 		C39B22A0198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
+		C3AF877F198C5A4900D91079 /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AF877E198C5A4900D91079 /* film.png */; };
 		C3BCDD9E196B7DA9008BCC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */; };
 		C3BCDDA0196B7DA9008BCC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */; };
 		C3BCDDA2196B7DA9008BCC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */; };
@@ -150,6 +153,9 @@
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
 		C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		C367CE7F19906C1800A59102 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		C367CE8519906DC200A59102 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
+		C367CE8619906DC200A59102 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 		C3798CE01989BF1F001F36A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
+		C3AF877E198C5A4900D91079 /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -387,6 +394,8 @@
 		C3732E951975F854001AB97E /* SidebarImages */ = {
 			isa = PBXGroup;
 			children = (
+				C367CE7F19906C1800A59102 /* gear.png */,
+				C3AF877E198C5A4900D91079 /* film.png */,
 				C3144DC01988697A004A394C /* graph3.png */,
 				C33C0A341980531A0077798E /* eye.png */,
 				C3D8818F197F58A7003D8233 /* water.png */,
@@ -452,6 +461,8 @@
 				C3BCDDE4196B7DF0008BCC91 /* SecondViewController.m */,
 				C3BCDDE5196B7DF0008BCC91 /* ThirdViewController.h */,
 				C3BCDDE6196B7DF0008BCC91 /* ThirdViewController.m */,
+				C367CE8519906DC200A59102 /* SettingsViewController.h */,
+				C367CE8619906DC200A59102 /* SettingsViewController.m */,
 				C3D40AAA19750D2900081A0E /* SWRevealController */,
 				C3BCDE18196B7E2A008BCC91 /* DataCells */,
 				C3BCDE1C196B7E4C008BCC91 /* DataParser */,
@@ -690,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BCDE0A196B7E22008BCC91 /* HumidityCell.xib in Resources */,
+				C3AF877F198C5A4900D91079 /* film.png in Resources */,
 				C3BCDE10196B7E22008BCC91 /* WindCell.xib in Resources */,
 				C3D40AB01975241700081A0E /* menu.png in Resources */,
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
@@ -700,6 +712,7 @@
 				C3144DC11988697A004A394C /* graph3.png in Resources */,
 				C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
+				C367CE8019906C1900A59102 /* gear.png in Resources */,
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
@@ -762,6 +775,7 @@
 				C3BCDDE7196B7DF0008BCC91 /* AppDelegate.m in Sources */,
 				C3BCDE0B196B7E22008BCC91 /* HumidityCell.m in Sources */,
 				C3BCDE13196B7E22008BCC91 /* PressureCell.m in Sources */,
+				C367CE8719906DC200A59102 /* SettingsViewController.m in Sources */,
 				C3BCDE1B196B7E49008BCC91 /* DataParser.m in Sources */,
 				C3BCDDAA196B7DA9008BCC91 /* main.m in Sources */,
 			);

@@ -25,9 +25,15 @@
     NSMutableDictionary *_dataDict;
     NSTimer *_timer;
     BOOL _isMaunaKea;
+    NSArray *_MKLocations;
+    NSArray *_MKURLs;
+    NSString *_MKCurrLocation;
+    NSInteger _MKCurrLocIndex;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIPickerView *pickerView;
+@property NSInteger toggle;
 
 @end
 
@@ -49,7 +55,6 @@
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.backgroundImageView];
     [self.view sendSubviewToBack:self.backgroundImageView];
-    
     // Set title here, because Haleakala ViewController is first to load.
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
@@ -65,7 +70,7 @@
     _dataParser.delegate = self;
     if (_isMaunaKea)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCFHT.php"];
     }
     else
     {
@@ -80,8 +85,45 @@
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    // Set up UIPickerView to select different Mauna Kea weather stations.
+    if (_isMaunaKea)
+    {
+        _MKLocations = @[@"CFHT / Gemini Observatory",
+                         @"UH 88\" Telescope",
+                         @"UK Infrared Telescope",
+                         @"NASA IRTF",
+                         @"Subaru Telescope",
+                         @"Keck Observatory",
+                         @"JCMT Station",
+                         @"CSO Station",
+                         @"VLBA Station"];
+        _MKURLs = @[@"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCFHT.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrUH88.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrUKIRT.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrIRTF.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrSubaru.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrKeck.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrJCMT.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCSO.php",
+                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrVLBA.php"];
+        // MK Current Weather starts on CFHT / Gemini Observatory data.
+        _MKCurrLocation = _MKLocations[0];
+        _MKCurrLocIndex = 0;
+        self.toggle = 0;
+        // Initialize UIPickerView and set up its appearance, delegate and data source.
+        self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320.0, 120.0)];
+        [self.pickerView setBackgroundColor:[UIColor whiteColor]];
+        self.pickerView.delegate = self;
+        self.pickerView.dataSource = self;
+        self.pickerView.center = (CGPoint){160, 530};
+        [self.view addSubview:self.pickerView];
+        [self.view bringSubviewToFront:self.pickerView];
+        self.pickerView.hidden = YES;
+    }
 }
 
+#pragma mark Segue Interaction setter
 - (void)setMaunaKea :(BOOL)isMaunaKea
 {
     _isMaunaKea = isMaunaKea;
@@ -139,7 +181,7 @@
     // Download the data again (from the respective URL).
     if (_isMaunaKea)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurrentWeather.php"];
+        [_dataParser downloadItems:_MKURLs[_MKCurrLocIndex]];
     }
     else
     {
@@ -147,9 +189,60 @@
     }
 }
 
+#pragma mark UIPickerView methods
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // Reload TableView with data of the selected weather station upon PickerView selection.
+    self.toggle = 0;
+    [self hidePickerView];
+    _MKCurrLocation = _MKLocations[row];
+    _MKCurrLocIndex = row;
+    [self.tableView reloadData];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _MKLocations.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _MKLocations[row];
+}
+
+-(void)revealPickerView
+{
+    // Make the PickerView appear on the screen.
+    [UIView animateWithDuration:0.2f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut  animations:^
+     {
+         self.pickerView.hidden = NO;
+         self.pickerView.center = (CGPoint){160, 530};
+     }
+                     completion:nil];
+}
+
+-(void)hidePickerView
+{
+    // Make the PickerView disappear from screen by sliding down (offscreen).
+    [UIView animateWithDuration:0.5f delay:0.2f options:UIViewAnimationOptionCurveLinear animations:^
+     {
+         self.pickerView.center = (CGPoint){160, 800};
+     }
+                     completion:^(BOOL finished)
+     {
+         self.pickerView.hidden = YES;
+     }];
+}
+
 #pragma mark UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // LOCATION (ROW 0 in MK)
     if (_isMaunaKea && indexPath.row == 0)
     {
         LocationCell *locCell = (LocationCell *)[tableView dequeueReusableCellWithIdentifier:@"locationCell"];
@@ -159,10 +252,11 @@
             locCell = [locNIB objectAtIndex:0];
         }
         locCell.clipsToBounds = YES;
-        [locCell formatNumbersAndSetText:@"CFHT Station"];
+        // Set the Location of the MK weather station.
+        [locCell formatNumbersAndSetText:_MKCurrLocation];
         return locCell;
     }
-    // DATE (ROW 0)
+    // DATE (ROW 0) (ROW 1 in MK)
     if ((!_isMaunaKea && indexPath.row == 0) || (_isMaunaKea && indexPath.row == 1)) {
         // Initialize DateCell and load NIB.
         DateCell *dateCell = (DateCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingDateCell"];
@@ -181,14 +275,16 @@
         {
             [dateCell closeReformat];
         }
-        // Format values from data dictionary, and set them as text in labels.
+        // Check if data field exists in downloaded data, then format it & set it as text.
         if (_dataDict[@"date_HI"])
         {
-            [dateCell formatNumbersAndSetText:_dataDict[@"date_HI"] :_dataDict[@"date_UT"]];
+            [dateCell formatNumbersAndSetText
+             :_dataDict[@"date_HI"]
+             :_dataDict[@"date_UT"]];
         }
         return dateCell;
     }
-    // TEMPERATURE (ROW 1)
+    // TEMPERATURE (ROW 1) (ROW 2 in MK)
     else if ((!_isMaunaKea && indexPath.row == 1) || (_isMaunaKea && indexPath.row == 2))
     {
         TemperatureCell *tempCell = (TemperatureCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingTemperatureCell"];
@@ -208,15 +304,23 @@
         }
         if (_isMaunaKea && _dataDict[@"temperature"])
         {
-            [tempCell formatNumbersAndSetText:_dataDict[@"temperature"] :_dataDict[@"temperature_F"] :nil :nil];
+            [tempCell formatNumbersAndSetText
+             :_dataDict[@"temperature"]
+             :_dataDict[@"temperature_F"]
+             :nil
+             :nil];
         }
         else if (_dataDict[@"ave_temperature"])
         {
-            [tempCell formatNumbersAndSetText:_dataDict[@"ave_temperature"]:_dataDict[@"ave_temperature_F"] :_dataDict[@"wind_chill_C"]  :_dataDict[@"wind_chill_F"]];
+            [tempCell formatNumbersAndSetText
+             :_dataDict[@"ave_temperature"]
+             :_dataDict[@"ave_temperature_F"]
+             :_dataDict[@"wind_chill_C"]
+             :_dataDict[@"wind_chill_F"]];
         }
         return tempCell;
     }
-    // HUMIDITY (ROW 2)
+    // HUMIDITY (ROW 2) (ROW 3 in MK)
     else if ((!_isMaunaKea && indexPath.row == 2) || (_isMaunaKea && indexPath.row == 3))
     {
         HumidityCell *humidCell = (HumidityCell *)[tableView dequeueReusableCellWithIdentifier:@"humidityCell"];
@@ -264,7 +368,9 @@
         }
         if (_dataDict[@"ave_insolation_kWm2"])
         {
-            [insolationCell formatNumbersAndSetText:_dataDict[@"ave_insolation_kWm2"]:_dataDict[@"ave_insolation"]];
+            [insolationCell formatNumbersAndSetText
+             :_dataDict[@"ave_insolation_kWm2"]
+             :_dataDict[@"ave_insolation"]];
         }
         return insolationCell;
     }
@@ -288,11 +394,15 @@
         }
         if (_dataDict[@"ave_visibility"])
         {
-            [visCell formatNumbersAndSetText:_dataDict[@"ave_visibility"]:_dataDict[@"ave_visibility_km"]:_dataDict[@"ave_visibility_ft"]:_dataDict[@"ave_visibility_mi"]];
+            [visCell formatNumbersAndSetText
+             :_dataDict[@"ave_visibility"]
+             :_dataDict[@"ave_visibility_km"]
+             :_dataDict[@"ave_visibility_ft"]
+             :_dataDict[@"ave_visibility_mi"]];
         }
         return visCell;
     }
-    // WIND (ROW 5) (ROW 3 in MK)
+    // WIND (ROW 5) (ROW 4 in MK)
     else if ((indexPath.row == 5 && !_isMaunaKea) || (_isMaunaKea && indexPath.row == 4))
     {
         WindCell *windCell = (WindCell *)[tableView dequeueReusableCellWithIdentifier:@"expandingWindCell"];
@@ -312,15 +422,29 @@
         }
         if (_isMaunaKea && _dataDict[@"wind_speed"])
         {
-            [windCell formatNumbersAndSetText:_dataDict[@"wind_speed"]:_dataDict[@"wind_speed_mph"]:_dataDict[@"wind_dir"]:_dataDict[@"ave_wind_dir"]:_dataDict[@"max_wind_speed"]:_dataDict[@"max_wind_speed_mph"]:_dataDict[@"max_wind_speed_time"]];
+            [windCell formatNumbersAndSetText
+             :_dataDict[@"wind_speed"]
+             :_dataDict[@"wind_speed_mph"]
+             :_dataDict[@"wind_dir"]
+             :_dataDict[@"ave_wind_dir"]
+             :_dataDict[@"max_wind_speed"]
+             :_dataDict[@"max_wind_speed_mph"]
+             :_dataDict[@"max_wind_speed_time"]];
         }
         if (_dataDict[@"ave_wind_speed_ms"])
         {
-           [windCell formatNumbersAndSetText:_dataDict[@"ave_wind_speed_ms"]:_dataDict[@"wind_speed_mph"]:_dataDict[@"wind_dir"]:_dataDict[@"ave_wind_dir"]:_dataDict[@"max_wind_speed_ms"]:_dataDict[@"max_wind_speed_mph"]:_dataDict[@"max_wind_speed_time"]];
+           [windCell formatNumbersAndSetText
+            :_dataDict[@"ave_wind_speed_ms"]
+            :_dataDict[@"wind_speed_mph"]
+            :_dataDict[@"wind_dir"]
+            :_dataDict[@"ave_wind_dir"]
+            :_dataDict[@"max_wind_speed_ms"]
+            :_dataDict[@"max_wind_speed_mph"]
+            :_dataDict[@"max_wind_speed_time"]];
         }
         return windCell;
     }
-    // PRESSURE (ROW 6) (ROW 4 in MK)
+    // PRESSURE (ROW 6) (ROW 5 in MK)
     else if ((!_isMaunaKea && indexPath.row == 6) || (_isMaunaKea && indexPath.row == 5))
     {
         PressureCell *pressCell = (PressureCell *)[tableView dequeueReusableCellWithIdentifier:@"pressureCell"];
@@ -396,7 +520,13 @@
         }
         if (_dataDict[@"sunrise"])
         {
-            [sunMoonCell formatNumbersAndSetText:_dataDict[@"sunrise"]:_dataDict[@"sunset"]:_dataDict[@"moonrise"]:_dataDict[@"moonset"]:_dataDict[@"illum"]:_dataDict[@"segment"]];
+            [sunMoonCell formatNumbersAndSetText
+             :_dataDict[@"sunrise"]
+             :_dataDict[@"sunset"]
+             :_dataDict[@"moonrise"]
+             :_dataDict[@"moonset"]
+             :_dataDict[@"illum"]
+             :_dataDict[@"segment"]];
         }
         return sunMoonCell;
     }
@@ -448,6 +578,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // If user taps on MK Location row, toggle the PickerView visibility.
+    if (_isMaunaKea && indexPath.row == 0)
+    {
+        if (self.toggle == 0)
+        {
+            self.toggle = 1;
+            [self revealPickerView];
+        }
+        else
+        {
+            self.toggle = 0;
+            [self hidePickerView];
+        }
+    }
     // If the user taps expanded row, shrink the cell and end.
     if (selectedIndex == indexPath.row)
     {

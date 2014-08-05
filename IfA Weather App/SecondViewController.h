@@ -16,5 +16,6 @@
 -(void)setInfrared: (BOOL)isInfrared;
 -(void)setWaterVapor: (BOOL)isWaterVapor;
 -(void)setVisible: (BOOL)isVisible;
+-(void)setAnimation: (BOOL)isAnimation;
 
 @end

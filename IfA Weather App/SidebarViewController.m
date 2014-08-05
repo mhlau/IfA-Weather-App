@@ -28,9 +28,24 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.05f alpha:0.2f];
-    // Set the titles of the sidebar cells. MUST match cell Identifier in storyboard.
-    //menuItems = @[@"Haleakala Title", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"Mauna Kea Title", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea 24-Hour Trends", @"Mauna Kea 48-Hour Trends", @"Satellite Title", @"Infrared", @"Water Vapor", @"Visible"];
-    menuItems = @[@"Haleakala Title", @"Haleakala Weather", @"Haleakala Images", @"Haleakala 24-Hour Trends", @"Haleakala 48-Hour Trends", @"Mauna Kea Title", @"Mauna Kea Weather", @"Mauna Kea Images", @"Mauna Kea 24-Hour Trends", @"Satellite Title", @"Infrared", @"Water Vapor", @"Visible"];
+    // Set the titles of the sidebar cells. MUST EXACTLY MATCH cell Identifier in storyboard.
+    menuItems = @[@"Haleakala Title",
+                  @"Haleakala Weather",
+                  @"Haleakala Images",
+                  @"Haleakala 24-Hour Trends",
+                  @"Haleakala 48-Hour Trends",
+                  @"Mauna Kea Title",
+                  @"Mauna Kea Weather",
+                  @"Mauna Kea Images",
+                  @"Mauna Kea 24-Hour Trends",
+                  @"Satellite Title",
+                  @"Infrared",
+                  @"Water Vapor",
+                  @"Visible",
+                  @"Animations"
+                  //@"Blank",
+                  //@"Settings"
+                  ];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -74,41 +89,51 @@
     if ([segue isKindOfClass: [SWRevealViewControllerSegue class]])
     {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        swSegue.performBlock = ^(SWRevealViewControllerSegue *rvc_segue, UIViewController *svc, UIViewController *dvc)
+        swSegue.performBlock = ^(SWRevealViewControllerSegue *rearVCSegue, UIViewController *sideVC, UIViewController *destVC)
             {
-                // Set SecondVC to download MK images if MK cell is tapped.
-                if ([dvc isKindOfClass:[ViewController class]] && [segue.identifier isEqualToString:@"MKWeatherSegue"])
+                // Haleakala 48 Hour Trends cell is selected:
+                if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
                 {
-                    [(ViewController *)dvc setMaunaKea:true];
+                    [(ThirdViewController *)destVC set48Hours:true];
                 }
-                else if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"MKImageSegue"])
+                // Mauna Kea Weather cell is selected:
+                else if ([destVC isKindOfClass:[ViewController class]] && [segue.identifier isEqualToString:@"MKWeatherSegue"])
                 {
-                    [(SecondViewController *)dvc setMaunaKea:true];
+                    [(ViewController *)destVC setMaunaKea:true];
                 }
-                // Set SecondVC to download IR images if IR cell is tapped.
-                else if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"InfraredSegue"])
+                // Mauna Kea Images cell is selected:
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"MKImageSegue"])
                 {
-                    [(SecondViewController *)dvc setInfrared:true];
+                    [(SecondViewController *)destVC setMaunaKea:true];
                 }
-                else if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"WaterVaporSegue"])
+                // Mauna Kea 24 Hour Trends cell is selcted:
+                else if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"MK24GraphSegue"])
                 {
-                    [(SecondViewController *)dvc setWaterVapor:true];
+                    [(ThirdViewController *)destVC setMaunaKea:true];
                 }
-                else if ([dvc isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"VisibleSegue"])
+                // Infrared Images cell is selected:
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"InfraredSegue"])
                 {
-                    [(SecondViewController *)dvc setVisible:true];
+                    [(SecondViewController *)destVC setInfrared:true];
                 }
-                // Set ThirdVC to download 48-hour data if 48-hour cell is tapped.
-                else if ([dvc isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
+                // Water Vapor Images cell is selected:
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"WaterVaporSegue"])
                 {
-                    [(ThirdViewController *)dvc set48Hours:true];
+                    [(SecondViewController *)destVC setWaterVapor:true];
                 }
-                else if ([dvc isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"MK24GraphSegue"])
+                // Visible Weather Images cell is selected:
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"VisibleSegue"])
                 {
-                    [(ThirdViewController *)dvc setMaunaKea:true];
+                    [(SecondViewController *)destVC setVisible:true];
                 }
+                // Animated Images cell is selected:
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"AnimationSegue"])
+                {
+                    [(SecondViewController *)destVC setAnimation:true];
+                }
+            // Switch from previous ViewController to destination view controller.
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [navController setViewControllers: @[dvc] animated: NO ];
+            [navController setViewControllers: @[destVC] animated: NO ];
             [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
             };
     }

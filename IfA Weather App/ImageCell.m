@@ -29,6 +29,7 @@
     return self;
 }
 
+#pragma mark Segue Identifier setters
 -(void)setMaunaKea: (BOOL)isMaunaKea
 {
     _isMaunaKea = isMaunaKea;

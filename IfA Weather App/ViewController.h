@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DataParser.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DataParserProtocol>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, DataParserProtocol>
 {
     int selectedIndex;
 }

@@ -21,6 +21,7 @@
     BOOL _isInfrared;
     BOOL _isWaterVapor;
     BOOL _isVisible;
+    BOOL _isAnimation;
 }
 
 @property (strong, nonatomic) UIImageView *imageView;
@@ -33,38 +34,121 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Set up tableView as DataParser datasource and delegate.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    // Initialize location and URL arrays depending on whether this is Haleakala or MK cell.
+    
+    // Initialize location and URL arrays according to view type (via segue).
+    // Mauna Kea Images view:
     if (_isMaunaKea)
     {
-        _locations = [[NSArray alloc] initWithObjects:@"CFHT North", @"Gemini Telescope South", @"CFHT NNW", @"CFHT NNE", nil];
-        _URLs = [[NSArray alloc] initWithObjects:@"http://cfht.hawaii.edu/webcams/cfhtdome/cfhtdome.jpg", @"http://cfht.hawaii.edu/webcams/gemdome/gemdome.jpg", @"http://cfht.hawaii.edu/webcams/c4/c4.jpg", @"http://cfht.hawaii.edu/webcams/c3/c3.jpg", nil];
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"CFHT North",
+                      @"Gemini Telescope South",
+                      @"CFHT NNW",
+                      @"CFHT NNE",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://cfht.hawaii.edu/webcams/cfhtdome/cfhtdome.jpg",
+                 @"http://cfht.hawaii.edu/webcams/gemdome/gemdome.jpg",
+                 @"http://cfht.hawaii.edu/webcams/c4/c4.jpg",
+                 @"http://cfht.hawaii.edu/webcams/c3/c3.jpg",
+                 nil];
     }
+    // Infrared Images view:
     else if (_isInfrared)
     {
-        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
-        _URLs = [[NSArray alloc] initWithObjects:@"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRBigIsland.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaii.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaiiWide.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHItoMain.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificNE.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificO.php", nil];
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Big Island",
+                      @"Hawaii",
+                      @"Hawaii (Wide View)",
+                      @"Hawaii to Mainland",
+                      @"Pacific Northeast",
+                      @"Pacific Ocean",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRBigIsland.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaii.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHawaiiWide.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRHItoMain.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificNE.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatIRPacificO.php",
+                 nil];
         self.navigationItem.title = @"Infrared Satellite Images";
     }
+    // Water Vapor images view:
     else if (_isWaterVapor)
     {
-        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", @"Pacific Northeast", @"Pacific Ocean", nil];
-        _URLs = [[NSArray alloc] initWithObjects:@"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVBigIsland.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHawaii.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHawaiiWide.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHItoMain.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVPacificNE.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVPacificO.php", nil];
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Big Island",
+                      @"Hawaii",
+                      @"Hawaii (Wide View)",
+                      @"Hawaii to Mainland",
+                      @"Pacific Northeast",
+                      @"Pacific Ocean",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVBigIsland.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHawaii.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHawaiiWide.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVHItoMain.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVPacificNE.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatWVPacificO.php",
+                 nil];
         self.navigationItem.title = @"Water Vapor Images";
     }
+    // Visible Weather images view:
     else if (_isVisible)
     {
-        _locations = [[NSArray alloc] initWithObjects:@"Big Island", @"Hawaii", @"Hawaii (Wide View)", @"Hawaii to Mainland", nil];
-        _URLs = [[NSArray alloc] initWithObjects:@"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisBigIsland.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHawaii.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHawaiiWide.php", @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHItoMain.php", nil];
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Big Island",
+                      @"Hawaii",
+                      @"Hawaii (Wide View)",
+                      @"Hawaii to Mainland",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisBigIsland.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHawaii.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHawaiiWide.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKSatImages/MKSatVisHItoMain.php",
+                 nil];
         self.navigationItem.title = @"Visible Weather Images";
     }
+    // Animated images view:
+    else if (_isAnimation)
+    {
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Hawaii Infrared",
+                      @"Hawaii to Mainland IR",
+                      @"Hawaii Water Vapor",
+                      @"Hawaii to Mainland WV",
+                      @"Hawaii Visible Weather",
+                      @"Hawaii to Mainland Vis",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKIRHawaiiGIF.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKIRHItoMainGIF.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKWVHawaiiGIF.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKWVHItoMainGIF.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKVisHawaiiGIF.php",
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKGifs/MKVisHItoMainGIF.php",
+                 nil];
+        self.navigationItem.title = @"24-Hour Animations";
+    }
+    // Haleakala Images view:
     else
     {
-        _locations = [[NSArray alloc] initWithObjects:@"Haleakala", @"PS1 All-Sky", nil];
-        _URLs = [[NSArray alloc] initWithObjects:@"http://132.160.98.225/axis-cgi/jpg/image.cgi", @"http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current", nil];
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Haleakala",
+                      @"PS1 All-Sky",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://132.160.98.225/axis-cgi/jpg/image.cgi",
+                 @"http://ps1puka.ps1.ifa.hawaii.edu/cgi-bin/colorAllSkyCam?image=current",
+                 nil];
     }
+    
     // Set up the sidebar.
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     _sidebarButton.target = self.revealViewController;
@@ -72,6 +156,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
+#pragma mark Segue Interaction Setters
 -(void)setMaunaKea: (BOOL)isMaunaKea
 {
     _isMaunaKea = isMaunaKea;
@@ -90,6 +175,11 @@
 -(void)setVisible: (BOOL)isVisible
 {
     _isVisible = isVisible;
+}
+
+-(void)setAnimation: (BOOL)isAnimation
+{
+    _isAnimation = isAnimation;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
