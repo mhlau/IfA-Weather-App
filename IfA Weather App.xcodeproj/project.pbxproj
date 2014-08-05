@@ -154,8 +154,8 @@
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
 		C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		C367CE7F19906C1800A59102 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		C367CE8519906DC200A59102 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
-		C367CE8619906DC200A59102 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
+		C367CE8519906DC200A59102 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		C367CE8619906DC200A59102 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
