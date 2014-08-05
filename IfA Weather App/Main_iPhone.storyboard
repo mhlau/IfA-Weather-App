@@ -443,41 +443,6 @@
                                     <segue destination="FRH-5u-4ww" kind="custom" identifier="AnimationSegue" customClass="SWRevealViewControllerSegue" id="Rdj-eB-Fr9"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Blank" id="bfg-Ih-0KO">
-                                <rect key="frame" x="0.0" y="638" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bfg-Ih-0KO" id="5N6-st-nIs">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.19842896169999999" green="0.19842896169999999" blue="0.19842896169999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Settings" id="dt6-M0-G5O">
-                                <rect key="frame" x="0.0" y="682" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dt6-M0-G5O" id="Vko-TT-rWk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbd-fj-I7M">
-                                            <rect key="frame" x="67" y="7" width="187" height="30"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="25"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCu-JY-ttU">
-                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.19842896169999999" green="0.19842896169999999" blue="0.19842896169999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="iWA-y8-25m" kind="custom" identifier="SettingsSegue" customClass="SWRevealViewControllerSegue" id="X8F-AQ-naT"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="SwA-Cq-0xr" id="XKe-G0-rPp"/>
@@ -647,7 +612,6 @@
         <image name="camera.png" width="512" height="512"/>
         <image name="eye.png" width="512" height="512"/>
         <image name="film.png" width="512" height="512"/>
-        <image name="gear.png" width="512" height="512"/>
         <image name="graph.png" width="256" height="256"/>
         <image name="graph2.png" width="256" height="256"/>
         <image name="graph3.png" width="256" height="256"/>

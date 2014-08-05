@@ -49,7 +49,9 @@
 
 -(void)formatNumbersAndSetText :(NSNumber *)pressure
 {
-    self.pressureValueLabel.text = [NSString stringWithFormat:@"%@ millibars", pressure];
+    self.pressureValueLabel.text = [pressure isEqual:@"N/A"] ?
+        [NSString stringWithFormat:@"%@", pressure] :
+        [NSString stringWithFormat:@"%@ millibars", pressure];
 }
 
 @end

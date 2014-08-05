@@ -65,12 +65,22 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)wsMS :(NSNumber *)wsMPH :(NSString *)dir :(NSString *)dirDeg :(NSNumber *)maxMS :(NSNumber *)maxMPH :(NSNumber *)maxDate
 {
-    self.windMSLabel.text = [NSString stringWithFormat:@"%@ m/s", wsMS];
-    self.windMPHLabel.text = [NSString stringWithFormat:@"%@ mph", wsMPH];
+    self.windMSLabel.text = [wsMS isEqual:@"N/A"] ?
+        [NSString stringWithFormat:@"%@", wsMS] :
+        [NSString stringWithFormat:@"%@ m/s", wsMS];
+    self.windMPHLabel.text = [wsMS isEqual:@"N/A"] ?
+        [NSString stringWithFormat:@"%@", wsMPH] :
+        [NSString stringWithFormat:@"%@ mph", wsMPH];
     self.windDirDirLabel.text = [NSString stringWithFormat:@"%@", dir];
-    self.windDirDegLabel.text = [NSString stringWithFormat:@"%@", dirDeg];
-    self.windMaxMSLabel.text = [NSString stringWithFormat:@"%@ m/s", maxMS];
-    self.windMaxMPHLabel.text = [NSString stringWithFormat:@"%@ mph", maxMPH];
+    self.windDirDegLabel.text = [dirDeg isEqual:@"N/A"] ?
+        @"Degrees N/A" :
+        [NSString stringWithFormat:@"%@", dirDeg];
+    self.windMaxMSLabel.text = [maxMS isEqual:@"N/A"] ?
+        [NSString stringWithFormat:@"%@", maxMS] :
+        [NSString stringWithFormat:@"%@ m/s", maxMS];
+    self.windMaxMPHLabel.text = [maxMS isEqual:@"N/A"] ?
+        [NSString stringWithFormat:@"%@", maxMPH] :
+        [NSString stringWithFormat:@"%@ mph", maxMPH];
     self.windMaxTimeLabel.text = [NSString stringWithFormat:@"%@ UT", maxDate];
 }
 
