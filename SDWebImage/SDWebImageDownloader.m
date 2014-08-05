@@ -69,7 +69,8 @@ static NSString *const kCompletedCallbackKey = @"completed";
         _URLCallbacks = [NSMutableDictionary new];
         _HTTPHeaders = [NSMutableDictionary dictionaryWithObject:@"image/webp,image/*;q=0.8" forKey:@"Accept"];
         _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);
-        _downloadTimeout = 15.0;
+        // Micah Lau changed this from 15.0 to 60.0.
+        _downloadTimeout = 60.0;
     }
     return self;
 }
@@ -111,7 +112,8 @@ static NSString *const kCompletedCallbackKey = @"completed";
     [self addProgressCallback:progressBlock andCompletedBlock:completedBlock forURL:url createCallback:^{
         NSTimeInterval timeoutInterval = wself.downloadTimeout;
         if (timeoutInterval == 0.0) {
-            timeoutInterval = 15.0;
+            // Micah Lau changed this from 15.0 to 60.0.
+            timeoutInterval = 60.0;
         }
 
         // In order to prevent from potential duplicate caching (NSURLCache + SDImageCache) we disable the cache for image requests if told otherwise
