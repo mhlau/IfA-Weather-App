@@ -29,6 +29,7 @@
     NSArray *_MKURLs;
     NSString *_MKCurrLocation;
     NSInteger _MKCurrLocIndex;
+    CGFloat _height;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -112,11 +113,20 @@
         _MKCurrLocIndex = 0;
         self.toggle = 0;
         // Initialize UIPickerView and set up its appearance, delegate and data source.
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        _height = screenRect.size.height;
         self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320.0, 120.0)];
         [self.pickerView setBackgroundColor:[UIColor whiteColor]];
         self.pickerView.delegate = self;
         self.pickerView.dataSource = self;
-        self.pickerView.center = (CGPoint){160, 530};
+        if (_height >= 568)
+        {
+            self.pickerView.center = (CGPoint){160, 530};
+        }
+        else
+        {
+            self.pickerView.center = (CGPoint){160, 430};
+        }
         [self.view addSubview:self.pickerView];
         [self.view bringSubviewToFront:self.pickerView];
         self.pickerView.hidden = YES;
@@ -221,7 +231,14 @@
     [UIView animateWithDuration:0.2f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut  animations:^
      {
          self.pickerView.hidden = NO;
-         self.pickerView.center = (CGPoint){160, 530};
+         if (_height >= 568)
+         {
+             self.pickerView.center = (CGPoint){160, 530};
+         }
+         else
+         {
+             self.pickerView.center = (CGPoint){160, 430};
+         }
      }
                      completion:nil];
 }
