@@ -10,8 +10,6 @@
 		C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B1345196BCAAB003641E5 /* GraphCell.xib */; };
 		C30B1349196BCAD5003641E5 /* GraphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B1348196BCAD5003641E5 /* GraphCell.m */; };
 		C3144DC11988697A004A394C /* graph3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3144DC01988697A004A394C /* graph3.png */; };
-		C32308901991D7E500C28F93 /* default-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = C323088F1991D7E500C28F93 /* default-cover.png */; };
-		C32308921991D97600C28F93 /* default-cover-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C32308911991D97600C28F93 /* default-cover-small.png */; };
 		C3248D45198C1E1900EF2FCD /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3248D44198C1E1900EF2FCD /* LocationCell.xib */; };
 		C3248D48198C1E3100EF2FCD /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3248D47198C1E3100EF2FCD /* LocationCell.m */; };
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
@@ -76,6 +74,8 @@
 		C3D40AB11975241700081A0E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D40AAF1975241700081A0E /* menu@2x.png */; };
 		C3D8818E197F457B003D8233 /* infrared.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818D197F457B003D8233 /* infrared.png */; };
 		C3D88190197F58A7003D8233 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818F197F58A7003D8233 /* water.png */; };
+		C3DA8F8B1992B4A000E7A925 /* default-cover-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DA8F891992B4A000E7A925 /* default-cover-small.png */; };
+		C3DA8F8C1992B4A000E7A925 /* default-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DA8F8A1992B4A000E7A925 /* default-cover.png */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
 		C3EE290619922A8F00E8A6C7 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EE290519922A8F00E8A6C7 /* Placeholder.png */; };
@@ -158,8 +158,6 @@
 		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell/GraphCell.h"; sourceTree = SOURCE_ROOT; };
 		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell/GraphCell.m"; sourceTree = SOURCE_ROOT; };
 		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph3.png; path = Images/SidebarImages/graph3.png; sourceTree = "<group>"; };
-		C323088F1991D7E500C28F93 /* default-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover.png"; path = "Images/default-cover.png"; sourceTree = "<group>"; };
-		C32308911991D97600C28F93 /* default-cover-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover-small.png"; path = "Images/default-cover-small.png"; sourceTree = "<group>"; };
 		C3248D44198C1E1900EF2FCD /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationCell.xib; path = DataCells/LocationCell/LocationCell.xib; sourceTree = "<group>"; };
 		C3248D46198C1E3100EF2FCD /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCell.h; path = DataCells/LocationCell/LocationCell.h; sourceTree = "<group>"; };
 		C3248D47198C1E3100EF2FCD /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationCell.m; path = DataCells/LocationCell/LocationCell.m; sourceTree = "<group>"; };
@@ -246,6 +244,8 @@
 		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "Images/menu@2x.png"; sourceTree = "<group>"; };
 		C3D8818D197F457B003D8233 /* infrared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infrared.png; path = Images/SidebarImages/infrared.png; sourceTree = "<group>"; };
 		C3D8818F197F58A7003D8233 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = water.png; path = Images/SidebarImages/water.png; sourceTree = "<group>"; };
+		C3DA8F891992B4A000E7A925 /* default-cover-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover-small.png"; path = "Images/default-cover-small.png"; sourceTree = "<group>"; };
+		C3DA8F8A1992B4A000E7A925 /* default-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover.png"; path = "Images/default-cover.png"; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3EE290519922A8F00E8A6C7 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Placeholder.png; path = Images/Placeholder.png; sourceTree = "<group>"; };
@@ -503,17 +503,17 @@
 		C3BCDDA4196B7DA9008BCC91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3EE290519922A8F00E8A6C7 /* Placeholder.png */,
-				C3FE2EB219760A6F001D0E2C /* icons */,
-				C3732E951975F854001AB97E /* SidebarImages */,
-				C323088F1991D7E500C28F93 /* default-cover.png */,
-				C32308911991D97600C28F93 /* default-cover-small.png */,
+				C3DA8F891992B4A000E7A925 /* default-cover-small.png */,
+				C3DA8F8A1992B4A000E7A925 /* default-cover.png */,
 				C33C0A391980691F0077798E /* haleakalamorning.jpg */,
 				C324D1B31980987400B2C217 /* maunakeamorning.jpg */,
+				C3EE290519922A8F00E8A6C7 /* Placeholder.png */,
 				C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */,
 				C3BCDDA6196B7DA9008BCC91 /* InfoPlist.strings */,
 				C3BCDDA9196B7DA9008BCC91 /* main.m */,
 				C3BCDDAB196B7DA9008BCC91 /* IfA Weather App-Prefix.pch */,
+				C3FE2EB219760A6F001D0E2C /* icons */,
+				C3732E951975F854001AB97E /* SidebarImages */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -742,8 +742,9 @@
 				C3144DC11988697A004A394C /* graph3.png in Resources */,
 				C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */,
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
+				C3DA8F8C1992B4A000E7A925 /* default-cover.png in Resources */,
+				C3DA8F8B1992B4A000E7A925 /* default-cover-small.png in Resources */,
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
-				C32308901991D7E500C28F93 /* default-cover.png in Resources */,
 				C34430AB199245EB00E20046 /* MaunaKeaWeather.png in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */,
@@ -771,7 +772,6 @@
 				C33C0A351980531A0077798E /* eye.png in Resources */,
 				C3C1968A1991C33700C292A7 /* forecast.png in Resources */,
 				C3FE2EBA19760A6F001D0E2C /* Icon-40@2x.png in Resources */,
-				C32308921991D97600C28F93 /* default-cover-small.png in Resources */,
 				C3D88190197F58A7003D8233 /* water.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
