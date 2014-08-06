@@ -30,3 +30,8 @@ IfA Weather uses the following libraries and packages:
 - CorePlot (https://github.com/core-plot/core-plot) as its graphing framework,
 - SDWebImage and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
 - SWRevealViewController (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
+
+## App Screenshots
+
+:-------------------------:|:-------------------------:
+![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/24HourAnimations.gif)  |  ![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/HaleakalaWeather.png)
