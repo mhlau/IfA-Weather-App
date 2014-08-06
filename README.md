@@ -17,7 +17,7 @@ Download SDWebImage from https://github.com/rs/SDWebImage, then add it to the If
         _URLCallbacks = [NSMutableDictionary new];
         _HTTPHeaders = [NSMutableDictionary dictionaryWithObject:@"image/webp,image/*;q=0.8" forKey:@"Accept"];
         _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);
-        // Micah Lau changed this from 15.0 to 500.0.
+        // mhlau changed this from 15.0 to 500.0.
         _downloadTimeout = 500.0;
     }
     return self;
