@@ -223,7 +223,10 @@
         imageCell = [imageCellNIB objectAtIndex:0];
     }
     // Use the new provided setImageWithURL: method to load the web image.
-    [imageCell.imageView setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]] placeholderImage:[UIImage imageNamed:@"Placeholder.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [imageCell.imageView setImageWithURL:[NSURL URLWithString:_URLs[indexPath.row]]
+                        placeholderImage:[UIImage imageNamed:@"Placeholder.png"]
+                                 options:SDWebImageContinueInBackground
+             usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     // Disable selection on imageCells.
     imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
     // Set location labels for each cell.
