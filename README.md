@@ -1,4 +1,5 @@
-IfA-Weather-App
-===============
+## Institute for Astronomy Weather App
 
-Weather app built for the Institute for Astronomy at Pukalani, Maui.
+# About
+
+The Institute for Astronomy Weather App provides a clean display of real-time data and images taken from observatories at the summits of Haleakala and Mauna Kea. 
