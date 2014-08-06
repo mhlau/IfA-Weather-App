@@ -64,7 +64,6 @@
 		C3BCDE1B196B7E49008BCC91 /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE1A196B7E49008BCC91 /* DataParser.m */; };
 		C3BCDE24196B7E75008BCC91 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */; };
 		C3BCDE25196B7E75008BCC91 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCDE1F196B7E75008BCC91 /* ImageCell.m */; };
-		C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BCDE23196B7E75008BCC91 /* Placeholder.png */; };
 		C3C1968A1991C33700C292A7 /* forecast.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C196891991C33700C292A7 /* forecast.png */; };
 		C3D40AA619750D1F00081A0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AA519750D1F00081A0E /* SWRevealViewController.m */; };
 		C3D40AAD1975191800081A0E /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D40AAC1975191800081A0E /* SidebarViewController.m */; };
@@ -74,6 +73,7 @@
 		C3D88190197F58A7003D8233 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D8818F197F58A7003D8233 /* water.png */; };
 		C3DB21D0196B804F0009B919 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21CF196B804F0009B919 /* Accelerate.framework */; };
 		C3DB21D4196B82D20009B919 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DB21D3196B82D20009B919 /* QuartzCore.framework */; };
+		C3EE290619922A8F00E8A6C7 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EE290519922A8F00E8A6C7 /* Placeholder.png */; };
 		C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB319760A6F001D0E2C /* Icon-40.png */; };
 		C3FE2EBA19760A6F001D0E2C /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB419760A6F001D0E2C /* Icon-40@2x.png */; };
 		C3FE2EBB19760A6F001D0E2C /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FE2EB519760A6F001D0E2C /* Icon-60.png */; };
@@ -142,96 +142,96 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
-		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell.h"; sourceTree = SOURCE_ROOT; };
-		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell.m"; sourceTree = SOURCE_ROOT; };
-		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph3.png; sourceTree = "<group>"; };
-		C323088F1991D7E500C28F93 /* default-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-cover.png"; sourceTree = "<group>"; };
-		C32308911991D97600C28F93 /* default-cover-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-cover-small.png"; sourceTree = "<group>"; };
-		C3248D44198C1E1900EF2FCD /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
-		C3248D46198C1E3100EF2FCD /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
-		C3248D47198C1E3100EF2FCD /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
-		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maunakeamorning.jpg; sourceTree = "<group>"; };
-		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
-		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haleakalamorning.jpg; sourceTree = "<group>"; };
+		C30B1345196BCAAB003641E5 /* GraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphCell.xib; path = "IfA Weather App/GraphCell/GraphCell.xib"; sourceTree = SOURCE_ROOT; };
+		C30B1347196BCAD5003641E5 /* GraphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphCell.h; path = "IfA Weather App/GraphCell/GraphCell.h"; sourceTree = SOURCE_ROOT; };
+		C30B1348196BCAD5003641E5 /* GraphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphCell.m; path = "IfA Weather App/GraphCell/GraphCell.m"; sourceTree = SOURCE_ROOT; };
+		C3144DC01988697A004A394C /* graph3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph3.png; path = Images/SidebarImages/graph3.png; sourceTree = "<group>"; };
+		C323088F1991D7E500C28F93 /* default-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover.png"; path = "Images/default-cover.png"; sourceTree = "<group>"; };
+		C32308911991D97600C28F93 /* default-cover-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-cover-small.png"; path = "Images/default-cover-small.png"; sourceTree = "<group>"; };
+		C3248D44198C1E1900EF2FCD /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationCell.xib; path = DataCells/LocationCell/LocationCell.xib; sourceTree = "<group>"; };
+		C3248D46198C1E3100EF2FCD /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCell.h; path = DataCells/LocationCell/LocationCell.h; sourceTree = "<group>"; };
+		C3248D47198C1E3100EF2FCD /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationCell.m; path = DataCells/LocationCell/LocationCell.m; sourceTree = "<group>"; };
+		C324D1B31980987400B2C217 /* maunakeamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = maunakeamorning.jpg; path = Images/maunakeamorning.jpg; sourceTree = "<group>"; };
+		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eye.png; path = Images/SidebarImages/eye.png; sourceTree = "<group>"; };
+		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = haleakalamorning.jpg; path = Images/haleakalamorning.jpg; sourceTree = "<group>"; };
 		C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
-		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
-		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph2.png; sourceTree = "<group>"; };
-		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
-		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph.png; path = Images/SidebarImages/graph.png; sourceTree = "<group>"; };
+		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph2.png; path = Images/SidebarImages/graph2.png; sourceTree = "<group>"; };
+		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Images/SidebarImages/sun.png; sourceTree = "<group>"; };
+		C3732E961975F9E5001AB97E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = Images/SidebarImages/camera.png; sourceTree = "<group>"; };
 		C3798CE01989BF1F001F36A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
-		C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
-		C3AF877E198C5A4900D91079 /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
+		C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+UIActivityIndicatorForSDWebImage.h"; path = "ImageCell/UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+UIActivityIndicatorForSDWebImage.m"; path = "ImageCell/UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
+		C3AF877E198C5A4900D91079 /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = film.png; path = Images/SidebarImages/film.png; sourceTree = "<group>"; };
 		C3BCDD9A196B7DA9008BCC91 /* IfA Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IfA Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDD9D196B7DA9008BCC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BCDD9F196B7DA9008BCC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C3BCDDA1196B7DA9008BCC91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IfA Weather App-Info.plist"; sourceTree = "<group>"; };
+		C3BCDDA5196B7DA9008BCC91 /* IfA Weather App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "IfA Weather App-Info.plist"; path = "main/IfA Weather App-Info.plist"; sourceTree = "<group>"; };
 		C3BCDDA7196B7DA9008BCC91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C3BCDDA9196B7DA9008BCC91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C3BCDDAB196B7DA9008BCC91 /* IfA Weather App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IfA Weather App-Prefix.pch"; sourceTree = "<group>"; };
+		C3BCDDA9196B7DA9008BCC91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = main/main.m; sourceTree = "<group>"; };
+		C3BCDDAB196B7DA9008BCC91 /* IfA Weather App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IfA Weather App-Prefix.pch"; path = "main/IfA Weather App-Prefix.pch"; sourceTree = "<group>"; };
 		C3BCDDBB196B7DA9008BCC91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3BCDDC1196B7DA9008BCC91 /* IfA Weather AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IfA Weather AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCDDC2196B7DA9008BCC91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C3BCDDCA196B7DA9008BCC91 /* IfA Weather AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IfA Weather AppTests-Info.plist"; sourceTree = "<group>"; };
 		C3BCDDCC196B7DA9008BCC91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C3BCDDCE196B7DA9008BCC91 /* IfA_Weather_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IfA_Weather_AppTests.m; sourceTree = "<group>"; };
-		C3BCDDD9196B7DDC008BCC91 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
-		C3BCDDDA196B7DDC008BCC91 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
-		C3BCDDDF196B7DF0008BCC91 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C3BCDDE0196B7DF0008BCC91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C3BCDDE1196B7DF0008BCC91 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3BCDDE2196B7DF0008BCC91 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C3BCDDE3196B7DF0008BCC91 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		C3BCDDE4196B7DF0008BCC91 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		C3BCDDE5196B7DF0008BCC91 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		C3BCDDE6196B7DF0008BCC91 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
-		C3BCDDEB196B7E22008BCC91 /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
-		C3BCDDEC196B7E22008BCC91 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
-		C3BCDDED196B7E22008BCC91 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
-		C3BCDDEE196B7E22008BCC91 /* TemperatureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemperatureCell.xib; sourceTree = "<group>"; };
-		C3BCDDEF196B7E22008BCC91 /* TemperatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureCell.h; sourceTree = "<group>"; };
-		C3BCDDF0196B7E22008BCC91 /* TemperatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureCell.m; sourceTree = "<group>"; };
-		C3BCDDF1196B7E22008BCC91 /* HumidityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumidityCell.xib; sourceTree = "<group>"; };
-		C3BCDDF2196B7E22008BCC91 /* HumidityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumidityCell.h; sourceTree = "<group>"; };
-		C3BCDDF3196B7E22008BCC91 /* HumidityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumidityCell.m; sourceTree = "<group>"; };
-		C3BCDDF4196B7E22008BCC91 /* InsolationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsolationCell.xib; sourceTree = "<group>"; };
-		C3BCDDF5196B7E22008BCC91 /* InsolationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsolationCell.h; sourceTree = "<group>"; };
-		C3BCDDF6196B7E22008BCC91 /* InsolationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsolationCell.m; sourceTree = "<group>"; };
-		C3BCDDF7196B7E22008BCC91 /* VisibilityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisibilityCell.xib; sourceTree = "<group>"; };
-		C3BCDDF8196B7E22008BCC91 /* VisibilityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibilityCell.h; sourceTree = "<group>"; };
-		C3BCDDF9196B7E22008BCC91 /* VisibilityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisibilityCell.m; sourceTree = "<group>"; };
-		C3BCDDFA196B7E22008BCC91 /* WindCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WindCell.xib; sourceTree = "<group>"; };
-		C3BCDDFB196B7E22008BCC91 /* WindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindCell.h; sourceTree = "<group>"; };
-		C3BCDDFC196B7E22008BCC91 /* WindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindCell.m; sourceTree = "<group>"; };
-		C3BCDDFD196B7E22008BCC91 /* PressureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureCell.xib; sourceTree = "<group>"; };
-		C3BCDDFE196B7E22008BCC91 /* PressureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PressureCell.h; sourceTree = "<group>"; };
-		C3BCDDFF196B7E22008BCC91 /* PressureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PressureCell.m; sourceTree = "<group>"; };
-		C3BCDE00196B7E22008BCC91 /* DewpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DewpointCell.xib; sourceTree = "<group>"; };
-		C3BCDE01196B7E22008BCC91 /* DewpointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DewpointCell.h; sourceTree = "<group>"; };
-		C3BCDE02196B7E22008BCC91 /* DewpointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DewpointCell.m; sourceTree = "<group>"; };
-		C3BCDE03196B7E22008BCC91 /* SunMoonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SunMoonCell.xib; sourceTree = "<group>"; };
-		C3BCDE04196B7E22008BCC91 /* SunMoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunMoonCell.h; sourceTree = "<group>"; };
-		C3BCDE05196B7E22008BCC91 /* SunMoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunMoonCell.m; sourceTree = "<group>"; };
-		C3BCDE19196B7E49008BCC91 /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParser.h; sourceTree = "<group>"; };
-		C3BCDE1A196B7E49008BCC91 /* DataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataParser.m; sourceTree = "<group>"; };
-		C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
-		C3BCDE1E196B7E75008BCC91 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
-		C3BCDE1F196B7E75008BCC91 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		C3BCDE23196B7E75008BCC91 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		C3BCDDD9196B7DDC008BCC91 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = Storyboard/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		C3BCDDDA196B7DDC008BCC91 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPad.storyboard; path = Storyboard/Main_iPad.storyboard; sourceTree = "<group>"; };
+		C3BCDDDF196B7DF0008BCC91 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = main/AppDelegate.h; sourceTree = "<group>"; };
+		C3BCDDE0196B7DF0008BCC91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = main/AppDelegate.m; sourceTree = "<group>"; };
+		C3BCDDE1196B7DF0008BCC91 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ViewControllers/ViewController.h; sourceTree = "<group>"; };
+		C3BCDDE2196B7DF0008BCC91 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ViewControllers/ViewController.m; sourceTree = "<group>"; };
+		C3BCDDE3196B7DF0008BCC91 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ViewControllers/SecondViewController.h; sourceTree = "<group>"; };
+		C3BCDDE4196B7DF0008BCC91 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = ViewControllers/SecondViewController.m; sourceTree = "<group>"; };
+		C3BCDDE5196B7DF0008BCC91 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ViewControllers/ThirdViewController.h; sourceTree = "<group>"; };
+		C3BCDDE6196B7DF0008BCC91 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = ViewControllers/ThirdViewController.m; sourceTree = "<group>"; };
+		C3BCDDEB196B7E22008BCC91 /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateCell.xib; path = DataCells/DateCell/DateCell.xib; sourceTree = "<group>"; };
+		C3BCDDEC196B7E22008BCC91 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateCell.h; path = DataCells/DateCell/DateCell.h; sourceTree = "<group>"; };
+		C3BCDDED196B7E22008BCC91 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateCell.m; path = DataCells/DateCell/DateCell.m; sourceTree = "<group>"; };
+		C3BCDDEE196B7E22008BCC91 /* TemperatureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TemperatureCell.xib; path = DataCells/TemperatureCell/TemperatureCell.xib; sourceTree = "<group>"; };
+		C3BCDDEF196B7E22008BCC91 /* TemperatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemperatureCell.h; path = DataCells/TemperatureCell/TemperatureCell.h; sourceTree = "<group>"; };
+		C3BCDDF0196B7E22008BCC91 /* TemperatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemperatureCell.m; path = DataCells/TemperatureCell/TemperatureCell.m; sourceTree = "<group>"; };
+		C3BCDDF1196B7E22008BCC91 /* HumidityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HumidityCell.xib; path = DataCells/HumidityCell/HumidityCell.xib; sourceTree = "<group>"; };
+		C3BCDDF2196B7E22008BCC91 /* HumidityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HumidityCell.h; path = DataCells/HumidityCell/HumidityCell.h; sourceTree = "<group>"; };
+		C3BCDDF3196B7E22008BCC91 /* HumidityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HumidityCell.m; path = DataCells/HumidityCell/HumidityCell.m; sourceTree = "<group>"; };
+		C3BCDDF4196B7E22008BCC91 /* InsolationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InsolationCell.xib; path = DataCells/InsolationCell/InsolationCell.xib; sourceTree = "<group>"; };
+		C3BCDDF5196B7E22008BCC91 /* InsolationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InsolationCell.h; path = DataCells/InsolationCell/InsolationCell.h; sourceTree = "<group>"; };
+		C3BCDDF6196B7E22008BCC91 /* InsolationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InsolationCell.m; path = DataCells/InsolationCell/InsolationCell.m; sourceTree = "<group>"; };
+		C3BCDDF7196B7E22008BCC91 /* VisibilityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VisibilityCell.xib; path = DataCells/VisibilityCell/VisibilityCell.xib; sourceTree = "<group>"; };
+		C3BCDDF8196B7E22008BCC91 /* VisibilityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisibilityCell.h; path = DataCells/VisibilityCell/VisibilityCell.h; sourceTree = "<group>"; };
+		C3BCDDF9196B7E22008BCC91 /* VisibilityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VisibilityCell.m; path = DataCells/VisibilityCell/VisibilityCell.m; sourceTree = "<group>"; };
+		C3BCDDFA196B7E22008BCC91 /* WindCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WindCell.xib; path = DataCells/WindCell/WindCell.xib; sourceTree = "<group>"; };
+		C3BCDDFB196B7E22008BCC91 /* WindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindCell.h; path = DataCells/WindCell/WindCell.h; sourceTree = "<group>"; };
+		C3BCDDFC196B7E22008BCC91 /* WindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindCell.m; path = DataCells/WindCell/WindCell.m; sourceTree = "<group>"; };
+		C3BCDDFD196B7E22008BCC91 /* PressureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PressureCell.xib; path = DataCells/PressureCell/PressureCell.xib; sourceTree = "<group>"; };
+		C3BCDDFE196B7E22008BCC91 /* PressureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PressureCell.h; path = DataCells/PressureCell/PressureCell.h; sourceTree = "<group>"; };
+		C3BCDDFF196B7E22008BCC91 /* PressureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PressureCell.m; path = DataCells/PressureCell/PressureCell.m; sourceTree = "<group>"; };
+		C3BCDE00196B7E22008BCC91 /* DewpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DewpointCell.xib; path = DataCells/DewpointCell/DewpointCell.xib; sourceTree = "<group>"; };
+		C3BCDE01196B7E22008BCC91 /* DewpointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DewpointCell.h; path = DataCells/DewpointCell/DewpointCell.h; sourceTree = "<group>"; };
+		C3BCDE02196B7E22008BCC91 /* DewpointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DewpointCell.m; path = DataCells/DewpointCell/DewpointCell.m; sourceTree = "<group>"; };
+		C3BCDE03196B7E22008BCC91 /* SunMoonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SunMoonCell.xib; path = DataCells/SunMoonCell/SunMoonCell.xib; sourceTree = "<group>"; };
+		C3BCDE04196B7E22008BCC91 /* SunMoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SunMoonCell.h; path = DataCells/SunMoonCell/SunMoonCell.h; sourceTree = "<group>"; };
+		C3BCDE05196B7E22008BCC91 /* SunMoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SunMoonCell.m; path = DataCells/SunMoonCell/SunMoonCell.m; sourceTree = "<group>"; };
+		C3BCDE19196B7E49008BCC91 /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataParser.h; path = DataParser/DataParser.h; sourceTree = "<group>"; };
+		C3BCDE1A196B7E49008BCC91 /* DataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataParser.m; path = DataParser/DataParser.m; sourceTree = "<group>"; };
+		C3BCDE1D196B7E75008BCC91 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageCell.xib; path = ImageCell/ImageCell.xib; sourceTree = "<group>"; };
+		C3BCDE1E196B7E75008BCC91 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCell.h; path = ImageCell/ImageCell.h; sourceTree = "<group>"; };
+		C3BCDE1F196B7E75008BCC91 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCell.m; path = ImageCell/ImageCell.m; sourceTree = "<group>"; };
 		C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
-		C3C196891991C33700C292A7 /* forecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecast.png; sourceTree = "<group>"; };
-		C3D40AA519750D1F00081A0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		C3D40AA919750D2500081A0E /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		C3D40AAB1975191800081A0E /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
-		C3D40AAC1975191800081A0E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
-		C3D40AAE1975241700081A0E /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
-		C3D8818D197F457B003D8233 /* infrared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infrared.png; sourceTree = "<group>"; };
-		C3D8818F197F58A7003D8233 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		C3C196891991C33700C292A7 /* forecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forecast.png; path = Images/SidebarImages/forecast.png; sourceTree = "<group>"; };
+		C3D40AA519750D1F00081A0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealController/SWRevealViewController.m; sourceTree = "<group>"; };
+		C3D40AA919750D2500081A0E /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealController/SWRevealViewController.h; sourceTree = "<group>"; };
+		C3D40AAB1975191800081A0E /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarViewController.h; path = ViewControllers/SidebarViewController.h; sourceTree = "<group>"; };
+		C3D40AAC1975191800081A0E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarViewController.m; path = ViewControllers/SidebarViewController.m; sourceTree = "<group>"; };
+		C3D40AAE1975241700081A0E /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Images/menu.png; sourceTree = "<group>"; };
+		C3D40AAF1975241700081A0E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "Images/menu@2x.png"; sourceTree = "<group>"; };
+		C3D8818D197F457B003D8233 /* infrared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infrared.png; path = Images/SidebarImages/infrared.png; sourceTree = "<group>"; };
+		C3D8818F197F58A7003D8233 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = water.png; path = Images/SidebarImages/water.png; sourceTree = "<group>"; };
 		C3DB21CF196B804F0009B919 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C3DB21D3196B82D20009B919 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3EE290519922A8F00E8A6C7 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Placeholder.png; path = Images/Placeholder.png; sourceTree = "<group>"; };
 		C3FE2EB319760A6F001D0E2C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		C3FE2EB419760A6F001D0E2C /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
 		C3FE2EB519760A6F001D0E2C /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
@@ -473,6 +473,7 @@
 		C3BCDDA4196B7DA9008BCC91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3EE290519922A8F00E8A6C7 /* Placeholder.png */,
 				C3FE2EB219760A6F001D0E2C /* icons */,
 				C3732E951975F854001AB97E /* SidebarImages */,
 				C323088F1991D7E500C28F93 /* default-cover.png */,
@@ -539,7 +540,6 @@
 				C3BCDE1F196B7E75008BCC91 /* ImageCell.m */,
 				C39B229E198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
 				C39B229F198B6619005BD341 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
-				C3BCDE23196B7E75008BCC91 /* Placeholder.png */,
 			);
 			name = ImageCell;
 			sourceTree = "<group>";
@@ -702,6 +702,7 @@
 				C3AF877F198C5A4900D91079 /* film.png in Resources */,
 				C3BCDE10196B7E22008BCC91 /* WindCell.xib in Resources */,
 				C3D40AB01975241700081A0E /* menu.png in Resources */,
+				C3EE290619922A8F00E8A6C7 /* Placeholder.png in Resources */,
 				C3BCDE12196B7E22008BCC91 /* PressureCell.xib in Resources */,
 				C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */,
 				C3732E971975F9E5001AB97E /* camera.png in Resources */,
@@ -713,7 +714,6 @@
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
 				C32308901991D7E500C28F93 /* default-cover.png in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
-				C3BCDE28196B7E75008BCC91 /* Placeholder.png in Resources */,
 				C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */,
 				C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */,
 				C3BCDE0E196B7E22008BCC91 /* VisibilityCell.xib in Resources */,
@@ -925,9 +925,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IfA Weather App/IfA Weather App-Prefix.pch";
+				GCC_PREFIX_HEADER = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
-				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
+				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
@@ -945,9 +945,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IfA Weather App/IfA Weather App-Prefix.pch";
+				GCC_PREFIX_HEADER = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
-				INFOPLIST_FILE = "IfA Weather App/IfA Weather App-Info.plist";
+				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
