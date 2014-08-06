@@ -57,10 +57,18 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)aveTemp :(NSNumber *)aveTempF :(NSNumber *)windChillC :(NSNumber *)windChillF
 {
-    self.temperatureInFLabel.text = [NSString stringWithFormat:@"%@ %@", aveTempF, @"\u00B0F"];
-    self.temperatureInCLabel.text = [NSString stringWithFormat:@"%@ %@", aveTemp, @"\u00B0C"];
-    self.temperatureWCInFLabel.text = [NSString stringWithFormat:@"%@ %@", windChillF, @"\u00B0F"];
-    self.temperatureWCInCLabel.text = [NSString stringWithFormat:@"%@ %@", windChillC, @"\u00B0C"];
+    self.temperatureInFLabel.text = [aveTempF isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", aveTempF] :
+    [NSString stringWithFormat:@"%@ %@", aveTempF, @"\u00B0F"];
+    self.temperatureInCLabel.text = [aveTemp isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", aveTemp] :
+    [NSString stringWithFormat:@"%@ %@", aveTemp, @"\u00B0C"];
+    self.temperatureWCInFLabel.text = [windChillF isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", windChillF] :
+    [NSString stringWithFormat:@"%@ %@", windChillF, @"\u00B0F"];
+    self.temperatureWCInCLabel.text = [windChillC isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", windChillC] :
+    [NSString stringWithFormat:@"%@ %@", windChillC, @"\u00B0C"];
 }
 
 @end

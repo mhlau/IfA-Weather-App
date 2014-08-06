@@ -53,10 +53,18 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)visM :(NSNumber *)visKM :(NSNumber *)visFT :(NSNumber *)visMI
 {
-    self.visMLabel.text = [NSString stringWithFormat:@"%@ m", visM];
-    self.visKMLabel.text = [NSString stringWithFormat:@"%@ km", visKM];
-    self.visFTLabel.text = [NSString stringWithFormat:@"%@ ft", visFT];
-    self.visMILabel.text = [NSString stringWithFormat:@"%@ mi", visMI];
+    self.visMLabel.text = [visM isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", visM] :
+    [NSString stringWithFormat:@"%@ m", visM];
+    self.visKMLabel.text = [visKM isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", visKM] :
+    [NSString stringWithFormat:@"%@ km", visKM];
+    self.visFTLabel.text = [visFT isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", visFT] :
+    [NSString stringWithFormat:@"%@ ft", visFT];
+    self.visMILabel.text = [visMI isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", visMI] :
+    [NSString stringWithFormat:@"%@ mi", visMI];
 }
 
 @end

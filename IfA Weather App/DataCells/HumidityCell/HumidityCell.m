@@ -51,7 +51,9 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)humidity
 {
-    self.humidityValueLabel.text = [NSString stringWithFormat:@"%@%%", humidity];
+    self.humidityValueLabel.text = [humidity isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", humidity] :
+    [NSString stringWithFormat:@"%@%%", humidity];
 }
 
 

@@ -51,8 +51,12 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)insoKWM2 :(NSNumber *)insoLPH
 {
-    self.insolationKWM2Label.text = [NSString stringWithFormat:@"%@ kW / m\u00B2", insoKWM2];
-    self.insolationLPHLabel.text = [NSString stringWithFormat:@"%@ Langley / hr", insoLPH];
+    self.insolationKWM2Label.text = [insoKWM2 isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", insoKWM2] :
+    [NSString stringWithFormat:@"%@ kW / m\u00B2", insoKWM2];
+    self.insolationLPHLabel.text = [insoLPH isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", insoLPH] :
+    [NSString stringWithFormat:@"%@ Langley / hr", insoLPH];
 }
 
 @end

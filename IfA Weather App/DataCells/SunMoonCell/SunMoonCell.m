@@ -73,7 +73,9 @@
     self.sunsetTimeLabel.text = [NSString stringWithFormat:@"%@", sunsetTime];
     self.moonriseTimeLabel.text = [NSString stringWithFormat:@"%@", moonriseTime];
     self.moonsetTimeLabel.text = [NSString stringWithFormat:@"%@", moonsetTime];
-    self.illumValueLabel.text = [NSString stringWithFormat:@"%@%%", illum];
+    self.illumValueLabel.text = [illum isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", illum] :
+    [NSString stringWithFormat:@"%@%%", illum];
     self.cycleStateLabel.text = [NSString stringWithFormat:@"%@", cycle];
 }
 

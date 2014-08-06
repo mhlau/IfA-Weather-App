@@ -50,7 +50,9 @@
 
 -(void)formatNumbersAndSetText:(NSNumber *)dewpoint
 {
-    self.dewptValueLabel.text = [NSString stringWithFormat:@"%@ \u00B0F", dewpoint];
+    self.dewptValueLabel.text = [dewpoint isEqual:@"N/A"] ?
+    [NSString stringWithFormat:@"%@", dewpoint] :
+    [NSString stringWithFormat:@"%@ \u00B0F", dewpoint];
     self.clipsToBounds = YES;
 }
 

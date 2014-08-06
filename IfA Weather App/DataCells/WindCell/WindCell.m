@@ -78,7 +78,7 @@
     self.windMaxMSLabel.text = [maxMS isEqual:@"N/A"] ?
         [NSString stringWithFormat:@"%@", maxMS] :
         [NSString stringWithFormat:@"%@ m/s", maxMS];
-    self.windMaxMPHLabel.text = [maxMS isEqual:@"N/A"] ?
+    self.windMaxMPHLabel.text = [maxMPH isEqual:@"N/A"] ?
         [NSString stringWithFormat:@"%@", maxMPH] :
         [NSString stringWithFormat:@"%@ mph", maxMPH];
     self.windMaxTimeLabel.text = [NSString stringWithFormat:@"%@ UT", maxDate];
