@@ -1,5 +1,5 @@
-## Institute for Astronomy Weather App
+# IfA Weather App
 
-# About
+## About
 
 The Institute for Astronomy Weather App provides a clean display of real-time data and images taken from observatories at the summits of Haleakala and Mauna Kea. 
