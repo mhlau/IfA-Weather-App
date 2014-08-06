@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BA8C9866-0F1A-410F-9204-00A9FFEDD282</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IfA Weather App</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>606867F3-2D4C-4306-B4B7-43A932F147C0</key>
+		<string>http://git.chromium.org/webm/libwebp.git</string>
+		<key>90836927-2B05-4BC0-98C4-FD9751CE94F6</key>
+		<string>https://github.com/rs/SDWebImage.git</string>
+		<key>9BA9DA1E-C5E7-48C6-9DD9-C4C916F33049</key>
+		<string>https://github.com/mhlau/IfA-Weather-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IfA Weather App.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>606867F3-2D4C-4306-B4B7-43A932F147C0</key>
+		<string>../../SDWebImage/Vendors/libwebp</string>
+		<key>90836927-2B05-4BC0-98C4-FD9751CE94F6</key>
+		<string>../../SDWebImage</string>
+		<key>9BA9DA1E-C5E7-48C6-9DD9-C4C916F33049</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mhlau/IfA-Weather-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9BA9DA1E-C5E7-48C6-9DD9-C4C916F33049</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9BA9DA1E-C5E7-48C6-9DD9-C4C916F33049</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IfA_Weather_App</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>606867F3-2D4C-4306-B4B7-43A932F147C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>libwebp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>90836927-2B05-4BC0-98C4-FD9751CE94F6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SDWebImage</string>
+		</dict>
+	</array>
+</dict>
+</plist>
