@@ -139,6 +139,13 @@
 			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
+		C3EE290719922CAE00E8A6C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -588,6 +595,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3EE290819922CAE00E8A6C7 /* PBXTargetDependency */,
 				C35EB227198B6DEC00E6DC1B /* PBXTargetDependency */,
 				C33FEC0F198B6D5D00FE54CB /* PBXTargetDependency */,
 				C3DB21CC196B7F0A0009B919 /* PBXTargetDependency */,
@@ -809,6 +817,11 @@
 			isa = PBXTargetDependency;
 			name = "CorePlot-CocoaTouch";
 			targetProxy = C3DB21CB196B7F0A0009B919 /* PBXContainerItemProxy */;
+		};
+		C3EE290819922CAE00E8A6C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			targetProxy = C3EE290719922CAE00E8A6C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
