@@ -33,5 +33,6 @@ IfA Weather uses the following libraries and packages:
 
 ## App Screenshots
 
-:-------------------------:|:-------------------------:
-![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/24HourAnimations.gif)  |  ![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/HaleakalaWeather.png)
+![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/HaleakalaWeather.png) ![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/MaunaKeaWeather.png) 
+![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/Haleakala24HourTrends.png) ![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/VisibleWeatherImages.png)
+![](https://github.com/mhlau/IfA-Weather-App/blob/v9/example_images/24HourAnimations.gif)
