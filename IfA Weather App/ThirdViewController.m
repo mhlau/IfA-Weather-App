@@ -57,17 +57,17 @@ dewpointHostView;
     _dataArray = [[NSMutableArray alloc] init];
     if (_is48Hours)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData48.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/HPlotData48.php"];
     }
     else
     {
         if (_isMaunaKea)
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKPlotData24.php"];
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/MKPlotData24.php"];
         }
         else
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HPlotData24.php"];
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/HPlotData24.php"];
         }
     }
     
@@ -412,7 +412,7 @@ dewpointHostView;
     }
     else
     {
-        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(4.3f)];
+        [yRange expandRangeByFactor:CPTDecimalFromCGFloat(6.6f)];
     }
     plotSpace.yRange = yRange;
     // Create styles and symbols (data point markers).
@@ -544,7 +544,7 @@ dewpointHostView;
     else if (_isWindDir)
     {
         yMax = 1000;
-        majorIncrement = 200;
+        majorIncrement = 100;
         minorIncrement = 50;
         x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(30.0);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);

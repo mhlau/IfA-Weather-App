@@ -75,7 +75,7 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurr/HCurrentWeather.php"];
     }
     
     // Initialize NSTimer that ticks every second, reloading data on each tick.
@@ -195,7 +195,7 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurr/HCurrentWeather.php"];
     }
 }
 

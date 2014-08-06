@@ -22,6 +22,7 @@
     BOOL _isWaterVapor;
     BOOL _isVisible;
     BOOL _isAnimation;
+    BOOL _isForecast;
 }
 
 @property (strong, nonatomic) UIImageView *imageView;
@@ -136,6 +137,16 @@
                  nil];
         self.navigationItem.title = @"24-Hour Animations";
     }
+    else if (_isForecast)
+    {
+        _locations = [[NSArray alloc] initWithObjects:
+                      @"Six-Day Forecast",
+                      nil];
+        _URLs = [[NSArray alloc] initWithObjects:
+                 @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKForecast.php",
+                 nil];
+        self.navigationItem.title = @"Mauna Kea Forecast";
+    }
     // Haleakala Images view:
     else
     {
@@ -180,6 +191,11 @@
 -(void)setAnimation: (BOOL)isAnimation
 {
     _isAnimation = isAnimation;
+}
+
+-(void)setForecast: (BOOL)isForecast
+{
+    _isForecast = isForecast;
 }
 
 - (void)viewDidDisappear:(BOOL)animated

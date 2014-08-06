@@ -17,5 +17,6 @@
 -(void)setWaterVapor: (BOOL)isWaterVapor;
 -(void)setVisible: (BOOL)isVisible;
 -(void)setAnimation: (BOOL)isAnimation;
+-(void)setForecast: (BOOL)isForecast;
 
 @end

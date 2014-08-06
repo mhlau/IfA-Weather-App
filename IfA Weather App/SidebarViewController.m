@@ -38,6 +38,7 @@
                   @"Mauna Kea Weather",
                   @"Mauna Kea Images",
                   @"Mauna Kea 24-Hour Trends",
+                  @"Mauna Kea Forecast",
                   @"Satellite Title",
                   @"Infrared",
                   @"Water Vapor",
@@ -130,6 +131,10 @@
                 else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"AnimationSegue"])
                 {
                     [(SecondViewController *)destVC setAnimation:true];
+                }
+                else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"MKForecastSegue"])
+                {
+                    [(SecondViewController *)destVC setForecast:true];
                 }
             // Switch from previous ViewController to destination view controller.
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
