@@ -17,6 +17,11 @@
 		C324D1B41980987400B2C217 /* maunakeamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C324D1B31980987400B2C217 /* maunakeamorning.jpg */; };
 		C33C0A351980531A0077798E /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A341980531A0077798E /* eye.png */; };
 		C33C0A3A1980691F0077798E /* haleakalamorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C33C0A391980691F0077798E /* haleakalamorning.jpg */; };
+		C34430A8199245EB00E20046 /* 24HourAnimations.gif in Resources */ = {isa = PBXBuildFile; fileRef = C34430A3199245EB00E20046 /* 24HourAnimations.gif */; };
+		C34430A9199245EB00E20046 /* Haleakala24HourTrends.png in Resources */ = {isa = PBXBuildFile; fileRef = C34430A4199245EB00E20046 /* Haleakala24HourTrends.png */; };
+		C34430AA199245EB00E20046 /* HaleakalaWeather.png in Resources */ = {isa = PBXBuildFile; fileRef = C34430A5199245EB00E20046 /* HaleakalaWeather.png */; };
+		C34430AB199245EB00E20046 /* MaunaKeaWeather.png in Resources */ = {isa = PBXBuildFile; fileRef = C34430A6199245EB00E20046 /* MaunaKeaWeather.png */; };
+		C34430AC199245EB00E20046 /* VisibleWeatherImages.png in Resources */ = {isa = PBXBuildFile; fileRef = C34430A7199245EB00E20046 /* VisibleWeatherImages.png */; };
 		C35EB228198B6E8900E6DC1B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3798CE01989BF1F001F36A7 /* ImageIO.framework */; };
 		C35EB22C198B6EF300E6DC1B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BCE2B1196B7ECE008BCC91 /* libCorePlot-CocoaTouch.a */; };
 		C35EB22D198B6EF800E6DC1B /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C33FEC05198B6D5600FE54CB /* libSDWebImage.a */; };
@@ -162,6 +167,11 @@
 		C33C0A341980531A0077798E /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eye.png; path = Images/SidebarImages/eye.png; sourceTree = "<group>"; };
 		C33C0A391980691F0077798E /* haleakalamorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = haleakalamorning.jpg; path = Images/haleakalamorning.jpg; sourceTree = "<group>"; };
 		C33FEBFD198B6D5500FE54CB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		C34430A3199245EB00E20046 /* 24HourAnimations.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 24HourAnimations.gif; sourceTree = "<group>"; };
+		C34430A4199245EB00E20046 /* Haleakala24HourTrends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Haleakala24HourTrends.png; sourceTree = "<group>"; };
+		C34430A5199245EB00E20046 /* HaleakalaWeather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HaleakalaWeather.png; sourceTree = "<group>"; };
+		C34430A6199245EB00E20046 /* MaunaKeaWeather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MaunaKeaWeather.png; sourceTree = "<group>"; };
+		C34430A7199245EB00E20046 /* VisibleWeatherImages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisibleWeatherImages.png; sourceTree = "<group>"; };
 		C3732E8F1975F673001AB97E /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph.png; path = Images/SidebarImages/graph.png; sourceTree = "<group>"; };
 		C3732E901975F673001AB97E /* graph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph2.png; path = Images/SidebarImages/graph2.png; sourceTree = "<group>"; };
 		C3732E931975F84B001AB97E /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Images/SidebarImages/sun.png; sourceTree = "<group>"; };
@@ -307,6 +317,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C34430A2199245EB00E20046 /* example_images */ = {
+			isa = PBXGroup;
+			children = (
+				C34430A3199245EB00E20046 /* 24HourAnimations.gif */,
+				C34430A4199245EB00E20046 /* Haleakala24HourTrends.png */,
+				C34430A5199245EB00E20046 /* HaleakalaWeather.png */,
+				C34430A6199245EB00E20046 /* MaunaKeaWeather.png */,
+				C34430A7199245EB00E20046 /* VisibleWeatherImages.png */,
+			);
+			path = example_images;
+			sourceTree = "<group>";
+		};
 		C361C46D196B850500D3B97C /* DateCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +445,7 @@
 				C3BCE2AA196B7ECD008BCC91 /* CorePlot-CocoaTouch.xcodeproj */,
 				C3BCDDA3196B7DA9008BCC91 /* IfA Weather App */,
 				C3BCDDC8196B7DA9008BCC91 /* IfA Weather AppTests */,
+				C34430A2199245EB00E20046 /* example_images */,
 				C3BCDD9C196B7DA9008BCC91 /* Frameworks */,
 				C3BCDD9B196B7DA9008BCC91 /* Products */,
 			);
@@ -721,10 +744,12 @@
 				C3BCDE08196B7E22008BCC91 /* TemperatureCell.xib in Resources */,
 				C3D8818E197F457B003D8233 /* infrared.png in Resources */,
 				C32308901991D7E500C28F93 /* default-cover.png in Resources */,
+				C34430AB199245EB00E20046 /* MaunaKeaWeather.png in Resources */,
 				C3FE2EB919760A6F001D0E2C /* Icon-40.png in Resources */,
 				C3FE2EBE19760A6F001D0E2C /* Icon-76@2x.png in Resources */,
 				C30B1346196BCAAB003641E5 /* GraphCell.xib in Resources */,
 				C3BCDE0E196B7E22008BCC91 /* VisibilityCell.xib in Resources */,
+				C34430AA199245EB00E20046 /* HaleakalaWeather.png in Resources */,
 				C3BCDDBC196B7DA9008BCC91 /* Images.xcassets in Resources */,
 				C3BCDE0C196B7E22008BCC91 /* InsolationCell.xib in Resources */,
 				C3FE2EBC19760A6F001D0E2C /* Icon-60@2x.png in Resources */,
@@ -734,9 +759,12 @@
 				C3BCDE16196B7E22008BCC91 /* SunMoonCell.xib in Resources */,
 				C3732E911975F673001AB97E /* graph.png in Resources */,
 				C3732E921975F673001AB97E /* graph2.png in Resources */,
+				C34430A9199245EB00E20046 /* Haleakala24HourTrends.png in Resources */,
 				C3BCDE24196B7E75008BCC91 /* ImageCell.xib in Resources */,
 				C3FE2EBB19760A6F001D0E2C /* Icon-60.png in Resources */,
 				C3BCDDA8196B7DA9008BCC91 /* InfoPlist.strings in Resources */,
+				C34430A8199245EB00E20046 /* 24HourAnimations.gif in Resources */,
+				C34430AC199245EB00E20046 /* VisibleWeatherImages.png in Resources */,
 				C3BCDDDB196B7DDC008BCC91 /* Main_iPhone.storyboard in Resources */,
 				C3BCDE06196B7E22008BCC91 /* DateCell.xib in Resources */,
 				C3BCDE14196B7E22008BCC91 /* DewpointCell.xib in Resources */,
