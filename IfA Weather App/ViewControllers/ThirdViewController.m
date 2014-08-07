@@ -57,17 +57,17 @@ dewpointHostView;
     _dataArray = [[NSMutableArray alloc] init];
     if (_is48Hours)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/HPlotData48.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/HPlotData48.php"];
     }
     else
     {
         if (_isMaunaKea)
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/MKPlotData24.php"];
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/MKPlotData24.php"];
         }
         else
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/plots/HPlotData24.php"];
+            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/HPlotData24.php"];
         }
     }
     

@@ -71,11 +71,11 @@
     _dataParser.delegate = self;
     if (_isMaunaKea)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCFHT.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrCFHT.php"];
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurr/HCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/HCurr/HCurrentWeather.php"];
     }
     
     // Initialize NSTimer that ticks every second, reloading data on each tick.
@@ -99,15 +99,15 @@
                          @"JCMT Station",
                          @"CSO Station",
                          @"VLBA Station"];
-        _MKURLs = @[@"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCFHT.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrUH88.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrUKIRT.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrIRTF.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrSubaru.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrKeck.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrJCMT.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrCSO.php",
-                    @"http://koa.ifa.hawaii.edu/mhlau/MKCurr/MKCurrVLBA.php"];
+        _MKURLs = @[@"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrCFHT.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrUH88.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrUKIRT.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrIRTF.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrSubaru.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrKeck.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrJCMT.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrCSO.php",
+                    @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKCurrVLBA.php"];
         // MK Current Weather starts on CFHT / Gemini Observatory data.
         _MKCurrLocation = _MKLocations[0];
         _MKCurrLocIndex = 0;
@@ -195,7 +195,7 @@
     }
     else
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/mhlau/HCurr/HCurrentWeather.php"];
+        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/HCurr/HCurrentWeather.php"];
     }
 }
 
