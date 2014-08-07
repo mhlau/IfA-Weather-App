@@ -12,7 +12,7 @@ Download the .zip file and open ```IfA Weather App.xcodeproj``` in Xcode 5.
 
 IfA Weather uses the following libraries and packages:
 - CorePlot (https://github.com/core-plot/core-plot) as its graphing framework,
-- SDWebImage and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
+- SDWebImage (https://github.com/rs/SDWebImage) and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
 - SWRevealViewController (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
 
 ## App Screenshots
