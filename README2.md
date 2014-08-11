@@ -4,7 +4,7 @@
 
 In https://github.com/mhlau/IfA-Weather-App, click **Download ZIP**. This should download a .zip file that, when unzipped, contains a folder called ```IfA-Weather-App-master```. In ```IfA-Weather-App-master```, open ```IfA Weather App.xcodeproj```. This should open Xcode 5 and the project. 
 
-To run the app on the iOS Simulator, an application packaged with Xcode 5, click the play button at the top left-hand corner of the Xcode window. Make sure that the destination (the second drop-down list at the top left-hand corner) is set to either **iPhone Retina (3.5-inch)** or **iPhone Retina (4-inch)**. Note that the command ```⌘R``` will also run the app with the selected destination.
+To run the app on the iOS Simulator, an application packaged with Xcode 5, click the play button at the top left-hand corner of the Xcode window. Make sure that the active scheme is set to either **iPhone Retina (3.5-inch)** or **iPhone Retina (4-inch)**. Note that the command ```⌘R``` will also run the app with the selected destination.
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
@@ -40,6 +40,7 @@ if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEq
 This is the code associated with the segue arrow going from the "Haleakala 48-Hour Trends" cell in **Sidebar View Controller** to the **Third View Controller** in ```Main_iPhone.storyboard```. When the user taps on the "48-Hour Trends" cell in the sidebar under "Haleakala," the current view controller changes from class ```ViewController``` to class ```ThirdViewController```, and sets ```_is48Hours``` in ```ThirdViewController.m``` to ```true```, causing the Haleakala 48-Hour data to be displayed.
 
 ## ```ViewController.m``` / ```.h```
+
 
 
 

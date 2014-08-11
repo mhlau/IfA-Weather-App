@@ -2,9 +2,11 @@
 //  SidebarViewController.m
 //  SidebarDemo
 //
-//  Created by Simon on 29/6/13.
-//  Modified by Micah Lau on 7/14/14.
-//  Copyright (c) 2013 Appcoda. All rights reserved.
+//  Modified from AppCoda by Micah Lau on 6/24/14.
+//  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
+//
+//  A class for the Sidebar View Controller. Handles UITableCell creation from cell identifiers, and
+//  app navigation between views (UIViewControllers) via segues.
 //
 
 #import "SidebarViewController.h"
@@ -43,10 +45,7 @@
                   @"Infrared",
                   @"Water Vapor",
                   @"Visible",
-                  @"Animations"
-                  //@"Blank",
-                  //@"Settings"
-                  ];
+                  @"Animations"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -65,7 +64,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Get cell identifier from menuItems (matching cell identifiers in storyboard).
     NSString *cellIdentifier = [menuItems objectAtIndex:indexPath.row];
+    // Create cell at row using cell identifier.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     return cell;
 }
@@ -132,6 +133,7 @@
                 {
                     [(SecondViewController *)destVC setAnimation:true];
                 }
+                // Forecast Image cell is selected:
                 else if ([destVC isKindOfClass:[SecondViewController class]] && [segue.identifier isEqualToString:@"MKForecastSegue"])
                 {
                     [(SecondViewController *)destVC setForecast:true];
