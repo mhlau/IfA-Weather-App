@@ -18,3 +18,5 @@ The app contains 4 primary views:
 4. ```SidebarViewController``` --  the view containing the **sidebar**.
 
 The ```Main_iPhone.storyboard``` file contains the above 4 views, and 2 others: the **Reveal View Controller**, of the class ```SWRevealController``` (an external package), and a **Navigation Controller**, used to represent the current view being displayed. These other two views need not be altered.
+
+The **Sidebar View Controller** is linked to the **View Controller**, **Second View Controller**, and **Third View Controller** with arrows labeled with "{}" brackets. These arrows represent "segues," which associate each cell in the sidebar to a specific action. A distinct segue is given to every sidebar cell that does something when selected.
