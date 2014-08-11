@@ -11,6 +11,7 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 ## Class Relationships (Main_iPhone.storyboard)
 
 The app contains 3 primary views: 
+
 1. ```ViewController``` -- the views containing current weather data,
 2. ```SecondViewController``` -- the views containing images,
 3. ```ThirdViewController``` -- the views containing graphs.
