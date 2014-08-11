@@ -29,10 +29,10 @@ The app opens to the Haleakala Current Weather page by default. From there, sele
 
 For example, take this code contained in the ```(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender``` method in ```SidebarViewController.m```:
 
-```
+```objective-c
 // Haleakala 48 Hour Trends cell is selected:
-                if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
-                {
-                    [(ThirdViewController *)destVC set48Hours:true];
-                }
+if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
+{
+    [(ThirdViewController *)destVC set48Hours:true];
+}
 ```
