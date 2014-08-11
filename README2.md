@@ -36,3 +36,10 @@ if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEq
     [(ThirdViewController *)destVC set48Hours:true];
 }
 ```
+
+This is the code associated with the segue arrow going from the "Haleakala 48-Hour Trends" cell in **Sidebar View Controller** to the **Third View Controller** in ```Main_iPhone.storyboard```. 
+
+
+
+
+
