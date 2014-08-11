@@ -23,7 +23,7 @@ The ```Main_iPhone.storyboard``` file contains the above 4 views, and 2 others: 
 
 The **Sidebar View Controller** is linked to the three ```UIViewController``` classes, **View Controller**, **Second View Controller**, and **Third View Controller**, with arrows labeled with "{}" brackets. These arrows represent "segues," which associate each cell in the sidebar to a specific action. A uniquely-named segue is given to every sidebar cell that does something when selected. The segue identifier can be viewed by selecting the segue arrow, then opening the Attributes Inspector in the Utilities sidebar (right-hand sidebar).
 
-## Sidebar (SidebarViewController.m / .h)
+## Sidebar (```SidebarViewController.m``` / .h)
 
 The app opens to the Haleakala Current Weather page by default. From there, selecting a cell in the sidebar will cause a new ```UIViewController``` to be displayed, with instructions for the ```UIViewController``` class based on the segue.
 
