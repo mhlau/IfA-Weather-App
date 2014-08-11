@@ -16,3 +16,5 @@ The app contains 4 primary views:
 2. ```SecondViewController``` -- the views containing **images**,
 3. ```ThirdViewController``` -- the views containing **graphs**,
 4. ```SidebarViewController``` --  the view containing the **sidebar**.
+
+The ```Main_iPhone.storyboard``` file contains the above 4 views, and 2 others: the **Reveal View Controller**, of the class ```SWRevealController``` (an external package), and a **Navigation Controller**, used to represent the current view being displayed. These other two views need not be altered.
