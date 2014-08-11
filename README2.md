@@ -21,4 +21,18 @@ The ```Main_iPhone.storyboard``` file contains the above 4 views, and 2 others: 
 
 ![](https://github.com/mhlau/IfA-Weather-App/blob/master/readme_images/Main_iPhone.storyboard.jpg)
 
-The **Sidebar View Controller** is linked to the **View Controller**, **Second View Controller**, and **Third View Controller** with arrows labeled with "{}" brackets. These arrows represent "segues," which associate each cell in the sidebar to a specific action. A uniquely-named segue is given to every sidebar cell that does something when selected.
+The **Sidebar View Controller** is linked to the three ```UIViewController``` classes, **View Controller**, **Second View Controller**, and **Third View Controller**, with arrows labeled with "{}" brackets. These arrows represent "segues," which associate each cell in the sidebar to a specific action. A uniquely-named segue is given to every sidebar cell that does something when selected.
+
+# Sidebar (SidebarViewController.m / .h)
+
+The app opens to the Haleakala Current Weather page by default. From there, selecting a cell in the sidebar will cause a new ```UIViewController``` to be displayed, with instructions for the ```UIViewController``` class based on the segue.
+
+For example, take this code contained in the ```(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender``` method in ```SidebarViewController.m```:
+
+```
+// Haleakala 48 Hour Trends cell is selected:
+                if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEqualToString:@"H48GraphSegue"])
+                {
+                    [(ThirdViewController *)destVC set48Hours:true];
+                }
+```
