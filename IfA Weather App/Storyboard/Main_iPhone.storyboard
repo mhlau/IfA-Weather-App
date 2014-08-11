@@ -602,8 +602,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KIS-On-gM3"/>
-        <segue reference="yKs-pG-Q2x"/>
         <segue reference="uMO-6X-Wu0"/>
+        <segue reference="6EJ-Co-MyB"/>
+        <segue reference="yKs-pG-Q2x"/>
     </inferredMetricsTieBreakers>
 </document>
