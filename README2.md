@@ -8,7 +8,7 @@ To run the app on the iOS Simulator, an application packaged with Xcode 5, click
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
-## Class Relationships (Main_iPhone.storyboard)
+## Class Relationships (```Main_iPhone.storyboard```)
 
 The app contains 4 primary views: 
 
@@ -23,7 +23,7 @@ The ```Main_iPhone.storyboard``` file contains the above 4 views, and 2 others: 
 
 The **Sidebar View Controller** is linked to the three ```UIViewController``` classes, **View Controller**, **Second View Controller**, and **Third View Controller**, with arrows labeled with "{}" brackets. These arrows represent "segues," which associate each cell in the sidebar to a specific action. A uniquely-named segue is given to every sidebar cell that does something when selected. The segue identifier can be viewed by selecting the segue arrow, then opening the Attributes Inspector in the Utilities sidebar (right-hand sidebar).
 
-## Sidebar (```SidebarViewController.m``` / .h)
+## Sidebar (```SidebarViewController.m``` / ```.h```)
 
 The app opens to the Haleakala Current Weather page by default. From there, selecting a cell in the sidebar will cause a new ```UIViewController``` to be displayed, with instructions for the ```UIViewController``` class based on the segue.
 
@@ -38,6 +38,8 @@ if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEq
 ```
 
 This is the code associated with the segue arrow going from the "Haleakala 48-Hour Trends" cell in **Sidebar View Controller** to the **Third View Controller** in ```Main_iPhone.storyboard```. When the user taps on the "48-Hour Trends" cell in the sidebar under "Haleakala," the current view controller changes from class ```ViewController``` to class ```ThirdViewController```, and sets ```_is48Hours``` in ```ThirdViewController.m``` to ```true```, causing the Haleakala 48-Hour data to be displayed.
+
+## ```ViewController.m``` / ```.h```
 
 
 
