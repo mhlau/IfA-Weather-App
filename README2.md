@@ -37,7 +37,7 @@ if ([destVC isKindOfClass:[ThirdViewController class]] && [segue.identifier isEq
 }
 ```
 
-This is the code associated with the segue arrow going from the "Haleakala 48-Hour Trends" cell in **Sidebar View Controller** to the **Third View Controller** in ```Main_iPhone.storyboard```. 
+This is the code associated with the segue arrow going from the "Haleakala 48-Hour Trends" cell in **Sidebar View Controller** to the **Third View Controller** in ```Main_iPhone.storyboard```. When the user taps on the "48-Hour Trends" cell in the sidebar under "Haleakala," the current view controller changes from class ```ViewController``` to class ```ThirdViewController```, and sets ```_is48Hours``` in ```ThirdViewController.m``` to ```true```, causing the Haleakala 48-Hour data to be displayed.
 
 
 
