@@ -8,3 +8,9 @@ To run the app on the iOS Simulator, an application packaged with Xcode 5, click
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
+## Class Relationships (Main_iPhone.storyboard)
+
+The app contains 3 primary views: 
+1. ```ViewController``` -- the views containing current weather data,
+2. ```SecondViewController``` -- the views containing images,
+3. ```ThirdViewController``` -- the views containing graphs.
