@@ -1,5 +1,11 @@
 # IfA Weather App (for staff)
 
+## Table of Contents
+
+1. [**Downloading, Opening, and Running IfA Weather on the iOS Simulator**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#downloading-opening-and-running-ifa-weather-on-the-ios-simulator)
+2. [**Running IfA Weather on a Provisioned Device**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#running-ifa-weather-on-a-provisioned-device)   
+  1. [**Provisioning a Device for Development using Xcode**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#provisioning-a-device-for-development-using-xcode)
+
 ## Downloading, Opening, and Running IfA Weather on the iOS Simulator
 
 In https://github.com/mhlau/IfA-Weather-App, click **Download ZIP**. This should download a .zip file that, when unzipped, contains a folder called ```IfA-Weather-App-master```. In ```IfA-Weather-App-master```, open ```IfA Weather App.xcodeproj```. This should open Xcode 5 and the project. 
