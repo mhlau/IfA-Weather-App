@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
 //  A UIViewController that downloads and uses a UITableView of ImageCells
-//  to display images from various .php files hosted by koa.ifa.hawaii.edu.
+//  to display images from various .php files hosted by kopiko.ifa.hawaii.edu.
 //
 
 #import "SecondViewController.h"
@@ -72,12 +72,12 @@
                       @"Pacific Ocean",
                       nil];
         _URLs = [[NSArray alloc] initWithObjects:
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRBigIsland.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHawaii.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHawaiiWide.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHItoMain.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRPacificNE.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRPacificO.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRBigIsland.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHawaii.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHawaiiWide.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRHItoMain.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRPacificNE.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatIRPacificO.php",
                  nil];
         self.navigationItem.title = @"Infrared Satellite Images";
     }
@@ -93,12 +93,12 @@
                       @"Pacific Ocean",
                       nil];
         _URLs = [[NSArray alloc] initWithObjects:
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVBigIsland.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHawaii.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHawaiiWide.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHItoMain.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVPacificNE.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVPacificO.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVBigIsland.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHawaii.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHawaiiWide.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVHItoMain.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVPacificNE.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatWVPacificO.php",
                  nil];
         self.navigationItem.title = @"Water Vapor Images";
     }
@@ -112,10 +112,10 @@
                       @"Hawaii to Mainland",
                       nil];
         _URLs = [[NSArray alloc] initWithObjects:
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisBigIsland.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHawaii.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHawaiiWide.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHItoMain.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisBigIsland.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHawaii.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHawaiiWide.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKSatImages/MKSatVisHItoMain.php",
                  nil];
         self.navigationItem.title = @"Visible Weather Images";
     }
@@ -131,12 +131,12 @@
                       @"Hawaii to Mainland Vis",
                       nil];
         _URLs = [[NSArray alloc] initWithObjects:
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKIRHawaiiGIF.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKIRHItoMainGIF.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKWVHawaiiGIF.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKWVHItoMainGIF.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKVisHawaiiGIF.php",
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKGifs/MKVisHItoMainGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKIRHawaiiGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKIRHItoMainGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKWVHawaiiGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKWVHItoMainGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKVisHawaiiGIF.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKGifs/MKVisHItoMainGIF.php",
                  nil];
         self.navigationItem.title = @"24-Hour Animations";
     }
@@ -146,7 +146,7 @@
                       @"Six-Day Forecast",
                       nil];
         _URLs = [[NSArray alloc] initWithObjects:
-                 @"http://koa.ifa.hawaii.edu/weather/appbin/MKCurr/MKForecast.php",
+                 @"http://kopiko.ifa.hawaii.edu/weather/appbin/MKCurr/MKForecast.php",
                  nil];
         self.navigationItem.title = @"Mauna Kea Forecast";
     }

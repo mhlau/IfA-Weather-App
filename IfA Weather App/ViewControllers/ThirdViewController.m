@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
 //  A UIViewController that uses a UITableView to display CPTGraphHostViews in
-//  GraphCells. Downloads and formats dictionaries of data from .php files on koa.
+//  GraphCells. Downloads and formats dictionaries of data from .php files on kopiko.
 //
 
 #import "ThirdViewController.h"
@@ -60,17 +60,17 @@ dewpointHostView;
     _dataArray = [[NSMutableArray alloc] init];
     if (_is48Hours)
     {
-        [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/HPlotData48.php"];
+        [_dataParser downloadItems:@"http://kopiko.ifa.hawaii.edu/weather/appbin/plots/HPlotData48.php"];
     }
     else
     {
         if (_isMaunaKea)
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/MKPlotData24.php"];
+            [_dataParser downloadItems:@"http://kopiko.ifa.hawaii.edu/weather/appbin/plots/MKPlotData24.php"];
         }
         else
         {
-            [_dataParser downloadItems:@"http://koa.ifa.hawaii.edu/weather/appbin/plots/HPlotData24.php"];
+            [_dataParser downloadItems:@"http://kopiko.ifa.hawaii.edu/weather/appbin/plots/HPlotData24.php"];
         }
     }
     

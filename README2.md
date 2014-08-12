@@ -1,4 +1,4 @@
-# IfA Weather App (for staff)
+# IfA Weather App
 
 ## Table of Contents
 
