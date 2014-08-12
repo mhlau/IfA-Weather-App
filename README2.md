@@ -114,7 +114,7 @@ The ```SecondViewController``` class contains a ```UITableView``` to display ima
 
 The ```ThirdViewController``` class contains a ```UITableView``` to display graphs of data trends. Each ```UITableViewCell``` in the table view is initialized from the .xib file and class in the **GraphCell** group (```GraphCell.xib``` / ```.h``` / ```.m```). 
 
-The input data for ```ThirdViewController``` is a dictionary of the form ```{FIELD : {INDEX : {KEY : VALUE} } }```, for ```FIELD``` in ```{temperature, pressure... etc}``` and ```KEY``` in ```{date, seconds, time, time_HI, value}```.
+The input data for ```ThirdViewController``` is a dictionary of the form ```{FIELD : {INDEX : {KEY : VALUE} } }```, for ```FIELD``` in ```{temperature, pressure... etc}```, ```INDEX``` in ```{0, 1, ... ~160}```, and ```KEY``` in ```{date, seconds, time, time_HI, value}```. 
 
 #### Overview of Major Methods
 
@@ -125,8 +125,19 @@ The input data for ```ThirdViewController``` is a dictionary of the form ```{FIE
     + Initializes table view cell from ```GraphCell.m```.
     + Initializes ```CPTGraphHostingView```, the base for the graph.
 - ```-(void)configureData:(CPTGraphHostingView *)hostView```
-    + 
-
+    + Selects FIELD and gets the dictionary mapped to it. 
+    + Adds data to dictionary mapping X-axis to seconds and Y-axis to value.
+- ```-(void)configureGraph:(CPTGraphHostingView *)hostView :(NSString *)graphTitle```
+    + Sets graph theme, background color, title, x-axis range.
+- ```-(void)configurePlots:(CPTGraphHostingView *)hostView```
+    + Sets graph trend line color, y-axis range.
+- ```-(void)configureAxes:(CPTGraphHostingView *)hostView :(NSString *)graphTitle```
+    + Sets axis labels and tick marks.
+    + ```orthogonalCoordinateDecimal``` property changes point at which axis meets the other axis.
+- ```-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot```
+    + Return value is the number of data points to be plotted.
+- ```-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index```
+    + ```CPTPlotDataSource``` method that plots the number of data points from ```numberOfRecordsForPlot```. Should return the value for that data point.
 
 ## Launch Image
 
