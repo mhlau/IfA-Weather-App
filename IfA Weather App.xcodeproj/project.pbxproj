@@ -971,7 +971,7 @@
 				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FEE49631-7CF9-4820-9EA2-27B74F2E718B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -991,7 +991,7 @@
 				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FEE49631-7CF9-4820-9EA2-27B74F2E718B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
