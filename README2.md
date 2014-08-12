@@ -104,8 +104,7 @@ The ```SecondViewController``` class contains a ```UITableView``` to display ima
     + Initializes location and URL arrays based on boolean instance variable (e.g. ```_isMaunaKea```, ```_isWaterVapor```, etc.).
     + Sets up sidebar.
 - ```-(void)setMaunaKea: (BOOL)isMaunaKea```
-    + Instance variable can be set outside of class (in ```SidebarViewController.m```).
--
+- asdf
 
 ## Launch Image
 
