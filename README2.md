@@ -114,14 +114,19 @@ The ```SecondViewController``` class contains a ```UITableView``` to display ima
 
 The ```ThirdViewController``` class contains a ```UITableView``` to display graphs of data trends. Each ```UITableViewCell``` in the table view is initialized from the .xib file and class in the **GraphCell** group (```GraphCell.xib``` / ```.h``` / ```.m```). 
 
-#### Using CorePlot
-
-**CorePlot** uses a class called ```CPTGraphHostingView``` as a base for generating graphs. ```CPTGraphHostingView```s are initialized with frames and added to the ```GraphCell``s as subviews. 
+The input data for ```ThirdViewController``` is a dictionary of the form ```{FIELD : {INDEX : {KEY : VALUE} } }```, for ```FIELD``` in ```{temperature, pressure... etc}``` and ```KEY``` in ```{date, seconds, time, time_HI, value}```.
 
 #### Overview of Major Methods
 
-- asdf
-    + asdf
+- ```- (void)viewDidLoad```
+    + Downloads data from URL.
+- ```(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath```
+    + Sets boolean to let other methods know a specific ```CPTGraphHostingView``` is being referenced.
+    + Initializes table view cell from ```GraphCell.m```.
+    + Initializes ```CPTGraphHostingView```, the base for the graph.
+- ```-(void)configureData:(CPTGraphHostingView *)hostView```
+    + 
+
 
 ## Launch Image
 
