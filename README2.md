@@ -56,7 +56,7 @@ This is the code associated with the segue arrow going from the "Haleakala 48-Ho
 
 ## ```ViewController.m``` / ```.h```
 
-The ```ViewController``` class contains a ```UITableView``` to display the current weather conditions of Haleakala and the multiple stations of Mauna Kea. Each ```UITableViewCell``` in the table view is initialized from the .xib files and classes in the **DataCells** group (```DateCell.xib``` / ```.h``` / ```.m```).
+The ```ViewController``` class contains a ```UITableView``` to display the current weather conditions of Haleakala and the multiple stations of Mauna Kea. Each ```UITableViewCell``` in the table view is initialized from the .xib files and classes in the **DataCells** group (e.g. ```TemperatureCell.xib``` / ```.h``` / ```.m```).
 
 ## Launch Image
 
