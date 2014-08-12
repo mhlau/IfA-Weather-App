@@ -81,6 +81,12 @@ The Mauna Kea current weather view has fewer data fields than the Haleakala one,
     + Initializes sidebar.
     + Initializes picker view and arrays of URLs and Mauna Kea locations.
 - ```- (void)itemsDownloaded:(NSDictionary *)itemDict```
+    + Receives dictionary parameter, rounds all decimal values to 2 places, and inserts (key, value) pairs into new dictionary instance variable.
+- ```-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component```
+    + Called when row is selected in picker view. Hides picker view, changes MK weather station dictionary, and reloads the table view so data refreshes.
+- ```- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath```
+    + Initializes different types of UITableViewCell subclasses (```DateCell```, ```TemperatureCell```, etc.) by table row - order is hardcoded.
+    + Sets UITableViewCell labels with data from dictionary.
 
 ## Launch Image
 
