@@ -10,7 +10,7 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 
 ## Running IfA Weather on a Provisioned Device
 
-### Provisioning a Device for Xcode, via Xcode
+#### Provisioning a Device for Xcode, via Xcode
 
 1. Connect the device to the Mac.
 2. Open Xcode. Go to **Window > Organizer** (```⌘⇧2```).
@@ -18,7 +18,7 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 4. In the team dialog that appears, select the checkbox next to your account name, and click Choose.
 5. If a Certificate Not Found dialog appears, click Request.
 
-### Running IfA Weather on the Device
+#### Running IfA Weather on the Device
 
 1. At the top-right of Xcode, make sure the active scheme is set to the name of the iOS device.
 2. Click the run button at the top-right of Xcode. The app should be added to the device and run. The app may not load and run on the first build, so try again if it fails.
