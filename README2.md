@@ -93,6 +93,19 @@ The Mauna Kea current weather view has fewer data fields than the Haleakala one,
     + Uses ```selectedIndex``` instance variable to change height of selected / unselected cells.
     + Uses ```toggle``` property to reveal / hide picker view.
 
+## ```SecondViewController.m``` / ```.h```
+
+The ```SecondViewController``` class contains a ```UITableView``` to display images of live web-cams, satellite weather, etc. Each ```UITableViewCell``` in the table view is initialized from the .xib file and class in the **ImageCell** group (```ImageCell.xib``` / ```.h``` / ```.m```). 
+
+#### Overview of Major Methods
+
+- ```- (void)viewDidLoad```
+    + Initializes table view.
+    + Initializes location and URL arrays based on boolean instance variable (e.g. ```_isMaunaKea```, ```_isWaterVapor```, etc.).
+    + Sets up sidebar.
+- ```-(void)setMaunaKea: (BOOL)isMaunaKea``` **(and similar methods)**
+    + Allows ```_isMaunaKea``` instance variable to be set outside of class (in ```SidebarViewController.m```).
+-
 
 ## Launch Image
 
