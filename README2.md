@@ -10,7 +10,7 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 
 ## Running IfA Weather on a Provisioned Device
 
-#### Provisioning a Device for Development, via Xcode
+#### Provisioning a Device for Development using Xcode
 
 1. Connect the device to the Mac.
 2. Open Xcode. Go to **Window > Organizer** (```⌘⇧2```).
@@ -138,6 +138,12 @@ The input data for ```ThirdViewController``` is a dictionary of the form ```{FIE
     + Return value is the number of data points to be plotted.
 - ```-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index```
     + ```CPTPlotDataSource``` method that plots the number of data points from ```numberOfRecordsForPlot```. Should return the value for that data point.
+
+## ```DataParser.m``` / ```.h```
+
+```DataParser``` is a class that interacts with the class that uses it. ```DataParser``` downloads JSON-formatted data via URL using Objective-C's built-in methods. Then, it wraps the data in an ```NSDictionary```, which is passed to the class that will use the ```DataParser```. 
+
+Classes that use ```DataParser``` must be ```DataParserProtocol``` delegates and implement the method ```-(void)itemsDownloaded:(NSMutableDictionary *)itemDict```. The ```itemDict``` parameter is the ```NSDictionary``` output from the ```DataParser``` class after it has finished downloading the data.
 
 ## Launch Image
 
