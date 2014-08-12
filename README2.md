@@ -3,8 +3,17 @@
 ## Table of Contents
 
 1. [**Downloading, Opening, and Running IfA Weather on the iOS Simulator**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#downloading-opening-and-running-ifa-weather-on-the-ios-simulator)
-2. [**Running IfA Weather on a Provisioned Device**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#running-ifa-weather-on-a-provisioned-device)   
-  1. [**Provisioning a Device for Development using Xcode**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#provisioning-a-device-for-development-using-xcode)
+2. [**Running IfA Weather on a Provisioned Device**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#running-ifa-weather-on-a-provisioned-device)
+  1. [Provisioning a Device for Development using Xcode](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#provisioning-a-device-for-development-using-xcode)
+  2. [Running IfA Weather on the Device](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#running-ifa-weather-on-the-device)
+3. [**External Libraries and Packages**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#external-libraries-and-packages)
+4. [**Class Relationships (```Main_iPhone.storyboard```)**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#class-relationships-main_iphonestoryboard)
+5. [**Sidebar (```SidebarViewController.m``` / ```.h```)**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#sidebar-sidebarviewcontrollerm--h)
+6. [**```ViewController.m``` / ```.h```**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#viewcontrollerm--h)
+  1. [Overview of Major Methods](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#overview-of-major-methods)
+7. [**```SecondViewController.m``` / ```.h```**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#secondviewcontrollerm--h)
+  1. [Overview of Major Methods](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#overview-of-major-methods-1)
+8.
 
 ## Downloading, Opening, and Running IfA Weather on the iOS Simulator
 
