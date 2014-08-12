@@ -114,6 +114,10 @@ The ```SecondViewController``` class contains a ```UITableView``` to display ima
 
 The ```ThirdViewController``` class contains a ```UITableView``` to display graphs of data trends. Each ```UITableViewCell``` in the table view is initialized from the .xib file and class in the **GraphCell** group (```GraphCell.xib``` / ```.h``` / ```.m```). 
 
+#### Using CorePlot
+
+**CorePlot** uses a class called ```CPTGraphHostingView``` as a base for generating graphs. ```CPTGraphHostingView```s are initialized with frames and added to the ```GraphCell``s as subviews. 
+
 #### Overview of Major Methods
 
 - asdf
