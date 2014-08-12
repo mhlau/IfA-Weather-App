@@ -30,6 +30,9 @@ IfA Weather uses the following libraries and packages:
 - SDWebImage (https://github.com/rs/SDWebImage) and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
 - SWRevealViewController (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
 
+The PHP side uses GifCreator (https://github.com/Sybio/GifCreator) to turn series of MKWC satellite images into .gif files.
+
+
 ## Class Relationships (```Main_iPhone.storyboard```)
 
 The app contains 4 primary views: 
