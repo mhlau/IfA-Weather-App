@@ -23,6 +23,13 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 1. At the top-right of Xcode, make sure the active scheme is set to the name of the iOS device.
 2. Click the run button at the top-right of Xcode. The app should be added to the device and run. The app may not load and run on the first build, so try again if it fails.
 
+## External Libraries and Packages
+
+IfA Weather uses the following libraries and packages:
+- CorePlot (https://github.com/core-plot/core-plot) as its graphing framework,
+- SDWebImage (https://github.com/rs/SDWebImage) and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
+- SWRevealViewController (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
+
 ## Class Relationships (```Main_iPhone.storyboard```)
 
 The app contains 4 primary views: 
