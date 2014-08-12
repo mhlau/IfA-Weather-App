@@ -166,3 +166,7 @@ App icons and launch images (splash screens that are displayed before the app op
 3. Go to **General > Launch Images** and click the small arrow next to the drop-down menu,
 4. Drag and drop the appropriate launch image from the file selector at the bottom right-hand corner (in Utilities sidebar). 2x is for iPhone 4S and below, and R4 is for iPhone 5 and above. 
 
+## Fixing Issues with Provisioning Profile
+
+Make sure that **IfA Weather App > Build Settings > Code Signing > Provisioning Profile** is set to the desired profile, not **None**. However, the profile should be set to **None** for the app to run on an iOS Simulator.
+
