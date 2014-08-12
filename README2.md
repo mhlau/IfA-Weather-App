@@ -8,6 +8,13 @@ To run the app on the iOS Simulator, an application packaged with Xcode 5, click
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
+
+
+
+
+
+
+
 ## Running IfA Weather on a Provisioned Device
 
 #### Provisioning a Device for Development, via Xcode
