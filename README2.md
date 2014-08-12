@@ -56,6 +56,8 @@ This is the code associated with the segue arrow going from the "Haleakala 48-Ho
 
 ## ```ViewController.m``` / ```.h```
 
+The ```ViewController``` class contains a ```UITableView``` to display the current weather conditions of Haleakala and the multiple stations of Mauna Kea. 
+
 ## Launch Image
 
 The launch image (splash screen that is displayed before the app opens) must follow strict guidelines set by Apple (https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/LaunchImages.html). 
