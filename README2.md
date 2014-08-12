@@ -105,7 +105,19 @@ The ```SecondViewController``` class contains a ```UITableView``` to display ima
     + Sets up sidebar.
 - ```-(void)setMaunaKea: (BOOL)isMaunaKea``` 
     + Allows ```_isMaunaKea``` to be accessed outside of class in ```SidebarViewController.m``` (**applies to similar methods**).
+- ```- (void)viewDidDisappear:(BOOL)animated```
+    + Clears the SDWebImage cache so that when view is reloaded, images are updated.
+- ```(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath```
+    + Initializes table view cell from ```ImageCell``` class / .xib. 
+
+## ```ThirdViewController.m``` / ```.h```
+
+The ```ThirdViewController``` class contains a ```UITableView``` to display graphs of data trends. Each ```UITableViewCell``` in the table view is initialized from the .xib file and class in the **GraphCell** group (```GraphCell.xib``` / ```.h``` / ```.m```). 
+
+#### Overview of Major Methods
+
 - asdf
+    + asdf
 
 ## Launch Image
 
