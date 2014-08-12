@@ -143,13 +143,23 @@ The input data for ```ThirdViewController``` is a dictionary of the form ```{FIE
 
 ```DataParser``` is a class that interacts with the class that uses it. ```DataParser``` downloads JSON-formatted data via URL using Objective-C's built-in methods. Then, it wraps the data in an ```NSDictionary```, which is passed to the class that will use the ```DataParser```. 
 
-Classes that use ```DataParser``` must be ```DataParserProtocol``` delegates and implement the method ```-(void)itemsDownloaded:(NSMutableDictionary *)itemDict```. The ```itemDict``` parameter is the ```NSDictionary``` output from the ```DataParser``` class after it has finished downloading the data.
+Classes that use ```DataParser``` must be ```DataParserProtocol``` datasources and delegates, and implement the method ```-(void)itemsDownloaded:(NSMutableDictionary *)itemDict```. The ```itemDict``` parameter is the ```NSDictionary``` output from the ```DataParser``` class after it has finished downloading the data.
 
-## Launch Image
+## App Icons and Launch Images
 
-The launch image (splash screen that is displayed before the app opens) must follow strict guidelines set by Apple (https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/LaunchImages.html). 
+App icons and launch images (splash screens that are displayed before the app opens) must follow strict guidelines set by Apple in terms of size, filename, and image type.
+- https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/AppIcons.html#//apple_ref/doc/uid/TP40006556-CH19-SW1
+- https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/LaunchImages.html). 
 
-To change the launch image:
+#### To change the app icon:
+
+0. Use http://makeappicon.com/ to generate a set of correctly-sized app icon images.
+1. Create and add the new app icon image files to the project with **File > Add Files to "IfA Weather App"**. 
+2. Open the project in Xcode and click on **IfA Weather App** in the Navigator (left-hand toolbar),
+3. Go to **General > App Icons** and click the small arrow next to the drop-down menu,
+4. Drag and drop the appropriate app icon images from the file selector at the bottom right-hand corner (in Utilities sidebar).
+
+#### To change the launch image:
 
 1. Create and add the new launch image files to the project with **File > Add Files to "IfA Weather App"**. 
 2. Open the project in Xcode and click on **IfA Weather App** in the Navigator (left-hand toolbar),
