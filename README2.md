@@ -10,7 +10,7 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 
 ## Running IfA Weather on a Provisioned Device
 
-#### Provisioning a Device for Xcode, via Xcode
+#### Provisioning a Device for Development, via Xcode
 
 1. Connect the device to the Mac.
 2. Open Xcode. Go to **Window > Organizer** (```⌘⇧2```).
