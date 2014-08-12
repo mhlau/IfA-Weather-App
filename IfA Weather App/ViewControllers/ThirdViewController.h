@@ -24,7 +24,6 @@
 @property (nonatomic, strong) CPTGraphHostingView *insolationHostView;
 @property (nonatomic, strong) CPTGraphHostingView *dewpointHostView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property BOOL isUTC;
 
 -(void)set48Hours: (BOOL)is48Hours;
 -(void)setMaunaKea: (BOOL)isMaunaKea;

@@ -8,6 +8,21 @@ To run the app on the iOS Simulator, an application packaged with Xcode 5, click
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
+## Running IfA Weather on a Provisioned Device
+
+### Provisioning a Device for Xcode, via Xcode
+
+1. Connect the device to the Mac.
+2. Open Xcode. Go to **Window > Organizer** (```⌘⇧2```).
+3. Click "Use for Development".
+4. In the team dialog that appears, select the checkbox next to your account name, and click Choose.
+5. If a Certificate Not Found dialog appears, click Request.
+
+### Running IfA Weather on the Device
+
+1. At the top-right of Xcode, make sure the active scheme is set to the name of the iOS device.
+2. Click the run button at the top-right of Xcode. The app should be added to the device and run. The app may not load and run on the first build, so try again if it fails.
+
 ## Class Relationships (```Main_iPhone.storyboard```)
 
 The app contains 4 primary views: 
@@ -41,6 +56,8 @@ This is the code associated with the segue arrow going from the "Haleakala 48-Ho
 
 ## ```ViewController.m``` / ```.h```
 
+
+## Launch Image
 
 
 
