@@ -8,13 +8,6 @@ To run the app on the iOS Simulator, an application packaged with Xcode 5, click
 
 Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simulator** or ```⌘Q``` to quit the simulator. Quitting the iOS Simulator will not close Xcode.
 
-
-
-
-
-
-
-
 ## Running IfA Weather on a Provisioned Device
 
 #### Provisioning a Device for Development, via Xcode
@@ -63,8 +56,14 @@ This is the code associated with the segue arrow going from the "Haleakala 48-Ho
 
 ## ```ViewController.m``` / ```.h```
 
-
 ## Launch Image
 
+The launch image (splash screen that is displayed before the app opens) must follow strict guidelines set by Apple (https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/LaunchImages.html). 
 
+To change the launch image:
+
+1. Create and add the new launch image files to the project with **File > Add Files to "IfA Weather App"**. 
+2. Open the project in Xcode and click on **IfA Weather App** in the Navigator (left-hand toolbar),
+3. Go to **General > Launch Images** and click the small arrow next to the drop-down menu,
+4. Drag and drop the appropriate launch image from the file selector at the bottom right-hand corner (in Utilities sidebar). 2x is for iPhone 4S and below, and R4 is for iPhone 5 and above. 
 
