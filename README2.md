@@ -26,11 +26,11 @@ Once the iOS Simulator is no longer needed, use **iOS Simulator > Quit iOS Simul
 ## External Libraries and Packages
 
 IfA Weather uses the following libraries and packages:
-- CorePlot (https://github.com/core-plot/core-plot) as its graphing framework,
-- SDWebImage (https://github.com/rs/SDWebImage) and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
-- SWRevealViewController (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
+- **CorePlot** (https://github.com/core-plot/core-plot) as its graphing framework,
+- **SDWebImage** (https://github.com/rs/SDWebImage) and UIActivityIndicator-for-SDWebImage (https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage) for asynchronous image downloads, 
+- **SWRevealViewController** (https://github.com/John-Lluch/SWRevealViewController) and modified code from AppCoda (http://www.appcoda.com/ios-programming-sidebar-navigation-menu/) for its side-drawer navigation.
 
-The PHP side uses GifCreator (https://github.com/Sybio/GifCreator) to turn series of MKWC satellite images into .gif files.
+The PHP side uses **GifCreator** (https://github.com/Sybio/GifCreator) to turn series of MKWC satellite images into .gif files.
 
 
 ## Class Relationships (```Main_iPhone.storyboard```)
@@ -66,7 +66,11 @@ This is the code associated with the segue arrow going from the "Haleakala 48-Ho
 
 ## ```ViewController.m``` / ```.h```
 
-The ```ViewController``` class contains a ```UITableView``` to display the current weather conditions of Haleakala and the multiple stations of Mauna Kea. Each ```UITableViewCell``` in the table view is initialized from the .xib files and classes in the **DataCells** group (e.g. ```TemperatureCell.xib``` / ```.h``` / ```.m```).
+The ```ViewController``` class contains a ```UITableView``` to display the current weather conditions of Haleakala and the multiple stations of Mauna Kea. Each ```UITableViewCell``` in the table view is initialized from the .xib files and classes in the **DataCells** group (e.g. ```TemperatureCell.xib``` / ```.h``` / ```.m```). 
+
+The Mauna Kea current weather view has fewer data fields than the Haleakala one, so the ```cellForRowAtIndexPath``` method uses conditionals to only instantiate desired cells.
+
+
 
 ## Launch Image
 
