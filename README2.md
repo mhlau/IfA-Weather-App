@@ -87,6 +87,12 @@ The Mauna Kea current weather view has fewer data fields than the Haleakala one,
 - ```- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath```
     + Initializes different types of UITableViewCell subclasses (```DateCell```, ```TemperatureCell```, etc.) by table row - order is hardcoded.
     + Sets UITableViewCell labels with data from dictionary.
+- ```- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath```
+    + Contains default height values and expanded height values for table view cells (hardcoded). 
+- ```(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath```
+    + Uses ```selectedIndex``` instance variable to change height of selected / unselected cells.
+    + Uses ```toggle``` property to reveal / hide picker view.
+
 
 ## Launch Image
 
