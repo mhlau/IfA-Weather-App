@@ -5,6 +5,10 @@
 //  Created by Micah Lau on 6/24/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A UIViewController that uses a UITableView to display current weather data
+//  for Haleakala and Mauna Kea. Individual UITableViewCells are initialized
+//  from cell identifiers in the .xib files within the DataCells group.
+//
 
 #import "ViewController.h"
 #import "DateCell.h"
@@ -119,6 +123,7 @@
         [self.pickerView setBackgroundColor:[UIColor whiteColor]];
         self.pickerView.delegate = self;
         self.pickerView.dataSource = self;
+        // Change the location of the picker view depending on the iPhone model.
         if (_height >= 568)
         {
             self.pickerView.center = (CGPoint){160, 530};

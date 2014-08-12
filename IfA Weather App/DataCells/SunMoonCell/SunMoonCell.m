@@ -5,6 +5,8 @@
 //  Created by Micah Lau on 6/30/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A class for displaying the current sun/moon rise/set in ViewController.
+//
 
 #import "SunMoonCell.h"
 

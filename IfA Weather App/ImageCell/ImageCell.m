@@ -5,6 +5,9 @@
 //  Created by Micah Lau on 6/27/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A class modelling UITableViewCells contained in SecondViewController to display images
+//  from URLs.
+//
 
 #import "ImageCell.h"
 

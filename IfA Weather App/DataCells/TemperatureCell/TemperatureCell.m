@@ -5,6 +5,8 @@
 //  Created by Micah Lau on 6/25/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A class for displaying the current temperature in ViewController.
+//
 
 #import "TemperatureCell.h"
 

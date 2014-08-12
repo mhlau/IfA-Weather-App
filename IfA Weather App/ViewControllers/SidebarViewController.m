@@ -5,8 +5,8 @@
 //  Modified from AppCoda by Micah Lau on 6/24/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
-//  A class for the Sidebar View Controller. Handles UITableCell creation from cell identifiers, and
-//  app navigation between views (UIViewControllers) via segues.
+//  A class for the Sidebar View Controller. Uses cell identifiers and segues defined in storyboard
+//  for app navigation between views (UIViewControllers).
 //
 
 #import "SidebarViewController.h"

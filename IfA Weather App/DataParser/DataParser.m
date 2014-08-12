@@ -5,6 +5,9 @@
 //  Created by Micah Lau on 6/25/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A class that downloads JSON-formatted data from a URL and returns a dictionary containing the contents of the file.
+//  Used in ViewController and ThirdViewController.
+//
 
 #import "DataParser.h"
 

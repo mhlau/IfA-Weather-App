@@ -5,6 +5,9 @@
 //  Created by Micah Lau on 8/1/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A class for the cell in the Mauna Kea Current Weather view. When the user taps the
+//  cell and changes the weather station, this cell's text label changes.
+//
 
 #import "LocationCell.h"
 

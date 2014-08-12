@@ -5,6 +5,9 @@
 //  Created by Micah Lau on 6/26/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A UIViewController that downloads and uses a UITableView of ImageCells
+//  to display images from various .php files hosted by koa.ifa.hawaii.edu.
+//
 
 #import "SecondViewController.h"
 #import "ImageCell.h"

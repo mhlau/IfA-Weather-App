@@ -5,6 +5,9 @@
 //  Created by Micah Lau on 6/30/14.
 //  Copyright (c) 2014 Institute for Astronomy. All rights reserved.
 //
+//  A UIViewController that uses a UITableView to display CPTGraphHostViews in
+//  GraphCells. Downloads and formats dictionaries of data from .php files on koa.
+//
 
 #import "ThirdViewController.h"
 #import "GraphCell.h"
@@ -257,6 +260,8 @@ dewpointHostView;
 
 -(void)setAxisLabels :(int)index :(int)totalKeys :(NSDictionary *)dict :(NSNumber *)secondsNum :(NSMutableArray *)axisLabels :(NSMutableArray *) axisTicks
 {
+    // Add axis tick locations and labels to their respective arrays.
+    // Space out tick locations evenly - divide total number of entries by 8.
     for (int i = 0; i < 8; i++)
     {
         if (index == (int) (totalKeys * i/8))
@@ -266,6 +271,7 @@ dewpointHostView;
             break;
         }
     }
+    // Add last tick at the end of the data set.
     if (index == totalKeys - 1)
     {
         [_axisLabels addObject:dict[@"time"]];
@@ -275,6 +281,7 @@ dewpointHostView;
 
 -(void)configureData:(CPTGraphHostingView *)hostView
 {
+    // Set field for dictionary according to the current graph HostView.
     NSString *field = [[NSString alloc] init];
     if (hostView == self.temperatureHostView)
     {
@@ -304,6 +311,7 @@ dewpointHostView;
     {
         field = @"insolation";
     }
+    // Get the data dictionary for the selected field.
     NSDictionary *dictAtField = _dataDict[field];
     NSMutableArray *newData = [NSMutableArray array];
     NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
@@ -311,8 +319,10 @@ dewpointHostView;
     _axisLabels = [[NSMutableArray alloc] init];
     _axisTicks = [[NSMutableArray alloc] init];
     int totalKeys = (int) [dictAtField allKeys].count;
+    // Iterate over every entry in the dictionary:
     for (int i = 0; i < totalKeys; i++)
     {
+        // Format the seconds field from the dictionary, then add the (seconds, value) pair to the data array.
         NSString *key = [NSString stringWithFormat:@"%d", i];
         NSDictionary *dictAtIndex = [dictAtField objectForKey:key];
         int seconds = [dictAtIndex[@"seconds"] intValue];
@@ -358,6 +368,7 @@ dewpointHostView;
     // Create the plot.
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     plot.dataSource = self;
+    // Change the color of the trend line depending on the location.
     CPTColor *color = [CPTColor colorWithComponentRed:50.0/255.0f
                                                 green:205.0/255.0f
                                                  blue:50.0/255.0f
@@ -383,6 +394,7 @@ dewpointHostView;
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+    // Set up the y-range of the graph, depending on which graph it is.
     if (_isHumid)
     {
         if (_isMaunaKea)
@@ -468,7 +480,7 @@ dewpointHostView;
     NSArray *customTickLocations = [NSArray arrayWithArray:_axisTicks];
     NSSet *tickLocations = [NSSet setWithArray:customTickLocations];
     x.majorTickLocations = tickLocations;
-
+    // Set the axis labels using the array initialized and filled in configureData.
     NSUInteger labelLocation = 0;
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[_axisLabels count]];
     for (NSNumber *tickLocation in customTickLocations)
@@ -480,7 +492,6 @@ dewpointHostView;
         [customLabels addObject:newLabel];
     }
     x.axisLabels =  [NSSet setWithArray:customLabels];
-    
     // Configure y-axis.
     CPTXYAxis *y = axisSet.yAxis;
     y.title = graphTitle;
@@ -498,6 +509,7 @@ dewpointHostView;
     NSInteger majorIncrement = 10;
     NSInteger minorIncrement = 5;
     CGFloat yMax = 750;
+    // Change y-axis increments depending on min/max values and fluctuations for given field.
     if (_isTemp)
     {
         yMax = 25;
@@ -565,6 +577,7 @@ dewpointHostView;
         x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.56);
         y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.0);
     }
+    // Set up y-axis labels based on
     NSMutableSet *yLabels = [NSMutableSet set];
     NSMutableSet *yMajorLocations = [NSMutableSet set];
     NSMutableSet *yMinorLocations = [NSMutableSet set];
@@ -615,6 +628,7 @@ dewpointHostView;
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    // Clear resources when the view disappears.
     self.view = nil;
     self.temperatureHostView = nil;
     self.pressureHostView = nil;
@@ -629,12 +643,6 @@ dewpointHostView;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-#pragma mark - Rotation
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 @end
