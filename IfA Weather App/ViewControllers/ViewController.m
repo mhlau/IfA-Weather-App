@@ -167,7 +167,7 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)itemsDownloaded:(NSDictionary *)itemDict
+- (void)itemsDownloaded:(NSDictionary *)itemDict
 {
     // This delegate method will get called when the items are finished downloading.
     [_dataDict removeAllObjects];

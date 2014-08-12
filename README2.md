@@ -70,7 +70,17 @@ The ```ViewController``` class contains a ```UITableView``` to display the curre
 
 The Mauna Kea current weather view has fewer data fields than the Haleakala one, so the ```cellForRowAtIndexPath``` method uses conditionals to only instantiate desired cells.
 
+#### Overview of Major Methods
 
+- ```- (void)viewDidLoad```
+    + Initializes background image.
+    + Initializes table view.
+    + Initializes ```DataParser``` and associated data structures.
+    + Calls ```downloadItems``` on ```DataParser```, using URL depending on location.
+    + Initializes timer that ticks every second, re-downloading data on tick.
+    + Initializes sidebar.
+    + Initializes picker view and arrays of URLs and Mauna Kea locations.
+- ```- (void)itemsDownloaded:(NSDictionary *)itemDict```
 
 ## Launch Image
 
