@@ -13,7 +13,14 @@
   1. [Overview of Major Methods](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#overview-of-major-methods)
 7. [**```SecondViewController.m``` / ```.h```**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#secondviewcontrollerm--h)
   1. [Overview of Major Methods](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#overview-of-major-methods-1)
-8.
+8. [**```ThirdViewController.m``` / ```.h```**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#thirdviewcontrollerm--h)
+  1. [Overview of Major Methods](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#overview-of-major-methods-2)
+9. [**```DataParser.m``` / ```.h```**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#dataparserm--h)
+10. [**App Icons and Launch Images**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#app-icons-and-launch-images)
+  1. [Changing the app icon](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#to-change-the-app-icon)
+  2. [Changing the launch image](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#to-change-the-launch-image)
+11. [**Fixing Issues with Provisioning Profile**](https://github.com/mhlau/IfA-Weather-App/blob/master/README2.md#fixing-issues-with-provisioning-profile)
+
 
 ## Downloading, Opening, and Running IfA Weather on the iOS Simulator
 
