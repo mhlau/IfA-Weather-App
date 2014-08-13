@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775" y="-1603"/>
+            <point key="canvasLocation" x="-2179" y="-1955"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ysQ-Qd-mI1">
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAr-At-oei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3409" y="-384"/>
+            <point key="canvasLocation" x="-3813" y="-736"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W5A-14-ad2">
@@ -101,7 +101,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJm-lk-YGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2659" y="-141"/>
+            <point key="canvasLocation" x="-3063" y="-493"/>
         </scene>
         <!--Sidebar View Controller - Sidebar-->
         <scene sceneID="xbX-yK-Koi">
@@ -477,7 +477,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9P-UX-v5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2653" y="-877"/>
+            <point key="canvasLocation" x="-3057" y="-1229"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="Jcz-YW-sPG">
@@ -528,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuX-eX-k4L" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775" y="-869"/>
+            <point key="canvasLocation" x="-2179" y="-1221"/>
         </scene>
         <!--Third View Controller - Third-->
         <scene sceneID="VUP-ef-U1N">
@@ -579,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ep-Rg-gco" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775" y="-141"/>
+            <point key="canvasLocation" x="-2179" y="-493"/>
         </scene>
     </scenes>
     <resources>
@@ -603,7 +603,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="uMO-6X-Wu0"/>
-        <segue reference="6EJ-Co-MyB"/>
+        <segue reference="KIS-On-gM3"/>
         <segue reference="yKs-pG-Q2x"/>
     </inferredMetricsTieBreakers>
 </document>
