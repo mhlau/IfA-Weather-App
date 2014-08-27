@@ -966,9 +966,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
-				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
+				GCC_PREFIX_HEADER = "/Users/micahlau/Documents/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/micahlau/Documents/Akamai/IfA_Weather_App/core-plot-master/framework/**";
+				INFOPLIST_FILE = "$(SRCROOT)/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
@@ -986,9 +986,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/core-plot-master/framework/**";
-				INFOPLIST_FILE = "/Users/micahlau/Desktop/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Info.plist";
+				GCC_PREFIX_HEADER = "/Users/micahlau/Documents/Akamai/IfA_Weather_App/IfA Weather App/main/IfA Weather App-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/micahlau/Documents/Akamai/IfA_Weather_App/core-plot-master/framework/**";
+				INFOPLIST_FILE = "$(SRCROOT)/IfA Weather App/main/IfA Weather App-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "IfA Weather";
 				PROVISIONING_PROFILE = "";
